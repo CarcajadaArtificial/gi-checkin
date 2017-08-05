@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Att name:</strong>
+  <%= @attendee.att_name %>
+</p>
+
+<p>
+  <strong>Att idnumber:</strong>
+  <%= @attendee.att_idNumber %>
+</p>
+
+<p>
+  <strong>Att course:</strong>
+  <%= @attendee.att_course %>
+</p>
+
+<p>
+  <strong>Att ticketnumber:</strong>
+  <%= @attendee.att_ticketNumber %>
+</p>
+
+<p>
+  <strong>Att semester:</strong>
+  <%= @attendee.att_semester %>
+</p>
+
+<p>
+  <strong>Att registered:</strong>
+  <%= @attendee.att_registered %>
+</p>
+
+<%= link_to 'Edit', edit_attendee_path(@attendee) %> |
+<%= link_to 'Back', attendees_path %>
