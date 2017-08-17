@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event name</th>
+      <th>Event startdate</th>
+      <th>Event enddate</th>
+      <th>Event capacity</th>
+      <th>Event attendance</th>
+      <th>Event description</th>
+      <th>Event onlystudents</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.event_name %></td>
+        <td><%= event.event_startDate %></td>
+        <td><%= event.event_endDate %></td>
+        <td><%= event.event_capacity %></td>
+        <td><%= event.event_attendance %></td>
+        <td><%= event.event_description %></td>
+        <td><%= event.event_onlyStudents %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>

@@ -1,0 +1,2 @@
+module TicketConferencesHelper
+end

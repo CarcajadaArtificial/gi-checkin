@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ticket Type Conferences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ticket type</th>
+      <th>Conference</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ticket_type_conferences.each do |ticket_type_conference| %>
+      <tr>
+        <td><%= ticket_type_conference.Ticket_Type %></td>
+        <td><%= ticket_type_conference.Conference %></td>
+        <td><%= link_to 'Show', ticket_type_conference %></td>
+        <td><%= link_to 'Edit', edit_ticket_type_conference_path(ticket_type_conference) %></td>
+        <td><%= link_to 'Destroy', ticket_type_conference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket Type Conference', new_ticket_type_conference_path %>

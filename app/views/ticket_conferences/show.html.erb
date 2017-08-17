@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ticketconference assistance:</strong>
+  <%= @ticket_conference.ticketConference_assistance %>
+</p>
+
+<p>
+  <strong>Ticket:</strong>
+  <%= @ticket_conference.Ticket %>
+</p>
+
+<p>
+  <strong>Conference:</strong>
+  <%= @ticket_conference.Conference %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_conference_path(@ticket_conference) %> |
+<%= link_to 'Back', ticket_conferences_path %>

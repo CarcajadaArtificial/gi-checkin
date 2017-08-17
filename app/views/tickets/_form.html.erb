@@ -1,0 +1,77 @@
+<%= form_for(ticket) do |f| %>
+  <% if ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+
+      <ul>
+      <% ticket.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ticket_reference %>
+    <%= f.text_field :ticket_reference %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ticket_ticketTypeId %>
+    <%= f.text_field :ticket_ticketTypeId %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ticket_name %>
+    <%= f.text_field :ticket_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ticket_schoolId %>
+    <%= f.text_field :ticket_schoolId %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ticket_email %>
+    <%= f.text_field :ticket_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ticket_sex %>
+    <%= f.text_field :ticket_sex %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ticket_age %>
+    <%= f.text_field :ticket_age %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ticket_course %>
+    <%= f.text_field :ticket_course %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ticket_semester %>
+    <%= f.text_field :ticket_semester %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ticket_other %>
+    <%= f.text_field :ticket_other %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ticket_badgeNumber %>
+    <%= f.text_field :ticket_badgeNumber %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ticket_registered %>
+    <%= f.text_field :ticket_registered %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

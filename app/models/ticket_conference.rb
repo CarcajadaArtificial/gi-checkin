@@ -1,0 +1,2 @@
+class TicketConference < ApplicationRecord
+end

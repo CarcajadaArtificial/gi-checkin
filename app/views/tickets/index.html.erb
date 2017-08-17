@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tickets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ticket reference</th>
+      <th>Ticket tickettypeid</th>
+      <th>Ticket name</th>
+      <th>Ticket schoolid</th>
+      <th>Ticket email</th>
+      <th>Ticket sex</th>
+      <th>Ticket age</th>
+      <th>Ticket course</th>
+      <th>Ticket semester</th>
+      <th>Ticket other</th>
+      <th>Ticket badgenumber</th>
+      <th>Ticket registered</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.ticket_reference %></td>
+        <td><%= ticket.ticket_ticketTypeId %></td>
+        <td><%= ticket.ticket_name %></td>
+        <td><%= ticket.ticket_schoolId %></td>
+        <td><%= ticket.ticket_email %></td>
+        <td><%= ticket.ticket_sex %></td>
+        <td><%= ticket.ticket_age %></td>
+        <td><%= ticket.ticket_course %></td>
+        <td><%= ticket.ticket_semester %></td>
+        <td><%= ticket.ticket_other %></td>
+        <td><%= ticket.ticket_badgeNumber %></td>
+        <td><%= ticket.ticket_registered %></td>
+        <td><%= link_to 'Show', ticket %></td>
+        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket', new_ticket_path %>

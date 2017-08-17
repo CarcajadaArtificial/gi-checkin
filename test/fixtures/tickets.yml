@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticket_reference: MyString
+  ticket_ticketTypeId: 
+  ticket_name: MyString
+  ticket_schoolId: MyString
+  ticket_email: MyString
+  ticket_sex: 
+  ticket_age: 
+  ticket_course: MyString
+  ticket_semester: 
+  ticket_other: MyString
+  ticket_badgeNumber: 
+  ticket_registered: 
+
+two:
+  ticket_reference: MyString
+  ticket_ticketTypeId: 
+  ticket_name: MyString
+  ticket_schoolId: MyString
+  ticket_email: MyString
+  ticket_sex: 
+  ticket_age: 
+  ticket_course: MyString
+  ticket_semester: 
+  ticket_other: MyString
+  ticket_badgeNumber: 
+  ticket_registered: 

@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ticket reference:</strong>
+  <%= @ticket.ticket_reference %>
+</p>
+
+<p>
+  <strong>Ticket tickettypeid:</strong>
+  <%= @ticket.ticket_ticketTypeId %>
+</p>
+
+<p>
+  <strong>Ticket name:</strong>
+  <%= @ticket.ticket_name %>
+</p>
+
+<p>
+  <strong>Ticket schoolid:</strong>
+  <%= @ticket.ticket_schoolId %>
+</p>
+
+<p>
+  <strong>Ticket email:</strong>
+  <%= @ticket.ticket_email %>
+</p>
+
+<p>
+  <strong>Ticket sex:</strong>
+  <%= @ticket.ticket_sex %>
+</p>
+
+<p>
+  <strong>Ticket age:</strong>
+  <%= @ticket.ticket_age %>
+</p>
+
+<p>
+  <strong>Ticket course:</strong>
+  <%= @ticket.ticket_course %>
+</p>
+
+<p>
+  <strong>Ticket semester:</strong>
+  <%= @ticket.ticket_semester %>
+</p>
+
+<p>
+  <strong>Ticket other:</strong>
+  <%= @ticket.ticket_other %>
+</p>
+
+<p>
+  <strong>Ticket badgenumber:</strong>
+  <%= @ticket.ticket_badgeNumber %>
+</p>
+
+<p>
+  <strong>Ticket registered:</strong>
+  <%= @ticket.ticket_registered %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>
