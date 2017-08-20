@@ -10,68 +10,45 @@
       </ul>
     </div>
   <% end %>
+  <div class="container_form">
+    <%= f.check_box :ticket_registered, checked: true, class: "hidden" %>
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Nombre completo</p>
+      <%= f.text_field :ticket_name, class:"input" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :ticket_reference %>
-    <%= f.text_field :ticket_reference %>
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Matrícula</p>
+      <%= f.text_field :ticket_schoolId, class:"input" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Correo electrónico</p>
+      <%= f.text_field :ticket_email, class:"input" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Sexo</p>
+      <%= f.text_field :ticket_sex, class:"input" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Edad</p>
+      <%= f.text_field :ticket_age, class:"input" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Carrera</p>
+      <%= f.text_field :ticket_course, class:"input" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Semestre</p>
+      <%= f.text_field :ticket_semester, class:"input" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :ticket_ticketTypeId %>
-    <%= f.text_field :ticket_ticketTypeId %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ticket_name %>
-    <%= f.text_field :ticket_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ticket_schoolId %>
-    <%= f.text_field :ticket_schoolId %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ticket_email %>
-    <%= f.text_field :ticket_email %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ticket_sex %>
-    <%= f.text_field :ticket_sex %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ticket_age %>
-    <%= f.text_field :ticket_age %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ticket_course %>
-    <%= f.text_field :ticket_course %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ticket_semester %>
-    <%= f.text_field :ticket_semester %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ticket_other %>
-    <%= f.text_field :ticket_other %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ticket_badgeNumber %>
-    <%= f.text_field :ticket_badgeNumber %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ticket_registered %>
-    <%= f.text_field :ticket_registered %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="f_tCenter">
+    <%= f.submit "Enviar", class:"button_main" %>
   </div>
 <% end %>

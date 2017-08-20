@@ -1,1 +1,33 @@
-
+<main class="fRow-centerAround">
+  <div class="fCol">
+    <div class="container">
+      <h1 class="title">Preregistro</h1>
+      <h2 class="subtitle">Referencia de pago</h2>
+      <%= form_tag(preregister_tickets_path, :method => "get") do %>
+        <%= text_field_tag :param_reference, params[:param_reference], class:"input" %>
+        <br>
+        <div class="f_tCenter">
+          <%= submit_tag "Buscar", :name => nil, class:"button_main" %>
+        </div>
+      <% end %>
+    </div>
+    <% if params[:param_reference] && @ticket.blank? %>
+      <div class="flag negative">
+        <h2 class="subtitle negative">¡Lo sentimos!</h2>
+        <p class="negative">
+          La referencia de pago "<%= params[:param_reference] %>" no existe, por favor intenta de nuevo.
+        </p>
+      </div>
+    <% end %>
+  </div>
+  <% if params[:param_reference] == "" %>
+  <% else %>
+    <% if @ticket.blank? %>
+    <% else %>
+      <div class="container">
+        <h1 class="title">Llena tu información</h1>
+        <%= render 'form', ticket: @ticket %>
+      </div>
+    <% end %>
+  <% end %>
+</main>

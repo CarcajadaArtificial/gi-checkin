@@ -18,11 +18,16 @@ class TicketsController < ApplicationController
   end
 
   def createBatch
-    
+
   end
 
   def preregister
+    @ticket = Ticket.searchReference(params[:param_reference])
+  end
 
+
+  def register
+    @ticket = Ticket.searchBadge(params[:param_badge])
   end
 
   # GET /tickets/1/edit

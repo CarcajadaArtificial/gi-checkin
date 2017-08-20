@@ -1,0 +1,33 @@
+<main class="fRow-centerAround">
+  <div class="fCol">
+    <div class="container">
+      <h1 class="title">Registro</h1>
+      <h2 class="subtitle">Folio</h2>
+      <%= form_tag(register_tickets_path, :method => "get") do %>
+      <%= text_field_tag :param_badge, params[:param_badge], class:"input" %>
+      <br>
+      <div class="f_tCenter">
+        <%= submit_tag "Buscar", :name => nil, class:"button_main" %>
+      </div>
+      <% end %>
+    </div>
+    <% if params[:param_badge] && @ticket.blank? %>
+      <div class="flag negative">
+        <h2 class="subtitle negative">¡Lo sentimos!</h2>
+        <p class="negative">
+          La referencia de pago "<%= params[:param_badge] %>" no existe, por favor intenta de nuevo.
+        </p>
+      </div>
+    <% end %>
+  </div>
+  <% if params[:param_badge] == "" %>
+  <% else %>
+    <% if @ticket.blank? %>
+    <% else %>
+      <div class="container">
+        <h1 class="title">Confirma asistencia</h1>
+        <p>Reference: <%= @ticket.ticket_reference %></p>
+      </div>
+    <% end %>
+  <% end %>
+</main>

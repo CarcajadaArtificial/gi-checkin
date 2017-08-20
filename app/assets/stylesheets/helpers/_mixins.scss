@@ -1,0 +1,62 @@
+@import "_variables.scss";
+
+@mixin card{
+  // Gives the style of a material card.
+  background-color: $white;
+  box-shadow: 0 8px 10px 3px rgba(0,0,0,0.15);
+  padding: 2rem;
+  overflow: scroll;
+  max-height: 30rem;
+  max-width: 30rem;
+  min-width: 20rem;
+}
+
+@mixin input($font-size, $line-height){
+  font-size: $font-size;
+  line-height: $line-height;
+  padding: 0 0.5rem;
+  border: 0px;
+  border-bottom: 2px solid $lightgrey;
+  width: calc(100% - 1rem);
+}
+
+@mixin gradient($c1, $c2){
+  background-image: linear-gradient(-134deg, $c1 0%, $c2 100%);
+}
+
+
+// Flex classes.
+.f_tCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fRow{
+  display: flex;
+  flex-direction: row;
+}
+
+.fRow-endEnd{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.fRow-centerAround{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.fCol{
+  display: flex;
+  flex-direction: column;
+}
+
+// Display classes
+.hidden{
+  display: none;
+}

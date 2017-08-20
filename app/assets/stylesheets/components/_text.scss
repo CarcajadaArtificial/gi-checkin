@@ -1,0 +1,24 @@
+@import "../extras/extras.scss";
+@import "../helpers/helpers.scss";
+
+*{
+    font-family: $mainFont;
+    color: $black;
+}
+
+h1.title{
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+h2.subtitle{
+  text-align: center;
+  font-size: 1.8rem;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+}
+
+.negative{
+  color: $white;
+}

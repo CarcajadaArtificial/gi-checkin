@@ -11,42 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :event_name %>
-    <%= f.text_field :event_name %>
+  <div class="container_form">
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Name</p>
+      <%= f.text_field :event_name, class:"input" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Start Date</p>
+      <%= f.datetime_select :event_startDate, class:"input" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>End Date</p>
+      <%= f.datetime_select :event_endDate, class:"input" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Capacity</p>
+      <%= f.text_field :event_capacity, class:"input" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Description</p>
+      <%= f.text_area :event_description, class:"input_textArea" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Students Only</p>
+      <%= f.text_field :event_onlyStudents, class:"input" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :event_startDate %>
-    <%= f.datetime_select :event_startDate %>
+  <div class="f_tCenter">
+    <%= f.submit class:"button_main" %>
   </div>
 
-  <div class="field">
-    <%= f.label :event_endDate %>
-    <%= f.datetime_select :event_endDate %>
-  </div>
-
-  <div class="field">
-    <%= f.label :event_capacity %>
-    <%= f.text_field :event_capacity %>
-  </div>
-
-  <div class="field">
-    <%= f.label :event_attendance %>
-    <%= f.text_field :event_attendance %>
-  </div>
-
-  <div class="field">
-    <%= f.label :event_description %>
-    <%= f.text_area :event_description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :event_onlyStudents %>
-    <%= f.text_field :event_onlyStudents %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

@@ -1,0 +1,20 @@
+@import "../helpers/mixins.scss";
+
+.container_form{
+  // Div tags with this class must only store .combo_fieldLabel class elements.
+}
+
+.combo_fieldLabel{
+  // Div tags with this class must substitute Ruby on Rails' .field class in _form.html.erb files. Also,
+  //  this class must store only an input field an it's label.
+  margin: 1rem 0;
+}
+
+.input{
+  @include input(1rem, 1.5rem);
+}
+
+.input_textArea{
+  @include input(1rem, 1.5rem);
+  resize: vertical;
+}
