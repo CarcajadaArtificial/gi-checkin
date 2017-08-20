@@ -18,7 +18,9 @@ class TicketsController < ApplicationController
   end
 
   def createBatch
-
+    if params[:typeId]
+     @ticket = Ticket.createTickets(params[:typeId], params[:quantity])
+   end
   end
 
   def preregister

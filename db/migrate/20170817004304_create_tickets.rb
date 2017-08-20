@@ -13,7 +13,7 @@ class CreateTickets < ActiveRecord::Migration[5.0]
       t.string :ticket_other
       t.integer :ticket_badgeNumber
       t.boolean :ticket_registered
-
+      t.boolean :ticket_preregistered
       t.timestamps
     end
   end
