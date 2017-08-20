@@ -1,0 +1,7 @@
+<%= form_tag(tickets_path, :method => "get") do %>
+  <label for="typeId">Type ID</label>
+  <%= text_field_tag :typeId, params[:typeId] %>
+  <label for="quantity">Quantity</label>
+  <%= text_field_tag :quantity, params[:quantity] %>
+ <%= submit_tag "Submit" %>
+<% end %>
