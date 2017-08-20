@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'createBatch', :on => :collection
     get 'preregister', :on => :collection
     get 'register', :on => :collection
+    get 'confirmation', :on => :collection
   end
   resources :conferences
   resources :ticket_types

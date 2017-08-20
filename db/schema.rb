@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(version: 20170817022735) do
     t.integer  "ticket_badgeNumber"
     t.boolean  "ticket_registered"
     t.boolean  "ticket_preregistered"
+    t.string   "ticket_conference1"
+    t.string   "ticket_conference2"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end

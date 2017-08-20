@@ -1,3 +1,4 @@
+<%= render 'layouts/navbar' %>
 <main class="fRow-centerAround">
   <div class="fCol">
     <div class="container">
@@ -11,6 +12,7 @@
         </div>
       <% end %>
     </div>
+    <!-- Flags -->
     <% if params[:param_reference] && @ticket.blank? %>
       <div class="flag negative">
         <h2 class="subtitle negative">¡Lo sentimos!</h2>
@@ -18,16 +20,21 @@
           La referencia de pago "<%= params[:param_reference] %>" no existe, por favor intenta de nuevo.
         </p>
       </div>
-    <% end %>
-  </div>
-  <% if params[:param_reference] == "" %>
-  <% else %>
-    <% if @ticket.blank? %>
-    <% else %>
+    </div>
+    <% elsif !@ticket.blank? && @ticket.ticket_preregistered == true %>
+        <div class="flag negative">
+          <h2 class="subtitle negative">¡Lo sentimos!</h2>
+          <p class="negative">
+            La referencia de pago "<%= params[:param_reference] %>" ya fue utilizada, por favor confirma
+            que esté correcta. Si tienes algún problema, comunícate con nosotros al correo:
+          </p>
+        </div>
+      </div>
+    <% elsif !@ticket.blank? %>
+      </div>
       <div class="container">
         <h1 class="title">Llena tu información</h1>
         <%= render 'form', ticket: @ticket %>
       </div>
     <% end %>
-  <% end %>
 </main>

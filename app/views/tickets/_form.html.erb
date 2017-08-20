@@ -11,7 +11,16 @@
     </div>
   <% end %>
   <div class="container_form">
-    <%= f.check_box :ticket_registered, checked: true, class: "hidden" %>
+    <%= f.check_box :ticket_preregistered, checked: true, class:"hidden"%>
+
+    <p>Conferencias</p>
+    <%= f.select :ticket_conference1, options_for_select([
+      ['Conferencia 1', 'conferencia1'],
+      ['Conferencia 2', 'conferencia2']]) %>
+    <%= f.select :ticket_conference2, options_for_select([
+      ['Conferencia 1', 'conferencia1'],
+      ['Conferencia 2', 'conferencia2']]) %>
+
     <div class="combo_fieldLabel fRow_endEnd">
       <p>Nombre completo</p>
       <%= f.text_field :ticket_name, class:"input" %>

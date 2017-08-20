@@ -27,9 +27,12 @@ class TicketsController < ApplicationController
     @ticket = Ticket.searchReference(params[:param_reference])
   end
 
-
   def register
     @ticket = Ticket.searchBadge(params[:param_badge])
+  end
+
+  def confirmation
+
   end
 
   # GET /tickets/1/edit
@@ -85,6 +88,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:ticket_reference, :ticket_ticketTypeId, :ticket_name, :ticket_schoolId, :ticket_email, :ticket_sex, :ticket_age, :ticket_course, :ticket_semester, :ticket_other, :ticket_badgeNumber, :ticket_registered)
+      params.require(:ticket).permit(:ticket_reference, :ticket_ticketTypeId, :ticket_name, :ticket_schoolId, :ticket_email, :ticket_sex, :ticket_age, :ticket_course, :ticket_semester, :ticket_other, :ticket_badgeNumber, :ticket_registered, :ticket_preregistered, :ticket_conference1, :ticket_conference2)
     end
 end

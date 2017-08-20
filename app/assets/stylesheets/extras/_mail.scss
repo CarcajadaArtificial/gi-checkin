@@ -1,0 +1,27 @@
+@import "../helpers/helpers.scss";
+
+.barcode_black{
+  width: 5px;
+  height: 5.5rem;
+  background-color: $black;
+}
+
+.barcode_white{
+  width: 5px;
+  height: 5.5rem;
+}
+
+.barcode_container{
+  margin-top: 1rem;
+}
+
+.mail_logoContainer{
+  background-color: white;
+  padding: 0.5rem;
+}
+
+footer.mail_footer{
+  @include gradient($color1, $color2);;
+  padding: 60px 0;
+  margin-top: 40px;
+}
