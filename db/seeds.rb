@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+
+open("codigos.txt") do |codigos|
+  codigos.read.each_line do |data|
+    codigo= data
+    Ticket.create!(:ticket_reference => codigo)
+  end
+end
