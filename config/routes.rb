@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :event_users
-  resources :ticket_conferences
-  resources :tickets do
+  resources :tickets, except: [:index, :destroy] do
     get 'createBatch', :on => :collection
     get 'preregister', :on => :collection
     get 'register', :on => :collection
     get 'confirmation', :on => :collection
   end
-  resources :conferences
-  resources :ticket_types
+  resources :conferences, except: [:index]
+  resources :ticket_types, except: [:index]
   resources :events do
     get 'mktfest', :on => :collection
   end
