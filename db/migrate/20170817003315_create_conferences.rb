@@ -8,7 +8,7 @@ class CreateConferences < ActiveRecord::Migration[5.0]
       t.text :conference_description
       t.string :conference_speaker
       t.string :conference_location
-      t.references :Event, foreign_key: true
+      t.references :event, foreign_key: true
 
       t.timestamps
     end

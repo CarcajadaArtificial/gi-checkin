@@ -6,7 +6,7 @@ class CreateTickets < ActiveRecord::Migration[5.0]
       t.string :ticket_name
       t.string :ticket_schoolId
       t.string :ticket_email
-      t.boolean :ticket_sex
+      t.string :ticket_sex
       t.integer :ticket_age
       t.string :ticket_course
       t.integer :ticket_semester

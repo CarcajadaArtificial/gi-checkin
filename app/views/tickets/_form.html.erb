@@ -13,35 +13,42 @@
   <div class="container_form">
     <%= f.check_box :ticket_preregistered, checked: true, class:"hidden"%>
 
-    <h2>Paso 1: Selecciona un taller por día.</h2>
-    <p>19 de octubre</p>
-    <%= f.select :ticket_conference1, options_for_select([
-      ['Fashion: Andy Benavides', '1'],
-      ['Fashion: CEDIM', '2'],
-      ['Trends: Levadura', '3'],
-      ['Trends: Huntmuse', '4'],
-      ['Sports: Athlete Booster', '5'],
-      ['Entertainment: Inspiral', '6'],
-      ['No voy a asistir', '6']]), {prompt: 'Selecciona una opción'} %>
-      <p>20 de octubre</p>
-    <%= f.select :ticket_conference2, options_for_select([
-      ['Fashion: Polanna / Givehope', '7'],
-      ['Fashion: Instituto di Moda Burgo', '8'],
-      ['Trends: Ana Tere Canales', '9'],
-      ['Trends: Taste n Tell', '10'],
-      ['Sports: Abierto GNP Seguros', '11'],
-      ['Entertainment: La Sociedad', '12'],
-      ['Entertainment: Nebulosa', '13'],
-      ['No voy a asistir', '6']]), {prompt: 'Selecciona una opción'} %>
-    <h2>Paso 2: Llena tu información personal.</h2>
+    <h2 class="form_subtitle">Paso 1: Selecciona un taller por día.</h2>
     <div class="combo_fieldLabel fRow_endEnd">
-      <p>Nombre completo</p>
-      <%= f.text_field :ticket_name, class:"input" %>
+      <p>19 de octubre</p>
+      <%= f.select :ticket_conference1, options_for_select([
+        ['Fashion: Andy Benavides', '1'],
+        ['Fashion: CEDIM', '2'],
+        ['Trends: Levadura', '3'],
+        ['Trends: Huntmuse', '4'],
+        ['Sports: Athlete Booster', '5'],
+        ['Entertainment: Inspiral', '6'],
+        ['No voy a asistir', '6']]), {prompt: 'Selecciona una opción'} %>
+    </div>
+
+    <div class="combofieldLabel fRow_endEnd">
+      <p>20 de octubre</p>
+      <%= f.select :ticket_conference2, options_for_select([
+        ['Fashion: Polanna / Givehope', '7'],
+        ['Fashion: Instituto di Moda Burgo', '8'],
+        ['Trends: Ana Tere Canales', '9'],
+        ['Trends: Taste n Tell', '10'],
+        ['Sports: Abierto GNP Seguros', '11'],
+        ['Entertainment: La Sociedad', '12'],
+        ['Entertainment: Nebulosa', '13'],
+        ['No voy a asistir', '6']]), {prompt: 'Selecciona una opción'} %>
+    </div>
+
+    <h2 class="form_subtitle">Paso 2: Llena tu información personal.</h2>
+    <p class="caption">Campos requeridos <span class="required">*</span></p>
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Nombre completo <span class="required">*</span></p>
+      <%= f.text_field :ticket_name, class:"input", :required => true %>
     </div>
 
     <div class="combo_fieldLabel fRow_endEnd">
-      <p>Correo electrónico</p>
-      <%= f.text_field :ticket_email, class:"input" %>
+      <p>Correo electrónico <span class="required">*</span></p>
+      <%= f.text_field :ticket_email, class:"input", :required => true %>
     </div>
 
     <div class="combo_fieldLabel fRow_endEnd">
@@ -51,7 +58,11 @@
 
     <div class="combo_fieldLabel fRow_endEnd">
       <p>Sexo</p>
-      <%= f.text_field :ticket_sex, class:"input" %>
+      <%= f.select :ticket_conference2, options_for_select([
+        ['Mujer', 'm'],
+        ['Hombre', 'h'],
+        ['Prefiero no especificar.', 'x']], {prompt: 'Selecciona una opción'} %>
+    </div>
     </div>
 
     <div class="combo_fieldLabel fRow_endEnd">

@@ -19,6 +19,18 @@ h2.subtitle{
   margin-bottom: 1rem;
 }
 
+h2.form_subtitle{
+  margin-top: 2rem;
+}
+
+p.caption{
+  font-size: 0.7rem;
+}
+
+span.required{
+  color: $negative2;
+}
+
 .negative{
   color: $white;
 }

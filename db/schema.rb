@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170817022735) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "conferences", force: :cascade do |t|
     t.string   "conference_name"
     t.datetime "conference_date"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170817022735) do
     t.integer  "Event_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.index ["Event_id"], name: "index_conferences_on_Event_id"
+    t.index ["Event_id"], name: "index_conferences_on_Event_id", using: :btree
   end
 
   create_table "event_users", force: :cascade do |t|
@@ -31,8 +34,8 @@ ActiveRecord::Schema.define(version: 20170817022735) do
     t.integer  "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Event_id"], name: "index_event_users_on_Event_id"
-    t.index ["User_id"], name: "index_event_users_on_User_id"
+    t.index ["Event_id"], name: "index_event_users_on_Event_id", using: :btree
+    t.index ["User_id"], name: "index_event_users_on_User_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
@@ -53,8 +56,8 @@ ActiveRecord::Schema.define(version: 20170817022735) do
     t.integer  "Conference_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.index ["Conference_id"], name: "index_ticket_conferences_on_Conference_id"
-    t.index ["Ticket_id"], name: "index_ticket_conferences_on_Ticket_id"
+    t.index ["Conference_id"], name: "index_ticket_conferences_on_Conference_id", using: :btree
+    t.index ["Ticket_id"], name: "index_ticket_conferences_on_Ticket_id", using: :btree
   end
 
   create_table "ticket_type_conferences", force: :cascade do |t|
@@ -62,8 +65,8 @@ ActiveRecord::Schema.define(version: 20170817022735) do
     t.integer  "Conference_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.index ["Conference_id"], name: "index_ticket_type_conferences_on_Conference_id"
-    t.index ["Ticket_Type_id"], name: "index_ticket_type_conferences_on_Ticket_Type_id"
+    t.index ["Conference_id"], name: "index_ticket_type_conferences_on_Conference_id", using: :btree
+    t.index ["Ticket_Type_id"], name: "index_ticket_type_conferences_on_Ticket_Type_id", using: :btree
   end
 
   create_table "ticket_types", force: :cascade do |t|
