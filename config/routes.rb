@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :ticket_type_conferences
   resources :event_users
   resources :ticket_conferences
