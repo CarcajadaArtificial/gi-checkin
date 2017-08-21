@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
-open("codigos") do |codigos|
+open("db/codigos") do |codigos|
   codigos.read.each_line do |data|
     codigo= data
     Ticket.create!(:ticket_reference => codigo)
