@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     get 'confirmation', :on => :collection
   end
   resources :conferences, except: [:index, :edit, :destroy]
-  resources :ticket_types, except: [:index]
-  resources :events do
+  resources :ticket_types, except: [:index, :show, :new, :edit, :destroy]
+  resources :events, except: [:index, :show, :new, :edit, :destroy] do
     get 'mktfest', :on => :collection
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
