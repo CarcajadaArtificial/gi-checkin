@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :conferences
   resources :ticket_types
   resources :events
-  root to: "home#index"
+  root to: "events#new"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

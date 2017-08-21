@@ -1,0 +1,32 @@
+@import "../helpers/helpers.scss";
+
+header.header_event{
+  height: 40vh;
+  @include gradient($black, $grey);
+}
+
+.profilePicture_event{
+  height: 300px;
+  border-radius: 150px;
+  right: calc(30vw - 150px);
+  top: 150px;
+}
+
+.event_container{
+  width: 100vw;
+}
+
+.event_description{
+  width: 70vw;
+  padding-top: 2rem;
+}
+
+.event_description > *{
+  margin: 0 4rem;
+}
+
+.event_details{
+  width: 30vw;
+  background-color: $lightgrey;
+  height: inherit;
+}

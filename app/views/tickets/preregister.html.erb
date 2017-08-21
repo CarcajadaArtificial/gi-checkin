@@ -2,11 +2,16 @@
 <main class="fRow-centerAround">
   <div class="fCol">
     <div class="container">
-      <h1 class="title">Preregistro</h1>
-      <h2 class="subtitle">Referencia de pago</h2>
+      <h1 class="title">Pre-registro</h1>
       <%= form_tag(preregister_tickets_path, :method => "get") do %>
+      <p class="description">
+        Encontrarás el código de activación en el boleto que te fue proporcionado al momento de pagar. Si tu
+        pago fue a través de la tienda virtual, envía el comprobante al correo: <strong>info@marketingfest.mx</strong> para recibir tu código.
+      </p>
+      <div class="fRow">
+        <strong>Codigo de activación</strong>
         <%= text_field_tag :param_reference, params[:param_reference], class:"input" %>
-        <br>
+      </div>
         <div class="f_tCenter">
           <%= submit_tag "Buscar", :name => nil, class:"button_main" %>
         </div>
@@ -25,8 +30,8 @@
         <div class="flag negative">
           <h2 class="subtitle negative">¡Lo sentimos!</h2>
           <p class="negative">
-            La referencia de pago "<%= params[:param_reference] %>" ya fue utilizada, por favor confirma
-            que esté correcta. Si tienes algún problema, comunícate con nosotros al correo:
+            El código de activación "<strong class="negative"><%= params[:param_reference] %></strong>" ya fue utilizado. Por favor verifica
+            que esté correcto. Si tienes algún problema, comunícate con nosotros al correo: <strong class="negative">info@marketingfest.mx</strong>
           </p>
         </div>
       </div>

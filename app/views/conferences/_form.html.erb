@@ -46,6 +46,14 @@
     <%= f.text_field :conference_location %>
   </div>
 
+  <div class="field">
+    <%= f.label :Event_id %>
+    <!--
+    <%= f.select :Event_id, Event.all.collect {|event| [event.event_name, event.id]}, {prompt: 'Selecciona evento'} %>
+    -->
+    <%= f.select :Event_id, options_for_select([['sadas', '1']]), {prompt: 'Selecciona evento'} %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20170817022735) do
     t.text     "conference_description"
     t.string   "conference_speaker"
     t.string   "conference_location"
+    t.integer  "Event_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.index ["Event_id"], name: "index_conferences_on_Event_id"
   end
 
   create_table "event_users", force: :cascade do |t|

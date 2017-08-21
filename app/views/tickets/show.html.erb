@@ -1,10 +1,10 @@
 <main class="f_tCenter">
   <div class="container">
-    <h1 class="title">¡Muchas gracias <%= @ticket.ticket_name %>!</h1>
-    <h2 class="subtitle">Ya terminaste con el preregistro. Te esperamos el día del evento.</h2>
+    <h1 class="title">¡Gracias <%= @ticket.ticket_name %>!</h1>
+    <h2 class="subtitle">¡Ya eres parte de Marketing Fest!</h2>
     <p>
-      Tu boleto electrónico ya está en camino a tu correo. Checa la bandeja de entrada de la dirección
-      <span><%= @ticket.ticket_email %>. Acuérdate de revisar tu bandeja de spam. ;)
+      En los próximos días recibirás un boleto electrónico a tu correo: <%= @ticket.ticket_email %>.
+      En caso de cualquier duda, contacta a los organizadores del evento.
     </p>
     <div class="f_tCenter">
       <a href="/tickets/preregister" class="button_main">Regresar al preregistro</a>
