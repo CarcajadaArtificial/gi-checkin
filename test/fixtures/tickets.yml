@@ -2,28 +2,30 @@
 
 one:
   ticket_reference: MyString
-  ticket_ticketTypeId: 
+  ticket_ticketTypeId: 1
   ticket_name: MyString
   ticket_schoolId: MyString
   ticket_email: MyString
-  ticket_sex: 
-  ticket_age: 
+  ticket_sex: MyString
+  ticket_age: 1
   ticket_course: MyString
-  ticket_semester: 
+  ticket_semester: 1
+  ticket_university: MyString
   ticket_other: MyString
-  ticket_badgeNumber: 
-  ticket_registered: 
+  ticket_badgeNumber: 1
+  ticket_registered: false
 
 two:
   ticket_reference: MyString
-  ticket_ticketTypeId: 
+  ticket_ticketTypeId: 1
   ticket_name: MyString
   ticket_schoolId: MyString
   ticket_email: MyString
-  ticket_sex: 
-  ticket_age: 
+  ticket_sex: MyString
+  ticket_age: 1
   ticket_course: MyString
-  ticket_semester: 
+  ticket_semester: 1
+  ticket_university: MyString
   ticket_other: MyString
-  ticket_badgeNumber: 
-  ticket_registered: 
+  ticket_badgeNumber: 1
+  ticket_registered: false

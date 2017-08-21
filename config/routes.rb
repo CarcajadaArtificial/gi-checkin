@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :ticket_type_conferences
   resources :event_users
   resources :ticket_conferences
   resources :tickets do
@@ -12,7 +11,6 @@ Rails.application.routes.draw do
   resources :conferences
   resources :ticket_types
   resources :events
-  root to: "events#new"
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: "tickets#preregister"
 end

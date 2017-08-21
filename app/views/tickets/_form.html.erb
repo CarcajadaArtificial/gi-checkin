@@ -58,11 +58,10 @@
 
     <div class="combo_fieldLabel fRow_endEnd">
       <p>Sexo</p>
-      <%= f.select :ticket_conference2, options_for_select([
-        ['Mujer', 'm'],
-        ['Hombre', 'h'],
-        ['Prefiero no especificar.', 'x']], {prompt: 'Selecciona una opción'} %>
-    </div>
+      <%= f.select :ticket_sex, options_for_select([
+        ['Masculino', 'm'],
+        ['Femenino', 'f'],
+        ['Prefiero no especificar', 'x']]), {prompt: 'Selecciona una opción'} %>
     </div>
 
     <div class="combo_fieldLabel fRow_endEnd">

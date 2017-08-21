@@ -2,18 +2,18 @@
 
 one:
   event_name: MyString
-  event_startDate: 2017-08-16 19:21:29
-  event_endDate: 2017-08-16 19:21:29
-  event_capacity: 
-  event_attendance: 
+  event_startDate: 2017-08-21 01:36:23
+  event_endDate: 2017-08-21 01:36:23
+  event_capacity: 1
+  event_attendance: 1
   event_description: MyText
-  event_onlyStudents: 
+  event_onlyStudents: false
 
 two:
   event_name: MyString
-  event_startDate: 2017-08-16 19:21:29
-  event_endDate: 2017-08-16 19:21:29
-  event_capacity: 
-  event_attendance: 
+  event_startDate: 2017-08-21 01:36:23
+  event_endDate: 2017-08-21 01:36:23
+  event_capacity: 1
+  event_attendance: 1
   event_description: MyText
-  event_onlyStudents: 
+  event_onlyStudents: false

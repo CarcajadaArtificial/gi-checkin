@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Event: one
   User: one
+  Event: one
 
 two:
-  Event: two
   User: two
+  Event: two

@@ -17,7 +17,7 @@ class TicketConferencesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create ticket_conference" do
     assert_difference('TicketConference.count') do
-      post ticket_conferences_url, params: { ticket_conference: { Conference: @ticket_conference.Conference, Ticket: @ticket_conference.Ticket, ticketConference_assistance: @ticket_conference.ticketConference_assistance } }
+      post ticket_conferences_url, params: { ticket_conference: { Conference_id: @ticket_conference.Conference_id, TicketConference_assistance: @ticket_conference.TicketConference_assistance, Ticket_id: @ticket_conference.Ticket_id } }
     end
 
     assert_redirected_to ticket_conference_url(TicketConference.last)
@@ -34,7 +34,7 @@ class TicketConferencesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update ticket_conference" do
-    patch ticket_conference_url(@ticket_conference), params: { ticket_conference: { Conference: @ticket_conference.Conference, Ticket: @ticket_conference.Ticket, ticketConference_assistance: @ticket_conference.ticketConference_assistance } }
+    patch ticket_conference_url(@ticket_conference), params: { ticket_conference: { Conference_id: @ticket_conference.Conference_id, TicketConference_assistance: @ticket_conference.TicketConference_assistance, Ticket_id: @ticket_conference.Ticket_id } }
     assert_redirected_to ticket_conference_url(@ticket_conference)
   end
 

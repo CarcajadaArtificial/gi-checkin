@@ -17,7 +17,7 @@ class ConferencesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create conference" do
     assert_difference('Conference.count') do
-      post conferences_url, params: { conference: { conference_attendance: @conference.conference_attendance, conference_capacity: @conference.conference_capacity, conference_date: @conference.conference_date, conference_description: @conference.conference_description, conference_location: @conference.conference_location, conference_name: @conference.conference_name, conference_speaker: @conference.conference_speaker } }
+      post conferences_url, params: { conference: { Event_id: @conference.Event_id, conference_attendance: @conference.conference_attendance, conference_capacity: @conference.conference_capacity, conference_date: @conference.conference_date, conference_description: @conference.conference_description, conference_location: @conference.conference_location, conference_name: @conference.conference_name, conference_speaker: @conference.conference_speaker } }
     end
 
     assert_redirected_to conference_url(Conference.last)
@@ -34,7 +34,7 @@ class ConferencesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update conference" do
-    patch conference_url(@conference), params: { conference: { conference_attendance: @conference.conference_attendance, conference_capacity: @conference.conference_capacity, conference_date: @conference.conference_date, conference_description: @conference.conference_description, conference_location: @conference.conference_location, conference_name: @conference.conference_name, conference_speaker: @conference.conference_speaker } }
+    patch conference_url(@conference), params: { conference: { Event_id: @conference.Event_id, conference_attendance: @conference.conference_attendance, conference_capacity: @conference.conference_capacity, conference_date: @conference.conference_date, conference_description: @conference.conference_description, conference_location: @conference.conference_location, conference_name: @conference.conference_name, conference_speaker: @conference.conference_speaker } }
     assert_redirected_to conference_url(@conference)
   end
 

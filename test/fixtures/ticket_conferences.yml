@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  ticketConference_assistance: 
-  Ticket: 
-  Conference: 
+  Ticket: one
+  Conference: one
+  TicketConference_assistance: false
 
 two:
-  ticketConference_assistance: 
-  Ticket: 
-  Conference: 
+  Ticket: two
+  Conference: two
+  TicketConference_assistance: false

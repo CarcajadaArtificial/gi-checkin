@@ -2,18 +2,20 @@
 
 one:
   conference_name: MyString
-  conference_date: 2017-08-16 19:33:15
-  conference_capacity: 
-  conference_attendance: 
+  conference_date: 2017-08-21 01:48:33
+  conference_capacity: 1
+  conference_attendance: 1
   conference_description: MyText
   conference_speaker: MyString
   conference_location: MyString
+  Event: one
 
 two:
   conference_name: MyString
-  conference_date: 2017-08-16 19:33:15
-  conference_capacity: 
-  conference_attendance: 
+  conference_date: 2017-08-21 01:48:33
+  conference_capacity: 1
+  conference_attendance: 1
   conference_description: MyText
   conference_speaker: MyString
   conference_location: MyString
+  Event: two
