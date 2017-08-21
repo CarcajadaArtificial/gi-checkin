@@ -1,6 +1,7 @@
+<%= render 'layouts/navbar' %>
 <main class="f_tCenter">
   <div class="container">
-    <h1 class="title">¡Gracias <%= @ticket.ticket_name %>!</h1>
+    <h1 class="title">¡Gracias <%= @ticket.ticket_name.split(' ')[0] %>!</h1>
     <h2 class="subtitle">¡Ya eres parte de Marketing Fest!</h2>
     <p>
       En los próximos días recibirás un boleto electrónico a tu correo: <%= @ticket.ticket_email %>.

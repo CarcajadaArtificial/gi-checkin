@@ -27,6 +27,10 @@ p.caption{
   font-size: 0.7rem;
 }
 
+.hyperlink{
+  border-bottom: 2px solid $black;
+}
+
 span.required{
   color: $negative2;
 }

@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
   resources :conferences
   resources :ticket_types
-  resources :events
+  resources :events do
+    get 'mktfest', :on => :collection
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "tickets#preregister"
 end
