@@ -69,7 +69,18 @@
   position: absolute;
 }
 
+.absolute2{
+  position: absolute;
+  z-index: 10;
+}
+
 // Text classes
 .textCenter{
   text-align: center;
+}
+
+
+.fullscreen{
+  width: 100vw;
+  height: 100vh;
 }

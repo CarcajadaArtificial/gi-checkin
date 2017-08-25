@@ -1,13 +1,18 @@
 @import "../helpers/helpers.scss";
 
+body{
+  @include gradient($grey, $black);
+}
+
 main{
   width: 100vw;
   height: 100vh;
-  @include gradient($color1, $color2);
 }
 
 .container{
+  padding-top: 113px;
   @include card;
+  max-height: 80vh;
 }
 
 .flag{
@@ -15,9 +20,11 @@ main{
   max-height: 10rem;
   border-radius: 10px;
   padding: 20px;
+  overflow: scroll;
 }
 
 .flag.negative{
   @include card;
   @include gradient($negative1, $negative2);
+  max-height: 40px;
 }
