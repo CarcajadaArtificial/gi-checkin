@@ -1,16 +1,14 @@
+
 Rails.application.routes.draw do
-  devise_for :users
-  resources :event_users
-  resources :ticket_conferences
-  resources :tickets do
-    get 'createBatch', :on => :collection
+  resources :tickets, except: [:index, :destroy, :edit] do
+    # get 'createBatch', :on => :collection
     get 'preregister', :on => :collection
     get 'register', :on => :collection
     get 'confirmation', :on => :collection
   end
-  resources :conferences
-  resources :ticket_types
-  resources :events do
+  resources :conferences, except: [:index, :edit, :destroy]
+  resources :ticket_types, except: [:index, :show, :new, :edit, :destroy]
+  resources :events, except: [:index, :show, :new, :edit, :destroy] do
     get 'mktfest', :on => :collection
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

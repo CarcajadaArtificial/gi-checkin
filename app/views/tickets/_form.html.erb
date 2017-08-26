@@ -66,7 +66,7 @@
 
     <div class="combo_fieldLabel fRow_endEnd">
       <p>Edad</p>
-      <%= f.text_field :ticket_age, class:"input" %>
+      <%= f.number_field :ticket_age, class:"input",  :required => true %>
     </div>
 
     <div class="combo_fieldLabel fRow_endEnd">
@@ -81,6 +81,6 @@
   </div>
 
   <div class="f_tCenter">
-    <%= f.submit "Enviar", class:"button_main" %>
+    <%= f.submit "Enviar", class:"button_main_greyscale" %>
   </div>
 <% end %>

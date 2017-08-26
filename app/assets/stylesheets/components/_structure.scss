@@ -7,6 +7,10 @@ body{
 main{
   width: 100vw;
   height: 100vh;
+<<<<<<< HEAD
+=======
+  @include gradient($grey, $black);
+>>>>>>> 4e6093f63482eced4d11b562d231bdee979e4497
 }
 
 .container{
