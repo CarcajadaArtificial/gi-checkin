@@ -1,9 +1,5 @@
 @import "../helpers/helpers.scss";
 
-body{
-  @include gradient($grey, $black);
-}
-
 main{
   width: 100vw;
   height: 100vh;

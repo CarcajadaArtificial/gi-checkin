@@ -3,10 +3,11 @@ class Ticket < ApplicationRecord
     n = Integer(quantity, 10)
     for i in 0..n
     ff = 0
-      while ff < 5
+      while ff < 3
         randomRef= SecureRandom.hex(3)
+        ff =ff+1
         if Ticket.where(:ticket_reference => randomRef) == []
-          ff = 5
+          ff = 3
           @tempTicket= Ticket.create(:ticket_reference => randomRef, :ticket_ticketTypeId => typeId)
           @tempTicket.save
         end
