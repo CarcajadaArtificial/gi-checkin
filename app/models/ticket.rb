@@ -1,4 +1,5 @@
 class Ticket < ApplicationRecord
+  belongs_to :event
   def self.createTickets(typeId, quantity)
     n = Integer(quantity, 10)
     for i in 0..n
