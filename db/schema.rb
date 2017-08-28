@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170826051937) do
+ActiveRecord::Schema.define(version: 20170828043819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20170826051937) do
     t.boolean "event_onlyStudents"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "event_color1"
+    t.string "event_color2"
   end
 
   create_table "ticket_conferences", force: :cascade do |t|
