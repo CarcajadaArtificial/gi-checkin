@@ -7,9 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
-open("db/codigos") do |codigos|
+open("db/codigos2") do |codigos|
   codigos.read.each_line do |data|
-    codigo= data.chomp
-    Ticket.create!(:ticket_reference => codigo)
+    ticket_type, reference, event_id = data.chomp.split("	")
+    puts ticket_type
+    puts reference
+    puts event_id
+    Ticket.create!(:ticket_ticketTypeId => ticket_type, :ticket_reference => reference, :event_id => event_id)
   end
 end
