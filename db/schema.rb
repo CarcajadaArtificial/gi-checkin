@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821065912) do
+ActiveRecord::Schema.define(version: 20170828043819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20170821065912) do
     t.boolean "event_onlyStudents"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "event_color1"
+    t.string "event_color2"
   end
 
   create_table "ticket_conferences", force: :cascade do |t|
@@ -86,6 +88,8 @@ ActiveRecord::Schema.define(version: 20170821065912) do
     t.boolean "ticket_registered"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "event_id"
+    t.index ["event_id"], name: "index_tickets_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -110,4 +114,5 @@ ActiveRecord::Schema.define(version: 20170821065912) do
   add_foreign_key "event_users", "users"
   add_foreign_key "ticket_conferences", "conferences"
   add_foreign_key "ticket_conferences", "tickets"
+  add_foreign_key "tickets", "events"
 end

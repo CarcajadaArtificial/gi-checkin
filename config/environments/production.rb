@@ -61,7 +61,16 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "gi-checkin_#{Rails.env}"
   config.action_mailer.perform_caching = false
-
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address: 'smtp.gmail.com',
+  domain: 'mail.google.com',
+  port:587,
+  authentication: "plain",
+  user_name:'checknmx@gmail.com',
+  password:'5hW-w5Ay',
+  enable_starttls_auto: true
+  }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
