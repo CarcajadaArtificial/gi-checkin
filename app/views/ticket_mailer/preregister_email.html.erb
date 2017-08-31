@@ -9,7 +9,7 @@
     <h1 class="title asd" align="center">¡Felicidades <%= @ticket.ticket_name.split.first%>!</h1>
     <h2 class="subtitle" style="color:red; font-family: cursive;">¡Ya eres parte de <%= @ticket.event.event_name%>!</h2>
     <div class="f_tCenter">
-      <%= image_tag("mkt.png", :alt => "", class:"profilePicture_event") %>
+      <%= image_tag(attachments['mkt.png'].url) %>
     </div>
     <%if @ticket.event.id == 1%>
     <p class="textCenter asdf">
