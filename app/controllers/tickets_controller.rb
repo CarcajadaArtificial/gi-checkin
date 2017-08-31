@@ -23,9 +23,14 @@ class TicketsController < ApplicationController
    end
   end
 
+  def preregister2
+    @ticket = Ticket.searchReference(params[:param_reference])
+  end
+  
   def preregister
     @ticket = Ticket.searchReference(params[:param_reference])
   end
+
 
   def register
     @ticket = Ticket.searchBadge(params[:param_badge])
