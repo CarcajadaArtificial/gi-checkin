@@ -5,11 +5,17 @@ header.header_event{
   @include gradient($black, $grey);
 }
 
+header.header_event2{
+  height: 40vh;
+  @include gradient(#FF7DC0, #FF1872);
+}
+
 .profilePicture_event{
   height: 300px;
   border-radius: 150px;
   right: calc(30vw - 150px);
   top: 150px;
+  background-color: white;
 }
 
 .event_container{
