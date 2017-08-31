@@ -26,7 +26,7 @@ class TicketsController < ApplicationController
   def preregister2
     @ticket = Ticket.searchReference(params[:param_reference])
   end
-  
+
   def preregister
     @ticket = Ticket.searchReference(params[:param_reference])
   end
@@ -65,8 +65,8 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1.json
   def update
     respond_to do |format|
-      # TicketMailer.preregister_email(@ticket).deliver_later
       if @ticket.update(ticket_params)
+        TicketMailer.preregister_email(@ticket).deliver_later
         format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
         format.json { render :show, status: :ok, location: @ticket }
       else

@@ -1,12 +1,18 @@
+<style>
+  .asd{
+    color: red;
+    font-family: cursive;
+  }
+</style>
 <main class="f_tCenter">
   <div class="container">
-    <h1 class="title" align="center">¡Felicidades <%= @ticket.ticket_name.split.first%>!</h1>
-    <h2 class="subtitle">¡Ya eres parte de <%= @ticket.event.event_name%>!</h2>
+    <h1 class="title asd" align="center">¡Felicidades <%= @ticket.ticket_name.split.first%>!</h1>
+    <h2 class="subtitle" style="color:red; font-family: cursive;">¡Ya eres parte de <%= @ticket.event.event_name%>!</h2>
     <div class="f_tCenter">
       <%= image_tag("mkt.png", :alt => "", class:"profilePicture_event") %>
     </div>
     <%if @ticket.event.id == 1%>
-    <p class="textCenter">
+    <p class="textCenter asdf">
       Cualquier duda previa al evento puedes contactarnos a <strong>info@marketingfest.mx</strong>. Te
       esperamos del 19 al 21 de octubre en el Tec de Monterrey, Campus Monterrey.
     </p>

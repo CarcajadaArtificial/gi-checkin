@@ -1,5 +1,5 @@
 <%= render 'layouts/navbar' %>
-<main class="f_tCenter">
+<main class="f_tCenter main2">
   <div class="container">
     <h2 class="subtitle">¡Ya eres parte de <%= @ticket.event.event_name %>!</h2>
     <p>
@@ -7,7 +7,7 @@
       En caso de cualquier duda, contacta a los organizadores del evento.
     </p>
     <div class="f_tCenter">
-      <a href="/tickets/preregister" class="button_main">Regresar al preregistro</a>
+      <%= link_to "Regresar a inicio", root_path, class: "button_main2" %>
     </div>
   </div>
 </main>

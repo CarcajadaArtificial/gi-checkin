@@ -6,6 +6,10 @@ main{
   @include gradient($grey, $black);
 }
 
+.main2{
+  @include gradient($color1, $color2);
+}
+
 .container{
   padding-top: 113px;
   @include card;
@@ -24,4 +28,9 @@ main{
   @include card;
   @include gradient($negative1, $negative2);
   max-height: 40px;
+}
+
+.asdf{
+  color: red;
+  font-family: cursive;
 }
