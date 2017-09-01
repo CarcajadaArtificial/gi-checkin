@@ -27,7 +27,7 @@ main{
 .flag.negative{
   @include card;
   @include gradient($negative1, $negative2);
-  max-height: 40px;
+  //max-height: 40px;
 }
 
 .asdf{
