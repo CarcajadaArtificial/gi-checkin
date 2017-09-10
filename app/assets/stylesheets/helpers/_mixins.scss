@@ -26,6 +26,11 @@
 
 
 // Flex classes.
+.fRow_aiCen{
+  display: flex;
+  align-items: center;
+}
+
 .f_tCenter{
   display: flex;
   justify-content: center;

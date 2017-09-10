@@ -33,11 +33,11 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address: 'smtp.gmail.com',
-  domain: 'mail.google.com',
-  port:587,
+  address: 'a2plcpnl0175.prod.iad2.secureserver.net',
+  #domain: 'mail.google.com',
+  port:465,
   authentication: "plain",
-  user_name:'checknmx@gmail.com',
+  user_name:'no-reply@checkn.mx',
   password:'5hW-w5Ay',
   enable_starttls_auto: true
   }

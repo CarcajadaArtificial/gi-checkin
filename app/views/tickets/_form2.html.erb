@@ -12,48 +12,156 @@
   <% end %>
   <div class="container_form">
     <%= f.check_box :ticket_preregistered, checked: true, class:"hidden"%>
-
-  <div class="combofieldLabel fRow_endEnd">
-    <p class="caption">Campos requeridos <span class="required">*</span></p>
-    <div class="combo_fieldLabel fRow_endEnd">
-      <p>Nombre completo <span class="required">*</span></p>
-      <%= f.text_field :ticket_name, class:"input", :required => true %>
+    <p>Con tu boleto tienes acceso a:</p>
+    <ul>
+      <li>Cosa 1</li>
+      <li>Cosa 2</li>
+      <li>Cosa 3</li>
+    </ul>
+    <h2 class="form_subtitle">Paso 1: Selecciona tus actividades</h2>
+    <p>Selecciona hasta 3 conferencias</p>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_conferencia1, params[:params_conferencia1], checked: false %>
+      <p class="checkbox">Conferencia 1</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_conferencia2, params[:params_conferencia2], checked: false %>
+      <p class="checkbox">Conferencia 2</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_conferencia3, params[:params_conferencia3], checked: false %>
+      <p class="checkbox">Conferencia 3</p>
+    </div>
+    <br>
+    <p>Selecciona hasta 6 experiencias</p>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_experiencia1, params[:params_experiencia1], checked: false %>
+      <p class="checkbox">Experiencia 1</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_experiencia2, params[:params_experiencia2], checked: false %>
+      <p class="checkbox">Experiencia 2</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_experiencia3, params[:params_experiencia3], checked: false %>
+      <p class="checkbox">Experiencia 3</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_experiencia4, params[:params_experiencia4], checked: false %>
+      <p class="checkbox">Experiencia 4</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_experiencia5, params[:params_experiencia5], checked: false %>
+      <p class="checkbox">Experiencia 5</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_experiencia6, params[:params_experiencia6], checked: false %>
+      <p class="checkbox">Experiencia 6</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_experiencia7, params[:params_experiencia7], checked: false %>
+      <p class="checkbox">Experiencia 7</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_experiencia8, params[:params_experiencia8], checked: false %>
+      <p class="checkbox">Experiencia 8</p>
+    </div>
+    <br>
+    <p>Selecciona hasta 1 taller</p>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_taller1, params[:params_taller1], checked: false %>
+      <p class="checkbox">Taller 1</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_taller2, params[:params_taller2], checked: false %>
+      <p class="checkbox">Taller 2</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_taller3, params[:params_taller3], checked: false %>
+      <p class="checkbox">Taller 3</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_taller4, params[:params_taller4], checked: false %>
+      <p class="checkbox">Taller 4</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_taller5, params[:params_taller5], checked: false %>
+      <p class="checkbox">Taller 5</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_taller6, params[:params_taller6], checked: false %>
+      <p class="checkbox">Taller 6</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_taller7, params[:params_taller7], checked: false %>
+      <p class="checkbox">Taller 7</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_taller8, params[:params_taller8], checked: false %>
+      <p class="checkbox">Taller 8</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_taller9, params[:params_taller9], checked: false %>
+      <p class="checkbox">Taller 9</p>
+    </div>
+    <br>
+    <p>Selecciona hasta 1 bloque de speedmeeting</p>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_speed1, params[:params_speed1], checked: false %>
+      <p class="checkbox">Speedmeeting 1</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_speed2, params[:params_speed2], checked: false %>
+      <p class="checkbox">Speedmeeting 2</p>
+    </div>
+    <div class="fRow_aiCen">
+      <%= check_box_tag :params_speed3, params[:params_speed3], checked: false %>
+      <p class="checkbox">Speedmeeting 3</p>
     </div>
 
-    <div class="combo_fieldLabel fRow_endEnd">
-      <p>Correo electrónico <span class="required">*</span></p>
-      <%= f.text_field :ticket_email, class:"input", :required => true %>
+    <h2 class="form_subtitle">Paso 2: Llena tu información</h2>
+    <div class="combofieldLabel fRow_endEnd">
+      <p class="caption">Campos requeridos <span class="required">*</span></p>
+      <div class="combo_fieldLabel fRow_endEnd">
+        <p>Nombre completo <span class="required">*</span></p>
+        <%= f.text_field :ticket_name, class:"input", :required => true %>
+      </div>
+
+      <div class="combo_fieldLabel fRow_endEnd">
+        <p>Correo electrónico <span class="required">*</span></p>
+        <%= f.text_field :ticket_email, class:"input", :required => true %>
+      </div>
+
+      <div class="combo_fieldLabel fRow_endEnd">
+        <p>Matrícula</p>
+        <%= f.text_field :ticket_schoolId, class:"input" %>
+      </div>
+
+      <div class="combo_fieldLabel fRow_endEnd">
+        <p>Sexo</p>
+        <%= f.select :ticket_sex, options_for_select([
+          ['Masculino', 'm'],
+          ['Femenino', 'f'],
+          ['Prefiero no especificar', 'x']]), {prompt: 'Selecciona una opción'} %>
+      </div>
+
+      <div class="combo_fieldLabel fRow_endEnd">
+        <p>Edad</p>
+        <%= f.number_field :ticket_age, class:"input",  :required => true %>
+      </div>
+
+      <div class="combo_fieldLabel fRow_endEnd">
+        <p>Carrera</p>
+        <%= f.text_field :ticket_course, class:"input" %>
+      </div>
+
+      <div class="combo_fieldLabel fRow_endEnd">
+        <p>Semestre</p>
+        <%= f.text_field :ticket_semester, class:"input" %>
+      </div>
     </div>
 
-    <div class="combo_fieldLabel fRow_endEnd">
-      <p>Matrícula</p>
-      <%= f.text_field :ticket_schoolId, class:"input" %>
-    </div>
-
-    <div class="combo_fieldLabel fRow_endEnd">
-      <p>Sexo</p>
-      <%= f.select :ticket_sex, options_for_select([
-        ['Masculino', 'm'],
-        ['Femenino', 'f'],
-        ['Prefiero no especificar', 'x']]), {prompt: 'Selecciona una opción'} %>
-    </div>
-
-    <div class="combo_fieldLabel fRow_endEnd">
-      <p>Edad</p>
-      <%= f.number_field :ticket_age, class:"input",  :required => true %>
-    </div>
-
-    <div class="combo_fieldLabel fRow_endEnd">
-      <p>Carrera</p>
-      <%= f.text_field :ticket_course, class:"input" %>
-    </div>
-
-    <div class="combo_fieldLabel fRow_endEnd">
-      <p>Semestre</p>
-      <%= f.text_field :ticket_semester, class:"input" %>
-    </div>
   </div>
-
   <div class="f_tCenter">
     <%= f.submit "Enviar", class:"button_main_esm" %>
   </div>

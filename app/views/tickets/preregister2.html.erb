@@ -22,6 +22,7 @@
         </div>
         <% end %>
       </div>
+
       <!-- Flags -->
       <% if params[:param_reference] && @ticket.blank? %>
       <div class="flag negative">
@@ -36,7 +37,7 @@
       <h2 class="subtitle negative">¡Lo sentimos!</h2>
       <p class="negative">
         El código de activación "<strong class="negative"><%= params[:param_reference] %></strong>" ya fue utilizado. Por favor verifica
-        que esté correcto. Si tienes algún problema, comunícate con nosotros al correo: <strong class="negative">info@marketingfest.mx</strong>
+        que esté correcto.
       </p>
     </div>
   </div>
