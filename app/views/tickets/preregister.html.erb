@@ -2,11 +2,11 @@
 <main>
   <div class="fullscreen fRow-centerAround absolute2">
     <div class="fCol">
-      <div class="container">
+      <div class="container"  style="overflow: visible;" >
         <h1 class="title">Pre-registro</h1>
         <%= form_tag(preregister_tickets_path, :method => "get") do %>
         <p class="description">
-          Encontrarás el código de activación en el boleto que te fue proporcionado al momento de pagar. Si tu
+          Encontrarás el código de activación en el boleto que se te fue proporcionado al momento de pagar. Si tu
           pago fue a través de la tienda virtual, envía el comprobante al correo: <strong>info@marketingfest.mx</strong> para recibir tu código.
         </p>
         <div class="fRow">
@@ -20,7 +20,7 @@
       </div>
       <!-- Flags -->
       <% if params[:param_reference] && @ticket.blank? %>
-      <div class="flag negative">
+      <div class="flag negative"  style="overflow: visible;" >
         <h2 class="subtitle negative">¡Lo sentimos!</h2>
         <p class="negative">
           La referencia de pago "<%= params[:param_reference] %>" no existe, por favor intenta de nuevo.
@@ -30,7 +30,7 @@
     <% elsif !@ticket.blank? && @ticket.ticket_preregistered == true %>
     <div class="flag negative">
       <h2 class="subtitle negative">¡Lo sentimos!</h2>
-      <p class="negative">
+      <p class="negative"  style="overflow: visible;" >
         El código de activación "<strong class="negative"><%= params[:param_reference] %></strong>" ya fue utilizado. Por favor verifica
         que esté correcto. Si tienes algún problema, comunícate con nosotros al correo: <strong class="negative">info@marketingfest.mx</strong>
       </p>
