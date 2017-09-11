@@ -69,6 +69,7 @@ class TicketsController < ApplicationController
       if params[:params_conferencia1]
         puts "HOLA"
       end
+      puts
       case @ticket.ticket_ticketTypeId
       when 1
         incluidas = [true, true, true]
@@ -99,22 +100,22 @@ class TicketsController < ApplicationController
       if experiencias[3] && experiencias[4]
         error = "No puedes inscribir la Experiencia de Marca por anunciar a las 10:00 am y la Experiencia de Marca por anunciar a las 11:30 am"
         puts error
-        @ticket.ticket_preregistered = false
-        redirect_to preregister2_tickets_path(param_reference: @ticket.ticket_reference), notice: error
+        ticket.ticket_preregistered = false
+        redirect_to preregister2_tickets_path(param_reference: @ticket.ticket_reference,param_error: 1), notice: error
         return
       end
       if exp_count > 6
         error = "No puedes inscribir más de 6 Experiencias de Marca"
         puts error
         @ticket.ticket_preregistered = false
-        redirect_to preregister2_tickets_path(param_reference: @ticket.ticket_reference), notice: error
+        redirect_to preregister2_tickets_path(param_reference: @ticket.ticket_reference,param_error: 2), notice: error
         return
       end
       if @ticket.ticket_ticketTypeId == 4 && exp_count > 2
         error = "No puedes inscribir más de 2 Experiencias de Marca"
         puts error
         @ticket.ticket_preregistered = false
-        redirect_to preregister2_tickets_path(param_reference: @ticket.ticket_reference), notice: error
+        redirect_to preregister2_tickets_path(param_reference: @ticket.ticket_reference,param_error: 3), notice: error
         return
       end
       conferencias =[incluidas, magistrales, experiencias]
@@ -128,6 +129,7 @@ class TicketsController < ApplicationController
             a.save
           end
         end
+
         magistrales.each_with_index do |value, index|
           if value != nil
             a = TicketConference.new
@@ -136,6 +138,7 @@ class TicketsController < ApplicationController
             a.save
           end
         end
+
         experiencias.each_with_index do |value, index|
           if value != nil
             a = TicketConference.new
@@ -144,8 +147,15 @@ class TicketsController < ApplicationController
             a.save
           end
         end
+        taller = TicketConference.new
+        taller.ticket_id = @ticket.id
+        taller.conference_id = ticket_params[:ticket_conference1]
+        taller.save
+        speed = TicketConference.new
+        speed.ticket_id = @ticket.id
+        speed.conference_id = ticket_params[:ticket_conference2]
+        speed.save
       end
-
     end
 
     respond_to do |format|

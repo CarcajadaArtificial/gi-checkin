@@ -12,112 +12,107 @@
   <% end %>
   <div class="container_form">
     <%= f.check_box :ticket_preregistered, checked: true, class:"hidden"%>
-    <p>Con tu boleto tienes acceso a:</p>
-    <ul>
-      <li>Cosa 1</li>
-      <li>Cosa 2</li>
-      <li>Cosa 3</li>
-    </ul>
+    <div class="incluye">
+      <% if ticket.ticket_ticketTypeId == 1 %>
+      <strong>Tu boleto incluye:</strong>
+      <ul>
+        <li>Stand up de Chumel Torres (viernes 6 de oct - 8:00 pm)</li>
+        <li>Networking Night (miércoles 4 de oct - 7:00 pm)</li>
+        <li>Actividad Sorpresa (miércoles 4 de oct - 10:00 am)</li>
+      </ul>
+      <% elsif ticket.ticket_ticketTypeId == 2 %>
+      <strong>Tu boleto incluye:</strong>
+      <ul>
+        <li>Networking Night (miércoles 4 de oct - 7:00 pm)</li>
+      </ul>
+      <% end %>
+    </div>
+
+
+
     <h2 class="form_subtitle">Paso 1: Selecciona tus actividades</h2>
-    <p>Selecciona hasta 3 conferencias</p>
+
+
+    <strong>Selecciona hasta 3 conferencias</strong>
     <div class="fRow_aiCen">
-      <%= check_box_tag :params_conferencia1, params[:params_conferencia1], checked: false %>
-      <p class="checkbox">Conferencia 1</p>
+      <%= check_box_tag :params_conferencia1, params[:params_conferencia1] %>
+      <p class="checkbox"><%= Conference.find(4).conference_name %></p>
     </div>
     <div class="fRow_aiCen">
-      <%= check_box_tag :params_conferencia2, params[:params_conferencia2], checked: false %>
-      <p class="checkbox">Conferencia 2</p>
+      <%= check_box_tag :params_conferencia2, params[:params_conferencia2] %>
+      <p class="checkbox"><%= Conference.find(5).conference_name %></p>
     </div>
     <div class="fRow_aiCen">
-      <%= check_box_tag :params_conferencia3, params[:params_conferencia3], checked: false %>
-      <p class="checkbox">Conferencia 3</p>
+      <%= check_box_tag :params_conferencia3, params[:params_conferencia3] %>
+      <p class="checkbox"><%= Conference.find(6).conference_name %></p>
     </div>
+
+
     <br>
-    <p>Selecciona hasta 6 experiencias</p>
+
+    <% if ticket.ticket_ticketTypeId == 4 %>
+      <strong>Selecciona hasta 2 experiencias</strong>
+    <% else %>
+      <strong>Selecciona hasta 6 experiencias</strong>
+    <% end %>
     <div class="fRow_aiCen">
-      <%= check_box_tag :params_experiencia1, params[:params_experiencia1], checked: false %>
-      <p class="checkbox">Experiencia 1</p>
+      <%= check_box_tag :params_experiencia1, params[:params_experiencia1] %>
+      <p class="checkbox"><%= Conference.find(7).conference_name %></p>
     </div>
     <div class="fRow_aiCen">
-      <%= check_box_tag :params_experiencia2, params[:params_experiencia2], checked: false %>
-      <p class="checkbox">Experiencia 2</p>
+      <%= check_box_tag :params_experiencia2, params[:params_experiencia2] %>
+      <p class="checkbox"><%= Conference.find(8).conference_name %></p>
     </div>
     <div class="fRow_aiCen">
-      <%= check_box_tag :params_experiencia3, params[:params_experiencia3], checked: false %>
-      <p class="checkbox">Experiencia 3</p>
+      <%= check_box_tag :params_experiencia3, params[:params_experiencia3] %>
+      <p class="checkbox"><%= Conference.find(9).conference_name %></p>
     </div>
     <div class="fRow_aiCen">
-      <%= check_box_tag :params_experiencia4, params[:params_experiencia4], checked: false %>
-      <p class="checkbox">Experiencia 4</p>
+      <%= check_box_tag :params_experiencia4, params[:params_experiencia4] %>
+      <p class="checkbox"><%= Conference.find(10).conference_name %></p>
     </div>
     <div class="fRow_aiCen">
-      <%= check_box_tag :params_experiencia5, params[:params_experiencia5], checked: false %>
-      <p class="checkbox">Experiencia 5</p>
+      <%= check_box_tag :params_experiencia5, params[:params_experiencia5] %>
+      <p class="checkbox"><%= Conference.find(11).conference_name %></p>
     </div>
     <div class="fRow_aiCen">
-      <%= check_box_tag :params_experiencia6, params[:params_experiencia6], checked: false %>
-      <p class="checkbox">Experiencia 6</p>
+      <%= check_box_tag :params_experiencia6, params[:params_experiencia6] %>
+      <p class="checkbox"><%= Conference.find(12).conference_name %></p>
     </div>
     <div class="fRow_aiCen">
-      <%= check_box_tag :params_experiencia7, params[:params_experiencia7], checked: false %>
-      <p class="checkbox">Experiencia 7</p>
+      <%= check_box_tag :params_experiencia7, params[:params_experiencia7] %>
+      <p class="checkbox"><%= Conference.find(13).conference_name %></p>
     </div>
     <div class="fRow_aiCen">
-      <%= check_box_tag :params_experiencia8, params[:params_experiencia8], checked: false %>
-      <p class="checkbox">Experiencia 8</p>
+      <%= check_box_tag :params_experiencia8, params[:params_experiencia8] %>
+      <p class="checkbox"><%= Conference.find(14).conference_name %></p>
     </div>
+
+
+
+    <% if ticket.ticket_ticketTypeId != 4 %>
     <br>
-    <p>Selecciona hasta 1 taller</p>
-    <div class="fRow_aiCen">
-      <%= check_box_tag :params_taller1, params[:params_taller1], checked: false %>
-      <p class="checkbox">Taller 1</p>
-    </div>
-    <div class="fRow_aiCen">
-      <%= check_box_tag :params_taller2, params[:params_taller2], checked: false %>
-      <p class="checkbox">Taller 2</p>
-    </div>
-    <div class="fRow_aiCen">
-      <%= check_box_tag :params_taller3, params[:params_taller3], checked: false %>
-      <p class="checkbox">Taller 3</p>
-    </div>
-    <div class="fRow_aiCen">
-      <%= check_box_tag :params_taller4, params[:params_taller4], checked: false %>
-      <p class="checkbox">Taller 4</p>
-    </div>
-    <div class="fRow_aiCen">
-      <%= check_box_tag :params_taller5, params[:params_taller5], checked: false %>
-      <p class="checkbox">Taller 5</p>
-    </div>
-    <div class="fRow_aiCen">
-      <%= check_box_tag :params_taller6, params[:params_taller6], checked: false %>
-      <p class="checkbox">Taller 6</p>
-    </div>
-    <div class="fRow_aiCen">
-      <%= check_box_tag :params_taller7, params[:params_taller7], checked: false %>
-      <p class="checkbox">Taller 7</p>
-    </div>
-    <div class="fRow_aiCen">
-      <%= check_box_tag :params_taller8, params[:params_taller8], checked: false %>
-      <p class="checkbox">Taller 8</p>
-    </div>
-    <div class="fRow_aiCen">
-      <%= check_box_tag :params_taller9, params[:params_taller9], checked: false %>
-      <p class="checkbox">Taller 9</p>
-    </div>
-    <br>
-    <p>Selecciona hasta 1 bloque de speedmeeting</p>
-    <div class="fRow_aiCen">
-      <%= check_box_tag :params_speed1, params[:params_speed1], checked: false %>
-      <p class="checkbox">Speedmeeting 1</p>
-    </div>
-    <div class="fRow_aiCen">
-      <%= check_box_tag :params_speed2, params[:params_speed2], checked: false %>
-      <p class="checkbox">Speedmeeting 2</p>
-    </div>
-    <div class="fRow_aiCen">
-      <%= check_box_tag :params_speed3, params[:params_speed3], checked: false %>
-      <p class="checkbox">Speedmeeting 3</p>
-    </div>
+      <strong>Selecciona hasta 1 taller</strong>
+      <%= f.select :ticket_conference1, options_for_select([
+        ["Elevator Pitch (miércoles 4 de oct. - 4:30 pm)", 15],
+        ["Storytelling de Zam - Nett (jueves 5 de oct. - 5:30 pm)", 16],
+        ["Yo Soy Marca Registrada (jueves 5 de oct. - 5:30 pm)", 17],
+        ["Taller de V09 (jueves 5 de oct. - 4:00 pm)", 18],
+        ["Conceptualización La Sociedad (jueves 5 de oct. - 5:30 pm)", 19],
+        ["Altavista Studios (jueves 5 de oct. - 5:30 pm)", 20],
+        ["The New Agency (jueves 5 de oct. - 5:30 pm)", 21],
+        ["Taller por Anunciar (jueves 5 de oct. - 5:30 pm)", 22],
+        ["Taller por Anunciar (jueves 5 de oct. - 5:30 pm)", 23]]),
+        {:include_blank => 'Selecciona una opción' } %>
+      <br>
+      <br>
+      <strong>Selecciona hasta 1 bloque de speedmeeting</strong>
+      <%= f.select :ticket_conference2, options_for_select([
+        ["Speed Meetings Bloque 1 (miércoles 4 de oct. - 10:00am)", 24],
+        ["Speed Meetings Bloque 2 (miércoles 4 de oct. - 11:00am)", 25],
+        ["Speed Meetings Bloque 3 (miércoles 4 de oct. - 12:00am)", 26]]),
+        {:include_blank => 'Selecciona una opción' } %>
+    <% end %>
 
     <h2 class="form_subtitle">Paso 2: Llena tu información</h2>
     <div class="combofieldLabel fRow_endEnd">

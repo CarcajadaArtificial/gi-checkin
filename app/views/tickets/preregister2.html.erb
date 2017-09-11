@@ -25,28 +25,52 @@
 
       <!-- Flags -->
       <% if params[:param_reference] && @ticket.blank? %>
-      <div class="flag negative" style="overflow: visible;">
-        <h2 class="subtitle negative">¡Lo sentimos!</h2>
-        <p class="negative">
-          La referencia de pago "<%= params[:param_reference] %>" no existe, por favor intenta de nuevo.
-        </p>
+        <div class="flag negative" style="overflow: visible;">
+          <h2 class="subtitle negative">¡Lo sentimos!</h2>
+          <p class="negative">
+            La referencia de pago "<%= params[:param_reference] %>" no existe, por favor intenta de nuevo.
+          </p>
+        </div>
+    </div>
+      <% elsif !@ticket.blank? && @ticket.ticket_preregistered == true %>
+        <div class="flag negative" style="overflow: visible;">
+          <h2 class="subtitle negative">¡Lo sentimos!</h2>
+          <p class="negative">
+            El código de activación "<strong class="negative"><%= params[:param_reference] %></strong>" ya fue utilizado. Por favor verifica
+            que esté correcto.
+          </p>
+        </div>
       </div>
-    </div>
-    <% elsif !@ticket.blank? && @ticket.ticket_preregistered == true %>
-    <div class="flag negative" style="overflow: visible;">
-      <h2 class="subtitle negative">¡Lo sentimos!</h2>
-      <p class="negative">
-        El código de activación "<strong class="negative"><%= params[:param_reference] %></strong>" ya fue utilizado. Por favor verifica
-        que esté correcto.
-      </p>
-    </div>
-  </div>
-  <% elsif !@ticket.blank? %>
-</div>
-<div class="container">
-  <h1 class="title">Llena tu información</h1>
-  <%= render 'form2', ticket: @ticket %>
-</div>
-<% end %>
+    <% elsif !@ticket.blank? %>
+
+      <% if params[:param_error] == "1" %>
+        <div class="flag negative" style="overflow: visible;">
+          <h2 class="subtitle negative">¡Lo sentimos!</h2>
+          <p class="negative">
+            No puedes inscribir la Experiencia de Marca por anunciar a las 10:00 am y la Experiencia de Marca por anunciar a las 11:30 am.
+          </p>
+        </div>
+      <% elsif params[:param_error] == "2" %>
+        <div class="flag negative" style="overflow: visible;">
+          <h2 class="subtitle negative">¡Lo sentimos!</h2>
+          <p class="negative">
+            No puedes inscribir más de 6 Experiencias de Marca.
+          </p>
+        </div>
+      <% elsif params[:param_error] == "3" %>
+        <div class="flag negative" style="overflow: visible;">
+          <h2 class="subtitle negative">¡Lo sentimos!</h2>
+          <p class="negative">
+            No puedes inscribir más de 2 Experiencias de Marca.
+          </p>
+        </div>
+      <% end %>
+
+      </div>
+      <div class="container">
+        <h1 class="title">Llena tu información</h1>
+        <%= render 'form2', ticket: @ticket %>
+      </div>
+    <% end %>
   </div>
 </main>
