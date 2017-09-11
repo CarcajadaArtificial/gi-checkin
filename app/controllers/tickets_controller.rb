@@ -100,7 +100,7 @@ class TicketsController < ApplicationController
       if experiencias[3] && experiencias[4]
         error = "No puedes inscribir la Experiencia de Marca por anunciar a las 10:00 am y la Experiencia de Marca por anunciar a las 11:30 am"
         puts error
-        ticket.ticket_preregistered = false
+        @ticket.ticket_preregistered = false
         redirect_to preregister2_tickets_path(param_reference: @ticket.ticket_reference,param_error: 1), notice: error
         return
       end
