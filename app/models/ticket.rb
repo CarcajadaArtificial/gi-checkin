@@ -1,16 +1,21 @@
 class Ticket < ApplicationRecord
   belongs_to :event
+
   def self.createTickets(typeId, quantity)
     n = Integer(quantity, 10)
-    for i in 0..n
+      reff = 20000
+    for i in 1..n
     ff = 0
-      while ff < 3
+      while ff < 3 do
         randomRef= SecureRandom.hex(3)
-        ff =ff+1
-        if Ticket.where(:ticket_reference => randomRef) == []
+        reff += 1
+        ff += 1
+        if !(Ticket.exists?(:ticket_reference => reff))
+          puts "no existe"
           ff = 3
-          @tempTicket= Ticket.create(:ticket_reference => randomRef, :ticket_ticketTypeId => typeId)
-          @tempTicket.save
+          Ticket.create(:ticket_reference => reff, :ticket_ticketTypeId => typeId, :event_id => 1)
+        else
+
         end
       end
     end
@@ -23,4 +28,5 @@ class Ticket < ApplicationRecord
   def self.searchBadge(param_badge)
     self.where(:ticket_badgeNumber => param_badge).first
   end
+
 end

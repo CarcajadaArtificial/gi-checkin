@@ -64,9 +64,93 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1
   # PATCH/PUT /tickets/1.json
   def update
+    error = ""
+    if @ticket.event_id ==2
+      if params[:params_conferencia1]
+        puts "HOLA"
+      end
+      case @ticket.ticket_ticketTypeId
+      when 1
+        incluidas = [true, true, true]
+      when 2
+        incluidas = [false, true, false]
+      when 3
+        incluidas = [false, false, false]
+      when 4
+        incluidas = [false, false, false]
+      end
+
+      magistrales = [params[:params_conferencia1], params[:params_conferencia2], params[:params_conferencia3]]
+      mag_count = 0
+      for magistral in magistrales
+        if magistral
+          mag_count += 1
+        end
+      end
+      puts mag_count
+      experiencias = [params[:params_experiencia1], params[:params_experiencia2], params[:params_experiencia3], params[:params_experiencia4], params[:params_experiencia5], params[:params_experiencia6], params[:params_experiencia7], params[:params_experiencia8]]
+      exp_count = 0
+      for experiencia in experiencias
+        if experiencia
+          exp_count += 1
+        end
+      end
+      puts exp_count
+      if experiencias[3] && experiencias[4]
+        error = "No puedes inscribir la Experiencia de Marca por anunciar a las 10:00 am y la Experiencia de Marca por anunciar a las 11:30 am"
+        puts error
+        @ticket.ticket_preregistered = false
+        redirect_to preregister2_tickets_path(param_reference: @ticket.ticket_reference), notice: error
+        return
+      end
+      if exp_count > 6
+        error = "No puedes inscribir más de 6 Experiencias de Marca"
+        puts error
+        @ticket.ticket_preregistered = false
+        redirect_to preregister2_tickets_path(param_reference: @ticket.ticket_reference), notice: error
+        return
+      end
+      if @ticket.ticket_ticketTypeId == 4 && exp_count > 2
+        error = "No puedes inscribir más de 2 Experiencias de Marca"
+        puts error
+        @ticket.ticket_preregistered = false
+        redirect_to preregister2_tickets_path(param_reference: @ticket.ticket_reference), notice: error
+        return
+      end
+      conferencias =[incluidas, magistrales, experiencias]
+      puts conferencias
+      if error ==""
+        incluidas.each_with_index do |value, index|
+          if value != nil
+            a = TicketConference.new
+            a.ticket_id = @ticket.id
+            a.conference_id = index +1
+            a.save
+          end
+        end
+        magistrales.each_with_index do |value, index|
+          if value != nil
+            a = TicketConference.new
+            a.ticket_id = @ticket.id
+            a.conference_id = index +4
+            a.save
+          end
+        end
+        experiencias.each_with_index do |value, index|
+          if value != nil
+            a = TicketConference.new
+            a.ticket_id = @ticket.id
+            a.conference_id = index +7
+            a.save
+          end
+        end
+      end
+
+    end
+
     respond_to do |format|
       if @ticket.update(ticket_params)
-        TicketMailer.preregister_email(@ticket).deliver_later
+      #  TicketMailer.preregister_email(@ticket).deliver_later if error == ""
         format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
         format.json { render :show, status: :ok, location: @ticket }
       else
