@@ -12,7 +12,7 @@ open("db/cambios") do |codigos|
   codigos.read.each_line do |data|
     reference = data.chomp
     puts reference
-    Ticket.where(:ticket_reference => reference).update!(:ticket_ticketTypeId => 4)
+    Ticket.where(:ticket_reference => reference).update(:ticket_ticketTypeId => 4)
   end
 end
 
