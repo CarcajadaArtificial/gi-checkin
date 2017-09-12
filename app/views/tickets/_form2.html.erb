@@ -18,7 +18,6 @@
       <ul>
         <li>Stand up de Chumel Torres (viernes 6 de oct - 8:00 pm)</li>
         <li>Networking Night (miércoles 4 de oct - 7:00 pm)</li>
-        <li>Actividad Sorpresa (miércoles 4 de oct - 10:00 am)</li>
       </ul>
       <% elsif ticket.ticket_ticketTypeId == 2 %>
       <strong>Tu boleto incluye:</strong>
@@ -142,7 +141,7 @@
 
       <div class="combo_fieldLabel fRow_endEnd">
         <p>Edad</p>
-        <%= f.number_field :ticket_age, class:"input",  :required => true %>
+        <%= f.number_field :ticket_age, class:"input" %>
       </div>
 
       <div class="combo_fieldLabel fRow_endEnd">
