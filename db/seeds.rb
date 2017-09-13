@@ -6,15 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require 'open-uri'
-
-open("db/cambios") do |codigos|
-  codigos.read.each_line do |data|
-    reference = data.chomp
-    puts reference
-    Ticket.where(:ticket_reference => reference).update(:ticket_ticketTypeId => 4)
-  end
-end
+# require 'open-uri'
+#
+# open("db/cambios") do |codigos|
+#   codigos.read.each_line do |data|
+#     reference = data.chomp
+#     puts reference
+#     Ticket.where(:ticket_reference => reference).update(:ticket_ticketTypeId => 4)
+#   end
+# end
 
 
 # # Conferencias
