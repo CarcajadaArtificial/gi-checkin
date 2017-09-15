@@ -148,7 +148,7 @@ class TicketsController < ApplicationController
             a.save
           end
         end
-        if experiencia[9]
+        if experiencias[9]
           a = TicketConference.new
           a.ticket_id = @ticket
           a.conference_id = 27
