@@ -52,3 +52,6 @@
 # Conference.create!(:conference_name => "Speed Meetings Bloque 1 (miércoles 4 de oct. - 10:00am)", :conference_capacity => 200)
 # Conference.create!(:conference_name => "Speed Meetings Bloque 2 (miércoles 4 de oct. - 11:00am)", :conference_capacity => 200)
 # Conference.create!(:conference_name => "Speed Meetings Bloque 3 (miércoles 4 de oct. - 12:00am)", :conference_capacity => 200)
+#
+#
+# Conference.create!(:conference_name => "Branding Deportivo Under Armour (miércoles 4 de oct. - 4:00 pm)", :conference_capacity => 250)

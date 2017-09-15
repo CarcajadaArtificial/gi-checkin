@@ -89,13 +89,14 @@ class TicketsController < ApplicationController
         end
       end
       puts mag_count
-      experiencias = [params[:params_experiencia1], params[:params_experiencia2], params[:params_experiencia3], params[:params_experiencia4], params[:params_experiencia5], params[:params_experiencia6], params[:params_experiencia7], params[:params_experiencia8]]
+      experiencias = [params[:params_experiencia1], params[:params_experiencia2], params[:params_experiencia3], params[:params_experiencia4], params[:params_experiencia5], params[:params_experiencia6], params[:params_experiencia7], params[:params_experiencia8], params[:params_experiencia8]]
       exp_count = 0
       for experiencia in experiencias
         if experiencia
           exp_count += 1
         end
       end
+
       puts exp_count
       if experiencias[3] && experiencias[4]
         error = "No puedes inscribir la Experiencia de Marca por anunciar a las 10:00 am y la Experiencia de Marca por anunciar a las 11:30 am"
@@ -147,6 +148,13 @@ class TicketsController < ApplicationController
             a.save
           end
         end
+        if experiencia[9]
+          a = TicketConference.new
+          a.ticket_id = @ticket
+          a.conference_id = 27
+          a.save
+        end
+
         taller = TicketConference.new
         taller.ticket_id = @ticket.id
         taller.conference_id = ticket_params[:ticket_conference1]
@@ -160,7 +168,7 @@ class TicketsController < ApplicationController
 
     respond_to do |format|
       if @ticket.update(ticket_params)
-        TicketMailer.preregister_email(@ticket).deliver_later 
+        TicketMailer.preregister_email(@ticket).deliver_later
         format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
         format.json { render :show, status: :ok, location: @ticket }
       else
