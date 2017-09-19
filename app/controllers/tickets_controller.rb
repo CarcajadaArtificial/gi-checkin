@@ -160,7 +160,7 @@ class TicketsController < ApplicationController
 
     respond_to do |format|
       if @ticket.update(ticket_params)
-        TicketMailer.preregister_email(@ticket).deliver_later 
+        TicketMailer.preregister_email(@ticket).deliver_later
         format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
         format.json { render :show, status: :ok, location: @ticket }
       else

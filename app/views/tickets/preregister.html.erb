@@ -2,7 +2,7 @@
 <main>
   <div class="fullscreen fRow-centerAround absolute2">
     <div class="fCol">
-      <div class="container"  style="overflow: visible;" >
+      <div class="container" style="overflow: visible;" >
         <h1 class="title">Pre-registro</h1>
         <%= form_tag(preregister_tickets_path, :method => "get") do %>
         <p class="description">
@@ -20,28 +20,26 @@
       </div>
       <!-- Flags -->
       <% if params[:param_reference] && @ticket.blank? %>
-      <div class="flag negative"  style="overflow: visible;" >
-        <h2 class="subtitle negative">¡Lo sentimos!</h2>
-        <p class="negative">
-          La referencia de pago "<%= params[:param_reference] %>" no existe, por favor intenta de nuevo.
-        </p>
-      </div>
+        <div class="flag negative"  style="overflow: visible;" >
+          <h2 class="subtitle negative">¡Lo sentimos!</h2>
+          <p class="negative">
+            La referencia de pago "<%= params[:param_reference] %>" no existe, por favor intenta de nuevo.
+          </p>
+        </div>
+      <% elsif !@ticket.blank? && @ticket.ticket_preregistered == true %>
+        <div class="flag negative">
+          <h2 class="subtitle negative">¡Lo sentimos!</h2>
+          <p class="negative"  style="overflow: visible;" >
+            El código de activación "<strong class="negative"><%= params[:param_reference] %></strong>" ya fue utilizado. Por favor verifica
+            que esté correcto. Si tienes algún problema, comunícate con nosotros al correo: <strong class="negative">info@marketingfest.mx</strong>
+          </p>
+        </div>
+      <% elsif !@ticket.blank? %>
     </div>
-    <% elsif !@ticket.blank? && @ticket.ticket_preregistered == true %>
-    <div class="flag negative">
-      <h2 class="subtitle negative">¡Lo sentimos!</h2>
-      <p class="negative"  style="overflow: visible;" >
-        El código de activación "<strong class="negative"><%= params[:param_reference] %></strong>" ya fue utilizado. Por favor verifica
-        que esté correcto. Si tienes algún problema, comunícate con nosotros al correo: <strong class="negative">info@marketingfest.mx</strong>
-      </p>
+        <div class="container">
+          <h1 class="title">Llena tu información</h1>
+          <%= render 'form', ticket: @ticket %>
+        </div>
+      <% end %>
     </div>
-  </div>
-  <% elsif !@ticket.blank? %>
-</div>
-<div class="container">
-  <h1 class="title">Llena tu información</h1>
-  <%= render 'form', ticket: @ticket %>
-</div>
-<% end %>
-  </div>
 </main>
