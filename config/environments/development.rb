@@ -27,19 +27,19 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address: 'a2plcpnl0175.prod.iad2.secureserver.net',
+  address: 'mail.checkn.mx',
   #domain: 'mail.google.com',
-  port:465,
+  port:25,
   authentication: "plain",
   user_name:'no-reply@checkn.mx',
-  password:'5hW-w5Ay',
-  enable_starttls_auto: true
+  password:'5hW-w5Ay'
+  #enable_starttls_auto: true
   }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
