@@ -3,6 +3,7 @@ class TicketMailer < ApplicationMailer
   require 'barby'
   require 'barby/barcode/code_128'
   require 'barby/outputter/png_outputter'
+
   def preregister_email(ticket)
     @ticket = ticket
     @barcode = Barby::Code128B.new(@ticket.ticket_reference)
@@ -18,4 +19,5 @@ class TicketMailer < ApplicationMailer
     asunto = "Tu boleto para #{@ticket.event.event_name}"
     mail(to: @ticket.ticket_email, subject: asunto)
   end
+
 end

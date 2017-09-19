@@ -89,13 +89,14 @@ class TicketsController < ApplicationController
         end
       end
       puts mag_count
-      experiencias = [params[:params_experiencia1], params[:params_experiencia2], params[:params_experiencia3], params[:params_experiencia4], params[:params_experiencia5], params[:params_experiencia6], params[:params_experiencia7], params[:params_experiencia8]]
+      experiencias = [params[:params_experiencia1], params[:params_experiencia2], params[:params_experiencia3], params[:params_experiencia4], params[:params_experiencia5], params[:params_experiencia6], params[:params_experiencia7], params[:params_experiencia8], params[:params_experiencia8]]
       exp_count = 0
       for experiencia in experiencias
         if experiencia
           exp_count += 1
         end
       end
+
       puts exp_count
       if experiencias[3] && experiencias[4]
         error = "No puedes inscribir la Experiencia de Marca por anunciar a las 10:00 am y la Experiencia de Marca por anunciar a las 11:30 am"
@@ -147,6 +148,13 @@ class TicketsController < ApplicationController
             a.save
           end
         end
+        if experiencias[9]
+          a = TicketConference.new
+          a.ticket_id = @ticket
+          a.conference_id = 27
+          a.save
+        end
+
         taller = TicketConference.new
         taller.ticket_id = @ticket.id
         taller.conference_id = ticket_params[:ticket_conference1]

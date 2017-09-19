@@ -6,15 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require 'open-uri'
-
-open("db/cambios") do |codigos|
-  codigos.read.each_line do |data|
-    reference = data.chomp
-    puts reference
-    Ticket.where(:ticket_reference => reference).update(:ticket_ticketTypeId => 4)
-  end
-end
+# require 'open-uri'
+#
+# open("db/cambios") do |codigos|
+#   codigos.read.each_line do |data|
+#     reference = data.chomp
+#     puts reference
+#     Ticket.where(:ticket_reference => reference).update(:ticket_ticketTypeId => 4)
+#   end
+# end
 
 
 # # Conferencias
@@ -52,3 +52,6 @@ end
 # Conference.create!(:conference_name => "Speed Meetings Bloque 1 (miércoles 4 de oct. - 10:00am)", :conference_capacity => 200)
 # Conference.create!(:conference_name => "Speed Meetings Bloque 2 (miércoles 4 de oct. - 11:00am)", :conference_capacity => 200)
 # Conference.create!(:conference_name => "Speed Meetings Bloque 3 (miércoles 4 de oct. - 12:00am)", :conference_capacity => 200)
+#
+#
+# Conference.create!(:conference_name => "Branding Deportivo Under Armour (miércoles 4 de oct. - 4:00 pm)", :conference_capacity => 250)
