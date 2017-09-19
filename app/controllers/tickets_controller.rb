@@ -65,7 +65,13 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1.json
   def update
     error = ""
-    if @ticket.event_id ==2
+    if @ticket.event_id ==1
+      if ticket_params[:ticket_conference1] == "" || ticket_params[:ticket_conference2]== ""
+        error = "Porfavor elige dos talleres"
+        redirect_to preregister_tickets_path(param_reference: @ticket.ticket_reference,param_error: 4), notice: error
+        return
+      end
+    elsif @ticket.event_id ==2
       if params[:params_conferencia1]
         puts "HOLA"
       end
@@ -89,7 +95,7 @@ class TicketsController < ApplicationController
         end
       end
       puts mag_count
-      experiencias = [params[:params_experiencia1], params[:params_experiencia2], params[:params_experiencia3], params[:params_experiencia4], params[:params_experiencia5], params[:params_experiencia6], params[:params_experiencia7], params[:params_experiencia8], params[:params_experiencia8]]
+      experiencias = [params[:params_experiencia1], params[:params_experiencia2], params[:params_experiencia3], params[:params_experiencia4], params[:params_experiencia5], params[:params_experiencia6], params[:params_experiencia7], params[:params_experiencia8], params[:params_experiencia9]]
       exp_count = 0
       for experiencia in experiencias
         if experiencia

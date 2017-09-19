@@ -34,6 +34,13 @@
             que esté correcto. Si tienes algún problema, comunícate con nosotros al correo: <strong class="negative">info@marketingfest.mx</strong>
           </p>
         </div>
+      <% elsif !@ticket.blank? && params[:param_error] == "4" %>
+        <div class="flag negative" style="overflow: visible;">
+          <h2 class="subtitle negative">¡Lo sentimos!</h2>
+          <p class="negative">
+            Por favor inscribe dos talleres.
+          </p>
+        </div>
       <% elsif !@ticket.blank? %>
     </div>
         <div class="container">
