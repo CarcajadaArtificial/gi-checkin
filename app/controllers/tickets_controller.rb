@@ -67,7 +67,7 @@ class TicketsController < ApplicationController
     error = ""
     if @ticket.event_id ==1
       if ticket_params[:ticket_conference1] == "" || ticket_params[:ticket_conference2]== "" || ticket_params[:ticket_conference1] == nil || ticket_params[:ticket_conference2]== nil
-        error = "Porfavor elige dos talleres"
+        error = "Porfavor elige dos talleres."
         redirect_to preregister_tickets_path(param_reference: @ticket.ticket_reference,param_error: 4), notice: error
         return
       end
