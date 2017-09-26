@@ -1,5 +1,6 @@
 
 Rails.application.routes.draw do
+  devise_for :users 
   resources :tickets, except: [:index, :destroy, :edit] do
     # get 'createBatch', :on => :collection
     get 'preregister', :on => :collection, as: :preregister
