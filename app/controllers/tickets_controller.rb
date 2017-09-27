@@ -33,7 +33,28 @@ class TicketsController < ApplicationController
 
 
   def register
-    @ticket = Ticket.searchBadge(params[:param_badge])
+    if current_user
+      if paramT != ""
+        ticket = Ticket.where(:ticket_reference => params[:paramT]).first
+        event = Event.find(current_user.event_id)
+        Ticket.search(ticket, nil, event)
+      end
+    else
+      redirect_to new_user_session_path
+    end
+  end
+
+  def register_conference
+    if current_user
+      if paramT != ""
+        ticket = Ticket.where(:ticket_reference => params[:paramT]).first
+        conference = Conference.find(params[:paramsC])
+        event = Event.find(current_user.event_id)
+        Ticket.search(ticket, conference, event)
+      end
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def confirmation
