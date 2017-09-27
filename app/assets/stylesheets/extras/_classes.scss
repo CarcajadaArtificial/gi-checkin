@@ -1,0 +1,18 @@
+// Flex
+// Flex Direction
+[class*="flRow"]  { display: flex; flex-direction: row;             }
+[class*="flCol"]  { display: flex; flex-direction: column;          }
+[class*="flRowR"] { display: flex; flex-direction: row-reverse;     }
+[class*="flColR"] { display: flex; flex-direction: column-reverse;  }
+// Align Items
+[class*="aiBas"]  { align-items: baseline;    }
+[class*="aiCen"]  { align-items: center;      }
+[class*="aiEnd"]  { align-items: flex-end;    }
+[class*="aiSta"]  { align-items: flex-start;  }
+[class*="aiStr"]  { align-items: stretch;     }
+// Justify Content
+[class*="jcCen"]  { justify-content: center;        }
+[class*="jcEnd"]  { justify-content: flex-end;      }
+[class*="jcSta"]  { justify-content: flex-start;    }
+[class*="jcAro"]  { justify-content: space-around;  }
+[class*="jcBet"]  { justify-content: space-between; }

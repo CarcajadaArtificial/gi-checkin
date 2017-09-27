@@ -4,7 +4,9 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all
+    @t = Ticket.all
+    @c = Conference.all
+    @e = Event.all
   end
 
   # GET /tickets/1

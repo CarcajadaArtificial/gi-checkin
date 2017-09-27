@@ -27,12 +27,12 @@
       <% end %>
     </div>
     <% if params[:param_badge] && @ticket.blank? %>
-    <div class="flag negative">
-      <h2 class="subtitle negative">¡Lo sentimos!</h2>
-      <p class="negative">
-        La referencia de pago "<%= params[:param_badge] %>" no existe, por favor intenta de nuevo.
-      </p>
-    </div>
+      <div class="flag negative">
+        <h2 class="subtitle negative">¡Lo sentimos!</h2>
+        <p class="negative">
+          La referencia de pago "<%= params[:param_badge] %>" no existe, por favor intenta de nuevo.
+        </p>
+      </div>
     <% end %>
   </div>
 </main>

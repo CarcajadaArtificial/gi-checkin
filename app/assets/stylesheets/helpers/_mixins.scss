@@ -11,6 +11,15 @@
   min-width: 20rem;
 }
 
+@mixin card2{
+  // Gives the style of a material card.
+  background-color: $white;
+  box-shadow: 0 8px 10px 3px rgba(0,0,0,0.15);
+  padding: 2rem;
+  overflow: scroll;
+  max-height: 30rem;
+}
+
 @mixin input($font-size, $line-height){
   font-size: $font-size;
   line-height: $line-height;
