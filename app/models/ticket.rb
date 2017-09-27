@@ -28,18 +28,18 @@ class Ticket < ApplicationRecord
       if conference # Registro de conferencia
         if ticket.registered
           if ticket.conferences.exists?(conference)
-            if conference.conference_attendance <= conference.conference_capacity
+            #if conference.conference_attendance <= conference.conference_capacity
               @conf = 1 # Si puede entrar a esta conferencia
-            else
-              @conf = 5 # La conferencia esta llena
-            end
+            #else
+            #  @conf = 5 # La conferencia esta llena
+            #end
           else
             @conf = 4 # No tiene acceso a esta conferencia
           end
         else
           @conf = 2 # No esta registrado
         end
-      else # Registro
+      else # Registro de entrada
         if ticket.ticket_preregistered
           @reg = 1 # Esta preregistrado
         else

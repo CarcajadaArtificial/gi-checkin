@@ -33,27 +33,21 @@ class TicketsController < ApplicationController
 
 
   def register
-    if current_user
-      if paramT != ""
-        ticket = Ticket.where(:ticket_reference => params[:paramT]).first
-        event = Event.find(current_user.event_id)
-        Ticket.search(ticket, nil, event)
-      end
-    else
-      redirect_to new_user_session_path
+    if params[:paramT] != ""
+      ticket = Ticket.where(:ticket_reference => params[:paramT]).first
+      #event = Event.find(current_user.event_id)
+      event = Event.find(2)
+      @reg = Ticket.search(ticket, nil, event)
     end
   end
 
   def register_conference
-    if current_user
-      if paramT != ""
-        ticket = Ticket.where(:ticket_reference => params[:paramT]).first
-        conference = Conference.find(params[:paramsC])
-        event = Event.find(current_user.event_id)
-        Ticket.search(ticket, conference, event)
-      end
-    else
-      redirect_to new_user_session_path
+    if params[:paramT] != ""
+      ticket = Ticket.where(:ticket_reference => params[:paramT]).first
+      conference = Conference.find(params[:paramsC])
+      #event = Event.find(current_user.event_id)
+      event= Event.find(2)
+      @conf = Ticket.search(ticket, conference, event)
     end
   end
 
