@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get 'preregister', :on => :collection, as: :preregister
     get 'preregister2', :on => :collection, as: :preregister2
     get 'register', :on => :collection, as: :register
+    get 'register_conference', :on => :collection, as: :register_conference
     get 'confirmation', :on => :collection
   end
   resources :conferences

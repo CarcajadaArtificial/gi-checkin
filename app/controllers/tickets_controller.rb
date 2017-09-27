@@ -33,8 +33,11 @@ class TicketsController < ApplicationController
     @ticket = Ticket.searchReference(params[:param_reference])
   end
 
-
   def register
+    @ticket = Ticket.searchBadge(params[:param_badge])
+  end
+
+  def register_conference
     @ticket = Ticket.searchBadge(params[:param_badge])
   end
 
