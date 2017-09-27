@@ -21,7 +21,7 @@
         <% if user_signed_in? %>
           <%= form_tag(register_tickets_path, :method => "get") do %>
             <h2 class="subtitle">Folio</h2>
-            <%= text_field_tag :param_badge, params[:param_badge], class:"input", autofocus: true %>
+            <%= text_field_tag :paramT, params[:paramT], class:"input", autofocus: true %>
             <br>
             <div class="f_tCenter">
               <%= submit_tag "Buscar", :name => nil, class:"button_main" %>

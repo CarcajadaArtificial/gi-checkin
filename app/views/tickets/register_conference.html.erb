@@ -21,14 +21,14 @@
         <% if user_signed_in? %>
           <% @x = Conference.all %>
           <div class="flRow-aiCen-jcCen">
-            <%= select_tag :ticket_conference1,
+            <%= select_tag params[:paramC],
             options_for_select(@x.collect{ |u| [u.conference_name, u.id] }),
             {:include_blank => 'Selecciona una opción' } %>
           </div>
           <br>
           <%= form_tag(register_tickets_path, :method => "get") do %>
             <h2 class="subtitle">Folio</h2>
-            <%= text_field_tag :param_badge, params[:param_badge], class:"input", autofocus: true %>
+            <%= text_field_tag :paramT, params[:paramT], class:"input", autofocus: true %>
             <br>
             <div class="f_tCenter">
               <%= submit_tag "Buscar", :name => nil, class:"button_main" %>
