@@ -16,7 +16,7 @@
       <% if ticket.ticket_ticketTypeId == 1 %>
       <strong>Tu boleto incluye:</strong>
       <ul>
-        <li>Stand up de Chumel Torres (viernes 6 de oct - 8:00 pm)</li>
+        <!-- <li>Stand up de Chumel Torres (viernes 6 de oct - 8:00 pm)</li> -->
         <li>Networking Night (miércoles 4 de oct - 7:00 pm)</li>
       </ul>
       <% elsif ticket.ticket_ticketTypeId == 2 %>
@@ -32,7 +32,7 @@
     <h2 class="form_subtitle">Paso 1: Selecciona tus actividades</h2>
 
 
-    <strong>Selecciona hasta 3 conferencias</strong>
+    <strong>Selecciona hasta 3 conferencias:</strong>
     <div class="fRow_aiCen">
       <%= check_box_tag :params_conferencia1, params[:params_conferencia1] %>
       <p class="checkbox"><%= Conference.find(4).conference_name %></p>
@@ -49,11 +49,8 @@
 
     <br>
 
-    <% if ticket.ticket_ticketTypeId == 4 %>
-      <strong>Selecciona hasta 2 experiencias</strong>
-    <% else %>
-      <strong>Selecciona hasta 6 experiencias</strong>
-    <% end %>
+
+    <strong>Selecciona hasta 6 experiencias de marca:</strong>
     <div class="fRow_aiCen">
       <%= check_box_tag :params_experiencia1, params[:params_experiencia1] %>
       <p class="checkbox"><%= Conference.find(7).conference_name %></p>
@@ -85,7 +82,6 @@
 
 
 
-    <% if ticket.ticket_ticketTypeId != 4 %>
     <br>
       <strong>Selecciona hasta 1 taller</strong>
       <%= f.select :ticket_conference1, options_for_select([
@@ -107,7 +103,6 @@
         ["Speed Meetings Bloque 2 (miércoles 4 de oct. - 12:30pm)", 25],
         ["Speed Meetings Bloque 3 (miércoles 4 de oct. - 1:30pm)", 26]]),
         {:include_blank => 'Selecciona una opción' } %>
-    <% end %>
 
     <h2 class="form_subtitle">Paso 2: Llena tu información</h2>
     <div class="combofieldLabel fRow_endEnd">
