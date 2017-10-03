@@ -8,6 +8,7 @@ class Ticket < ApplicationRecord
       while ff < 3 do
         randomRef= SecureRandom.hex(4)
         ff += 1
+        randomRef = randomRef.upcase
         if !(Ticket.exists?(:ticket_reference => randomRef))
           ff = 3
           Ticket.create(:ticket_reference => randomRef, :ticket_ticketTypeId => typeId, :event_id => 3)
