@@ -7,7 +7,7 @@
         <div class="flRow-aiCen-jcCen">
           <table>
             <% @e.each do |e| %>
-              <% @count = Ticket.where(:event_id => e.id).count %>
+              <% @count = Ticket.where(:event_id => e.id, :ticket_preregistered => true).count %>
               <tr>
                 <td class="cell_large"><%= e.event_name %></td>
                 <td class="cell_count"><%= @count %></td>
