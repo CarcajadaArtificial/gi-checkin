@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+  
   <div class="container_form">
     <%= f.check_box :ticket_preregistered, checked: true, class:"hidden"%>
     <% if ticket.event.id == 1 %>
@@ -21,6 +22,8 @@
           ['Fashion: CEDIM', '2'],
           ['Trends: Levadura', '3'],
           ['Trends: Huntmuse', '4'],
+          ['Sports: CEMEX', '15'],
+          ['Sports: Insane Workout Center', '16'],
           ['Sports: Athlete Booster', '5'],
           ['Entertainment: Inspiral', '6'],
           ['No voy a asistir', '14']]), {prompt: 'Selecciona una opción'} %>

@@ -118,13 +118,13 @@ class TicketsController < ApplicationController
         redirect_to preregister2_tickets_path(param_reference: @ticket.ticket_reference,param_error: 2), notice: error
         return
       end
-      if @ticket.ticket_ticketTypeId == 4 && exp_count > 2
-        error = "No puedes inscribir más de 2 Experiencias de Marca"
-        puts error
-        @ticket.ticket_preregistered = false
-        redirect_to preregister2_tickets_path(param_reference: @ticket.ticket_reference,param_error: 3), notice: error
-        return
-      end
+      # if @ticket.ticket_ticketTypeId == 4 && exp_count > 2
+      #   error = "No puedes inscribir más de 2 Experiencias de Marca"
+      #   puts error
+      #   @ticket.ticket_preregistered = false
+      #   redirect_to preregister2_tickets_path(param_reference: @ticket.ticket_reference,param_error: 3), notice: error
+      #   return
+      # end
       conferencias =[incluidas, magistrales, experiencias]
       puts conferencias
       if error ==""
