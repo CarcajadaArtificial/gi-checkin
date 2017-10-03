@@ -1,0 +1,13 @@
+<main class="main2 flRow-aiCen-jcCen">
+  <div class="container2">
+    <h1>Boletos preregistrados: <%= @t_preregistered %> / <%= @t_total %></h1>
+    <table class="dash_table">
+      <% @conferences.each do |c| %>
+        <tr>
+          <td><%= c.conference_name %></td>
+          <td><strong> <%= c.tickets.count %> / <%= c.conference_capacity %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</main>
