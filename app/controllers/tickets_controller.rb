@@ -46,14 +46,14 @@ class TicketsController < ApplicationController
       #event = Event.find(current_user.event_id)
       event = Event.find(2)
       @reg = Ticket.search(ticket, nil, event)
-      puts @reg
     end
   end
 
   def register_conference
     if params[:paramT] != ""
       ticket = Ticket.where(:ticket_reference => params[:paramT]).first
-      conference = Conference.find(params[:paramsC])
+      @ticket = ticket
+      conference = Conference.find(5)
       #event = Event.find(current_user.event_id)
       event= Event.find(2)
       @conf = Ticket.search(ticket, conference, event)

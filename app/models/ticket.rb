@@ -24,9 +24,10 @@ class Ticket < ApplicationRecord
   def self.search(ticket, conference, event)
     if ticket
       if conference # Registro de conferencia
-        if ticket.registered
-          if ticket.conferences.exists?(conference)
+        if ticket.ticket_registered
+          if ticket.conferences.exists?(conference.id)
             #if conference.conference_attendance <= conference.conference_capacity
+              TicketConference.where(:ticket_id => ticket.id, :conference_id => conference.id).update(:TicketConference_assistance => true)
               @conf = 1 # Si puede entrar a esta conferencia
             #else
             #  @conf = 5 # La conferencia esta llena

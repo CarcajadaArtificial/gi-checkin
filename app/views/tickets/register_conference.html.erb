@@ -21,12 +21,12 @@
         <% if user_signed_in? %>
           <% @x = Conference.all %>
           <div class="flRow-aiCen-jcCen">
-            <%= select_tag params[:paramC],
+            <%= select_tag 'conferencia',
             options_for_select(@x.collect{ |u| [u.conference_name, u.id] }),
             {:include_blank => 'Selecciona una opción' } %>
           </div>
           <br>
-          <%= form_tag(register_tickets_path, :method => "get") do %>
+            <%= form_tag(register_conference_tickets_path, :method => "get") do %>
             <h2 class="subtitle">Folio</h2>
             <%= text_field_tag :paramT, params[:paramT], class:"input", autofocus: true %>
             <br>
@@ -38,9 +38,10 @@
       </div>
     </div>
     <% if @conf == 1 %>
-      <div class="flag negative">
-        <h2 class="subtitle negative">Sí puede entrar.</h2>
-      </div>
+      <div class="container">
+      <h2 > Nombre: <%= @ticket.ticket_name %>.</h2>
+      <h2> Email: <%= @ticket.ticket_email %></h2>
+    </div>
     <% elsif @conf == 2 %>
       <div class="flag negative">
         <h2 class="subtitle negative">No está registrado.</h2>
