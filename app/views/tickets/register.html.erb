@@ -14,7 +14,7 @@
         <br>
         <p>
           En este momento estás realizando el registro de la entrada al evento. Si deseas registrar la
-          entrada a una conferencia en particular, entonces entra 
+          entrada a una conferencia en particular, entonces entra
           <%= link_to "aquí", register_conference_tickets_path, class: "hyperlink"%>.
         </p>
         <br>
@@ -32,8 +32,8 @@
     </div>
     <% if @reg == 1 %>
       <div class="flag negative">
-        <h2 class="subtitle negative">Nombre: <%@ticket.ticket_name %>.</h2>
-        <h2 class="subtitle negative">Correo: <%@ticket.ticket_email %>.</h2>
+        <h2 class="subtitle negative">Nombre: <%=@ticket.ticket_name %>.</h2>
+        <h2 class="subtitle negative">Correo: <%=@ticket.ticket_email %>.</h2>
       </div>
     <% elsif @reg == 2 %>
       <div class="flag negative">
