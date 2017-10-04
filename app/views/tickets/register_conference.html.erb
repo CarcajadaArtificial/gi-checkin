@@ -1,0 +1,62 @@
+<%= render 'layouts/navbar' %>
+<main class="fRow-centerAround">
+  <div class="flRow-aiCen-jcBet absolute2">
+    <div class="fCol">
+      <div class="container">
+        <h1 class="title">Registro</h1>
+        <div class="f_tCenter">
+          <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "hyperlink") %>
+          <% else %>
+          <%= link_to('Login', new_user_session_path, class: "hyperlink") %>
+          <% end %>
+        </div>
+        <br>
+        <p>
+          En este momento estás realizando el registro de la entrada a una conferencia. Si deseas
+          registrar la entrada al evento, entonces entra
+          <%= link_to "aquí", register_path, class: "hyperlink"%>.
+        </p>
+        <br>
+        <% if user_signed_in? %>
+          <% @x = Conference.all %>
+          <div class="flRow-aiCen-jcCen">
+            <%= select_tag params[:paramC],
+            options_for_select(@x.collect{ |u| [u.conference_name, u.id] }),
+            {:include_blank => 'Selecciona una opción' } %>
+          </div>
+          <br>
+          <%= form_tag(register_tickets_path, :method => "get") do %>
+            <h2 class="subtitle">Folio</h2>
+            <%= text_field_tag :paramT, params[:paramT], class:"input", autofocus: true %>
+            <br>
+            <div class="f_tCenter">
+              <%= submit_tag "Buscar", :name => nil, class:"button_main" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <% if @conf == 1 %>
+      <div class="flag negative">
+        <h2 class="subtitle negative">Sí puede entrar.</h2>
+      </div>
+    <% elsif @conf == 2 %>
+      <div class="flag negative">
+        <h2 class="subtitle negative">No está registrado.</h2>
+      </div>
+    <% elsif @conf == 3 %>
+      <div class="flag negative">
+        <h2 class="subtitle negative">No existe.</h2>
+      </div>
+    <% elsif @conf == 4 %>
+      <div class="flag negative">
+        <h2 class="subtitle negative">No tiene acceso.</h2>
+      </div>
+    <% elsif @conf == 5 %>
+      <div class="flag negative">
+        <h2 class="subtitle negative">La conferencia está llena</h2>
+      </div>
+    <% end %>
+  </div>
+</main>
