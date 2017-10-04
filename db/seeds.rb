@@ -1,22 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# #
+# # Examples:
+# #
+# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# #   Character.create(name: 'Luke', movie: movies.first)
 #
-# Examples:
+# # require 'open-uri'
+# #
+# # open("db/cambios") do |codigos|
+# #   codigos.read.each_line do |data|
+# #     reference = data.chomp
+# #     puts reference
+# #     Ticket.where(:ticket_reference => reference).update(:ticket_ticketTypeId => 4)
+# #   end
+# # end
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-# require 'open-uri'
+# Event.create!(:event_name => "MKT Fest")
+# Event.create!(:event_name => "En Sus Marcas")
 #
-# open("db/cambios") do |codigos|
-#   codigos.read.each_line do |data|
-#     reference = data.chomp
-#     puts reference
-#     Ticket.where(:ticket_reference => reference).update(:ticket_ticketTypeId => 4)
-#   end
-# end
-
-
 # # Conferencias
 # Conference.create!(:conference_name => "Stand up de Chumel Torres (viernes 6 de oct - 8:00 pm)", :conference_capacity => 50)
 # Conference.create!(:conference_name => "Networking Night (miércoles 4 de oct - 7:00 pm)", :conference_capacity => 150)
@@ -55,3 +57,11 @@
 #
 #
 # Conference.create!(:conference_name => "Branding Deportivo Under Armour (miércoles 4 de oct. - 4:00 pm)", :conference_capacity => 250)
+#
+#
+# Ticket.create!(:ticket_reference => "abc1", :event_id => 2)
+# Ticket.create!(:ticket_reference => "abc2", :event_id => 2)
+# Ticket.create!(:ticket_reference => "abc3", :event_id => 2)
+# Ticket.create!(:ticket_reference => "abc4", :event_id => 2)
+# 
+# User.create!(:email => "oaguerrero.95@gmail.com", :password => "abc123", :password_confirmation => "abc123")

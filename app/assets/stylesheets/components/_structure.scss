@@ -16,6 +16,13 @@ main{
   max-height: 80vh;
 }
 
+.container2{
+  padding-top: 113px;
+  @include card2;
+  max-height: 80vh;
+  width: 80vw;
+}
+
 .flag{
   margin-top: 2.5rem;
   max-height: 10rem;
@@ -30,7 +37,16 @@ main{
   //max-height: 40px;
 }
 
-.asdf{
-  color: red;
-  font-family: cursive;
+.cell_large{
+  width: 60vw;
+}
+
+.cell_count{
+  width: 3rem;
+  background-color: #F0F0F0;
+  padding-left: 1rem;
+}
+
+.row:hover{
+  background-color: $grey;
 }

@@ -1,49 +1,89 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/navbar' %>
+<main class="main2 flRow-aiCen-jcCen">
+  <div class="absolute2">
+    <div class="container2 flCol">
+      <div class="table_cell">
+        <h2 class="subtitle">Events</h2>
+        <div class="flRow-aiCen-jcCen">
+          <table>
+            <% @e.each do |e| %>
+              <% @count = Ticket.where(:event_id => e.id).count %>
+              <tr>
+                <td class="cell_large"><%= e.event_name %></td>
+                <td class="cell_count"><%= @count %></td>
+                <td>
+                  <%= link_to edit_event_path(e) do %>
+                  <i class="material-icons">mode_edit</i>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to e, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="material-icons">clear</i>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+      <br>
 
-<h1>Tickets</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Ticket reference</th>
-      <th>Ticket tickettypeid</th>
-      <th>Ticket name</th>
-      <th>Ticket schoolid</th>
-      <th>Ticket email</th>
-      <th>Ticket sex</th>
-      <th>Ticket age</th>
-      <th>Ticket course</th>
-      <th>Ticket semester</th>
-      <th>Ticket other</th>
-      <th>Ticket badgenumber</th>
-      <th>Ticket registered</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <div class="table_cell">
+        <h2 class="subtitle">Conferences</h2>
+        <% @e.each do |e| %>
+        <% @c = Conference.where(:event_id => e.id) %>
+          <h3 class="event_title"><%= e.event_name %></h3>
+          <div class="flRow-aiCen-jcCen">
+            <table>
+              <% @c.each do |c| %>
+              <tr>
+                <td class="cell_large"><%= c.conference_name %></td>
+                <td>
+                  <%= link_to edit_event_path(c) do %>
+                  <i class="material-icons">mode_edit</i>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to c, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="material-icons">clear</i>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
+        <% end %>
+      </div>
+      <br>
 
-  <tbody>
-    <% @tickets.each do |ticket| %>
-      <tr>
-        <td><%= ticket.ticket_reference %></td>
-        <td><%= ticket.ticket_ticketTypeId %></td>
-        <td><%= ticket.ticket_name %></td>
-        <td><%= ticket.ticket_schoolId %></td>
-        <td><%= ticket.ticket_email %></td>
-        <td><%= ticket.ticket_sex %></td>
-        <td><%= ticket.ticket_age %></td>
-        <td><%= ticket.ticket_course %></td>
-        <td><%= ticket.ticket_semester %></td>
-        <td><%= ticket.ticket_other %></td>
-        <td><%= ticket.ticket_badgeNumber %></td>
-        <td><%= ticket.ticket_registered %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Ticket', new_ticket_path %>
+      <div class="table_cell">
+        <h2 class="subtitle">Tickets</h2>
+        <% @e.each do |e| %>
+        <% @t = Ticket.where(:event_id => e.id) %>
+          <h3 class="event_title"><%= e.event_name %></h3>
+          <div class="flRow-aiCen-jcCen">
+            <table>
+              <% @t.each do |t| %>
+              <tr>
+                <td class="cell_large"><%= t.ticket_reference %></td>
+                <td>
+                  <%= link_to edit_event_path(t) do %>
+                  <i class="material-icons">mode_edit</i>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to t, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="material-icons">clear</i>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

@@ -4,7 +4,9 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all
+    @t = Ticket.all
+    @c = Conference.all
+    @e = Event.all
   end
 
   # GET /tickets/1
@@ -31,8 +33,11 @@ class TicketsController < ApplicationController
     @ticket = Ticket.searchReference(params[:param_reference])
   end
 
-
   def register
+    @ticket = Ticket.searchBadge(params[:param_badge])
+  end
+
+  def register_conference
     @ticket = Ticket.searchBadge(params[:param_badge])
   end
 
