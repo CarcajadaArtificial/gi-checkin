@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   resources :tickets do
-    # get 'createBatch', :on => :collection
-    get 'preregister', :on => :collection, as: :preregister
-    get 'preregister2', :on => :collection, as: :preregister2
-    get 'register', :on => :collection, as: :register
-    get 'register_conference', :on => :collection, as: :register_conference
-    get 'confirmation', :on => :collection
+    get 'createBatch', :on => :collection
+    get 'preregister',          :on => :collection, as: :preregister
+    get 'preregister2',         :on => :collection, as: :preregister2
+    get 'register',             :on => :collection, as: :register
+    get 'register_conference',  :on => :collection, as: :register_conference
+    get 'confirmation',         :on => :collection
+    get 'esm_875678545678',     :on => :collection, as: :esm_dashboard
   end
   resources :conferences
   resources :ticket_types, except: [:index, :show, :new, :edit, :destroy]

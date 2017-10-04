@@ -14,6 +14,12 @@ class TicketsController < ApplicationController
   def show
   end
 
+  def esm_875678545678
+    @t_total = Ticket.where(:event_id => 2).count
+    @t_preregistered = Ticket.where(:ticket_preregistered => true, :event_id => 2).count
+    @conferences = Conference.where(:event_id => 2)
+  end
+
   # GET /tickets/new
   def new
     @ticket = Ticket.new
@@ -34,11 +40,23 @@ class TicketsController < ApplicationController
   end
 
   def register
-    @ticket = Ticket.searchBadge(params[:param_badge])
+    if params[:paramT] != ""
+      ticket = Ticket.where(:ticket_reference => params[:paramT]).first
+      @ticket = ticket
+      #event = Event.find(current_user.event_id)
+      event = Event.find(2)
+      @reg = Ticket.search(ticket, nil, event)
+    end
   end
 
   def register_conference
-    @ticket = Ticket.searchBadge(params[:param_badge])
+    if params[:paramT] != ""
+      ticket = Ticket.where(:ticket_reference => params[:paramT]).first
+      conference = Conference.find(params[:paramsC])
+      #event = Event.find(current_user.event_id)
+      event= Event.find(2)
+      @conf = Ticket.search(ticket, conference, event)
+    end
   end
 
   def confirmation

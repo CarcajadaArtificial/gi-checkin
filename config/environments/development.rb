@@ -31,15 +31,25 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  # address: 'mail.checkn.mx',
+  # #domain: 'mail.google.com',
+  # port:25,
+  # authentication: "plain",
+  # user_name:'no-reply@checkn.mx',
+  # password:'5hW-w5Ay'
+  # #enable_starttls_auto: true
+  # }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address: 'mail.checkn.mx',
-  #domain: 'mail.google.com',
-  port:25,
+  address: 'smtp.gmail.com',
+  domain: 'mail.google.com',
+  port:587,
   authentication: "plain",
-  user_name:'no-reply@checkn.mx',
-  password:'5hW-w5Ay'
-  #enable_starttls_auto: true
+  user_name:'checknmx@gmail.com',
+  password:'5hW-w5Ay',
+  enable_starttls_auto: true
   }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
