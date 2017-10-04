@@ -46,6 +46,7 @@ class TicketsController < ApplicationController
       #event = Event.find(current_user.event_id)
       event = Event.find(2)
       @reg = Ticket.search(ticket, nil, event)
+      puts @reg
     end
   end
 
