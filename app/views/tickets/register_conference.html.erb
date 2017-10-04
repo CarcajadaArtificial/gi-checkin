@@ -28,7 +28,7 @@
           <br>
             <%= form_tag(register_conference_tickets_path, :method => "get") do %>
             <h2 class="subtitle">Folio</h2>
-            <%= text_field_tag :paramT, params[:paramT], class:"input", autofocus: true %>
+            <%= text_field_tag :paramT, value = nil, class:"input", autofocus: true %>
             <br>
             <div class="f_tCenter">
               <%= submit_tag "Buscar", :name => nil, class:"button_main" %>

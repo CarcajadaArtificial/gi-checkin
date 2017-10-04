@@ -53,13 +53,13 @@ class TicketsController < ApplicationController
     if params[:paramT] != ""
       ticket = Ticket.where(:ticket_reference => params[:paramT]).first
       @ticket = ticket
-      conference = Conference.find(27) #AQUI PONER ID DE CONFERENCE
+      conference = Conference.find(2) #AQUI PONER ID DE CONFERENCE
       #event = Event.find(current_user.event_id)
       event= Event.find(2)
-      if conference.id == 27
+      if conference.id == 2
         if @ticket
-          TicketConference.create(:ticket_id => @ticket.id, :conference_id => 27, :TicketConference_assistance => true)
-          @conf =1
+          TicketConference.create(:ticket_id => @ticket.id, :conference_id => 2, :TicketConference_assistance => true)
+          @conf = 1
         end
       else
         @conf = Ticket.search(ticket, conference, event)
