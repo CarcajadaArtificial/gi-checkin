@@ -53,7 +53,7 @@ class TicketsController < ApplicationController
     if params[:paramT] != ""
       ticket = Ticket.where(:ticket_reference => params[:paramT]).first
       @ticket = ticket
-      conference = Conference.find(25) #AQUI PONER ID DE CONFERENCE
+      conference = Conference.find(24) #AQUI PONER ID DE CONFERENCE
       #event = Event.find(current_user.event_id)
       event= Event.find(2)
       @conf = Ticket.search(ticket, conference, event)
