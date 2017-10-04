@@ -32,7 +32,8 @@
     </div>
     <% if @reg == 1 %>
       <div class="flag negative">
-        <h2 class="subtitle negative">Está preregistrado.</h2>
+        <h2 class="subtitle negative">Nombre: <%@ticket.ticket_name %>.</h2>
+        <h2 class="subtitle negative">Correo: <%@ticket.ticket_email %>.</h2>
       </div>
     <% elsif @reg == 2 %>
       <div class="flag negative">

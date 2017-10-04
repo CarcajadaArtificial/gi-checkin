@@ -42,6 +42,7 @@ class Ticket < ApplicationRecord
       else # Registro de entrada
         if ticket.ticket_preregistered
           @reg = 1 # Esta preregistrado
+          ticket.ticket_registered = true
         else
           @reg = 2 # No esta preregistrado
         end
