@@ -59,12 +59,12 @@ class TicketsController < ApplicationController
       if conference && @ticket
 
         if @ticket.conferences.exists?(conference.id)
-          if TicketConference.where(:ticket_id => @ticket.id, :conference_id => params[:paramC]).TicketConference_assistance == true
+          if TicketConference.where(:ticket_id => @ticket.id, :conference_id => params[:paramC]).first.TicketConference_assistance == true
             #Nada
           else
             TicketConference.where(:ticket_id => @ticket.id, :conference_id => params[:paramC]).update(:TicketConference_assistance => true)
             conference.conference_attendance = conference.conference_attendance + 1
-            conference.save  
+            conference.save
           end
         else
           TicketConference.create(:ticket_id => @ticket.id, :conference_id => params[:paramC], :TicketConference_assistance => true)
