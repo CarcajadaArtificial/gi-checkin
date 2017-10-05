@@ -1,4 +1,4 @@
-ENV['RAILS_ENV'] = 'development'
+ENV['RAILS_ENV'] = 'production'
 arrTicketConference = TicketConference.order(:ticket_id)
 
 arrTicketConference.each_with_index do |c,i|
