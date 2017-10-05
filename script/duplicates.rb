@@ -1,6 +1,12 @@
-ENV['RAILS_ENV'] = 'production'
-ticketConferences = TicketConference.all
-ids_list = ticketConferences.pluck(:ticket_id)
-ids_list.uniq!
+ENV['RAILS_ENV'] = 'development'
+arrTicketConference = TicketConference.order(:ticket_id)
 
-TicketConference.exists?(:conference_id => randomRef, :ticket_id => ticket, :TicketConference_assistance => true))
+arrTicketConference.each_with_index do |c,i|
+  if c.TicketConference_assistance
+    TicketConference.where(:ticket_id => c.ticket_id, :conference_id => c.conference_id, :TicketConference_assistance => nil).delete_all
+  elsif i < arrTicketConference.count
+    if c.ticket_id == arrTicketConference[i+1].ticket_id
+      c.delete
+    end
+  end
+end
