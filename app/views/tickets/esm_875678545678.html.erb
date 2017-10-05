@@ -8,6 +8,13 @@
       </tr>
       <% @conferences.each do |c| %>
         <% if c.conference_attendance == nil %>
+          <% n = TicketConference.where(:conference_id => c.id, :TicketConference_assistance => true).count %>
+          <% if n > 0 %>
+            <tr>
+              <td><%= c.conference_name %></td>
+              <td><strong> <%= n %> / <%= c.tickets.count %> / <%= c.conference_capacity %></td>
+            </tr>
+          <% end %>
         <% else %>
           <tr>
             <td><%= c.conference_name %></td>
