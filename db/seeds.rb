@@ -57,8 +57,8 @@
 #
 #
 # Conference.create!(:conference_name => "Branding Deportivo Under Armour (miércoles 4 de oct. - 4:00 pm)", :conference_capacity => 250)
-#
-#
+# #
+# #
 # Ticket.create!(:ticket_reference => "abc1", :event_id => 2)
 # Ticket.create!(:ticket_reference => "abc2", :event_id => 2)
 # Ticket.create!(:ticket_reference => "abc3", :event_id => 2)

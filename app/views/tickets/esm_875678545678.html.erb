@@ -2,11 +2,18 @@
   <div class="container2">
     <h1>Boletos preregistrados: <%= @t_preregistered %> / <%= @t_total %></h1>
     <table class="dash_table">
+      <tr>
+        <td style="border: 0;"></td>
+        <td><strong>Registrados / Preregistrados / Capacidad</strong></td>
+      </tr>
       <% @conferences.each do |c| %>
-        <tr>
-          <td><%= c.conference_name %></td>
-          <td><strong> <%= c.tickets.count %> / <%= c.conference_capacity %></td>
-        </tr>
+        <% if c.conference_attendance == nil %>
+        <% else %>
+          <tr>
+            <td><%= c.conference_name %></td>
+            <td><strong> <%= c.conference_attendance %> / <%= c.tickets.count %> / <%= c.conference_capacity %></td>
+          </tr>
+        <% end %>
       <% end %>
     </table>
   </div>
