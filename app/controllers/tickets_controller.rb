@@ -57,15 +57,18 @@ class TicketsController < ApplicationController
       # event = Event.find(current_user.event_id)
       event = Event.find(1) # Cambiar a 2 para ESM
       if conference && @ticket
+        if TicketConference.where(:ticket_id => @ticket.id, :conference_id => params[:paramC]).first != nil
 
-        if TicketConference.where(:ticket_id => @ticket.id, :conference_id => params[:paramC]).first.TicketConference_assistance
-        else
-          if conference.conference_attendance == nil
-            conference.conference_attendance = 1
+          if TicketConference.where(:ticket_id => @ticket.id, :conference_id => params[:paramC]).first.TicketConference_assistance
           else
-            conference.conference_attendance = conference.conference_attendance + 1
+            if conference.conference_attendance == nil
+              conference.conference_attendance = 1
+            else
+              conference.conference_attendance = conference.conference_attendance + 1
+            end
+            conference.save
           end
-          conference.save
+
         end
 
         if @ticket.conferences.exists?(conference.id)
