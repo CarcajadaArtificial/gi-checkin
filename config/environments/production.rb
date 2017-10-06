@@ -68,7 +68,7 @@ Rails.application.configure do
   port:587,
   authentication: "plain",
   user_name:'checknmx@gmail.com',
-  password:'5hW-w5Ay',
+  password:'5hW-w5Ay1',
   enable_starttls_auto: true
   }
   # Ignore bad email addresses and do not raise email delivery errors.
