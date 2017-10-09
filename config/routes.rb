@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :tickets do
-    get 'createBatch', :on => :collection
+#    get 'createBatch',          :on => :collection
     get 'preregister',          :on => :collection, as: :preregister
     get 'preregister2',         :on => :collection, as: :preregister2
     get 'register',             :on => :collection, as: :register

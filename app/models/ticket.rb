@@ -13,7 +13,7 @@ class Ticket < ApplicationRecord
         randomRef = randomRef.upcase
         if !(Ticket.exists?(:ticket_reference => randomRef))
           ff = 3
-          Ticket.create(:ticket_reference => randomRef, :ticket_ticketTypeId => typeId, :event_id => 3)
+          Ticket.create(:ticket_reference => randomRef, :ticket_ticketTypeId => typeId, :event_id => 4)
         else
 
         end
