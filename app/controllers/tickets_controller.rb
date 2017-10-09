@@ -44,15 +44,15 @@ class TicketsController < ApplicationController
     if Ticket.where(:ticket_conference1 => 3).count < 79 then @jueves.push(['Trends: Levadura', '3']) end
     if Ticket.where(:ticket_conference1 => 4).count < 69 then @jueves.push(['Trends: Huntmuse', '4']) end
     if Ticket.where(:ticket_conference1 => 5).count < 34 then @jueves.push(['Sports: Athlete Booster', '5']) end
-    if Ticket.where(:ticket_conference1 => 6).count < 139 then @jueves.push(['Entertainment: Inspiral', '6']) end
     if Ticket.where(:ticket_conference1 => 15).count < 34 then @jueves.push(['Sports: CEMEX - Tigres', '15']) end
     if Ticket.where(:ticket_conference1 => 16).count < 64 then @jueves.push(['Sports: Insane Workout Center', '16']) end
+    if Ticket.where(:ticket_conference1 => 6).count < 139 then @jueves.push(['Entertainment: Inspiral', '6']) end
     @jueves.push(['No voy a asistir', '14'])
     if Ticket.where(:ticket_conference2 => 7).count < 87 then @viernes.push(['Fashion: Polanna / Givehope', '7']) end
     if Ticket.where(:ticket_conference2 => 8).count < 199 then @viernes.push(['Fashion: Instituto di Moda Burgo', '8']) end
     if Ticket.where(:ticket_conference2 => 9).count < 179 then @viernes.push(['Trends: Ana Tere Canales', '9']) end
     if Ticket.where(:ticket_conference2 => 10).count < 179 then @viernes.push(['Trends: Taste n Tell', '10']) end
-    if Ticket.where(:ticket_conference2 => 11).count < 199 then @viernes.push(['Sports: Abierto GNP Seguros', '11']) end
+    if Ticket.where(:ticket_conference2 => 11).count < 34 then @viernes.push(['Sports: Abierto GNP Seguros', '11']) end
     if Ticket.where(:ticket_conference2 => 12).count < 87 then @viernes.push(['Entertainment: La Sociedad', '12']) end
     if Ticket.where(:ticket_conference2 => 13).count < 87 then @viernes.push(['Entertainment: Nebulosa', '13']) end
     @viernes.push(['No voy a asistir', '14'])
