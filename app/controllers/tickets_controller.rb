@@ -39,7 +39,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.searchReference(params[:param_reference])
     @jueves  = []
     @viernes = []
-    if Ticket.where(:ticket_conference1 => 1).count < 199 then @jueves.push(['Fashion: Andy Benavides', '1']) end
+#CERRADO 10/11    if Ticket.where(:ticket_conference1 => 1).count < 199 then @jueves.push(['Fashion: Andy Benavides', '1']) end
     if Ticket.where(:ticket_conference1 => 2).count < 34 then @jueves.push(['Fashion: CEDIM', '2']) end
     if Ticket.where(:ticket_conference1 => 3).count < 79 then @jueves.push(['Trends: Levadura', '3']) end
     if Ticket.where(:ticket_conference1 => 4).count < 69 then @jueves.push(['Trends: Huntmuse', '4']) end
@@ -48,13 +48,13 @@ class TicketsController < ApplicationController
     if Ticket.where(:ticket_conference1 => 16).count < 64 then @jueves.push(['Sports: Insane Workout Center', '16']) end
     if Ticket.where(:ticket_conference1 => 6).count < 139 then @jueves.push(['Entertainment: Inspiral', '6']) end
     @jueves.push(['No voy a asistir', '14'])
-    if Ticket.where(:ticket_conference2 => 7).count < 59 then @viernes.push(['Fashion: Polanna / Givehope', '7']) end
+    if Ticket.where(:ticket_conference2 => 7).count < 74 then @viernes.push(['Fashion: Polanna / Givehope', '7']) end
     if Ticket.where(:ticket_conference2 => 8).count < 159 then @viernes.push(['Fashion: Instituto di Moda Burgo', '8']) end
     if Ticket.where(:ticket_conference2 => 9).count < 79 then @viernes.push(['Trends: Ana Tere Canales', '9']) end
-    if Ticket.where(:ticket_conference2 => 10).count < 109 then @viernes.push(['Trends: Taste n Tell', '10']) end
-    if Ticket.where(:ticket_conference2 => 11).count < 34 then @viernes.push(['Sports: Abierto GNP Seguros', '11']) end
+    if Ticket.where(:ticket_conference2 => 10).count < 114 then @viernes.push(['Trends: Taste n Tell', '10']) end
+    if Ticket.where(:ticket_conference2 => 11).count < 79 then @viernes.push(['Sports: Abierto GNP Seguros', '11']) end
     if Ticket.where(:ticket_conference2 => 12).count < 69 then @viernes.push(['Entertainment: La Sociedad', '12']) end
-    if Ticket.where(:ticket_conference2 => 13).count < 69 then @viernes.push(['Entertainment: Nebulosa', '13']) end
+    if Ticket.where(:ticket_conference2 => 13).count < 79 then @viernes.push(['Entertainment: Nebulosa', '13']) end
     @viernes.push(['No voy a asistir', '14'])
   end
 
