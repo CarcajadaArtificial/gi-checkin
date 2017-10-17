@@ -1,0 +1,94 @@
+<%= form_for(ticket) do |f| %>
+  <% if ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+
+      <ul>
+      <% ticket.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container_form">
+    <%= f.check_box :ticket_preregistered, checked: true, class:"hidden"%>
+    <div class="incluye">
+      <%if @ticket.ticket_ticketTypeId == 11 || @ticket.ticket_ticketTypeId == 12%>
+      <strong>Tu boleto incluye:</strong>
+      <ul>
+        <li>Acceso a tocas las conferencias</li>
+        <li>2 talleres</li>
+        <li>1 visita</li>
+        <li><strong>Kit IMPULSO</strong></li>
+      </ul>
+      <% elsif ticket.ticket_ticketTypeId == 13 %>
+      <strong>Tu boleto incluye:</strong>
+      <ul>
+        <li>Acceso a tocas las conferencias</li>
+        <li>2 talleres</li>
+      </ul>
+      <% end %>
+    </div>
+      <h2 class="form_subtitle">Paso 1: Selecciona tus actividades.</h2>
+      <div class="combo_fieldLabel fRow_endEnd">
+        <p>Taller 1</p>
+        <%= f.select :ticket_conference1, @talleres, :include_blank =>  'Selecciona una opción' %>
+      </div>
+      <div class="combofieldLabel fRow_endEnd">
+        <p>Taller 2</p>
+        <%= f.select :ticket_conference2, @talleres, :include_blank =>  'Selecciona una opción' %>
+      </div>
+      <%if @ticket.ticket_ticketTypeId == 11 || @ticket.ticket_ticketTypeId == 12%>
+      <div class="combo_fieldLabel fRow_endEnd">
+       <p>Visita</p>
+       <%= f.select :ticket_other, @visitas, :include_blank =>  'Selecciona una opción' %>
+      </div>
+      <%end%>
+
+      <h2 class="form_subtitle">Paso 2: Llena tu información personal.</h2>
+
+    <p class="caption">Campos requeridos <span class="required">*</span></p>
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Nombre completo <span class="required">*</span></p>
+      <%= f.text_field :ticket_name, class:"input", :required => true %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Correo electrónico <span class="required">*</span></p>
+      <%= f.text_field :ticket_email, class:"input", :required => true %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Matrícula</p>
+      <%= f.text_field :ticket_schoolId, class:"input" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Sexo</p>
+      <%= f.select :ticket_sex, options_for_select([
+        ['Masculino', 'm'],
+        ['Femenino', 'f'],
+        ['Prefiero no especificar', 'x']]), {prompt: 'Selecciona una opción'} %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Edad</p>
+      <%= f.number_field :ticket_age, class:"input" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Carrera</p>
+      <%= f.text_field :ticket_course, class:"input" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Semestre</p>
+      <%= f.text_field :ticket_semester, class:"input" %>
+    </div>
+  </div>
+
+  <div class="f_tCenter">
+    <%= f.submit "Enviar", class:"button_main2" %>
+  </div>
+<% end %>

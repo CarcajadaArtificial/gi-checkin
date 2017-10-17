@@ -54,8 +54,8 @@ class Ticket < ApplicationRecord
   end
 
 
-  def self.searchReference(param_reference)
-    self.where(:ticket_reference => param_reference).first
+  def self.searchReference(param_reference,param_event)
+    self.where(:ticket_reference => param_reference,:event_id => param_event).first
   end
 
 end

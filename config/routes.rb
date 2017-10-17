@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 #    get 'createBatch',          :on => :collection
     get 'preregister',          :on => :collection, as: :preregister
     get 'preregister2',         :on => :collection, as: :preregister2
+    get 'impulso',              :on => :collection, as: :impulso
+    get 'edifica',              :on => :collection, as: :edifica
     get 'register',             :on => :collection, as: :register
     get 'register_conference',  :on => :collection, as: :register_conference
     get 'confirmation',         :on => :collection

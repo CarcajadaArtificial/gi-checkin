@@ -31,31 +31,110 @@ class TicketsController < ApplicationController
    end
   end
 
-  def preregister2
-    @ticket = Ticket.searchReference(params[:param_reference])
-  end
-
   def preregister
-    @ticket = Ticket.searchReference(params[:param_reference])
+    @ticket = Ticket.searchReference(params[:param_reference],1)
     @jueves  = []
     @viernes = []
 #CERRADO 10/11    if Ticket.where(:ticket_conference1 => 1).count < 199 then @jueves.push(['Fashion: Andy Benavides', '1']) end
-    if Ticket.where(:ticket_conference1 => 2).count < 34 then @jueves.push(['Fashion: CEDIM', '2']) end
-    if Ticket.where(:ticket_conference1 => 3).count < 79 then @jueves.push(['Trends: Levadura', '3']) end
-    if Ticket.where(:ticket_conference1 => 4).count < 69 then @jueves.push(['Trends: Huntmuse', '4']) end
-    if Ticket.where(:ticket_conference1 => 5).count < 34 then @jueves.push(['Sports: Athlete Booster', '5']) end
-    if Ticket.where(:ticket_conference1 => 15).count < 34 then @jueves.push(['Sports: CEMEX - Tigres', '15']) end
-    if Ticket.where(:ticket_conference1 => 16).count < 64 then @jueves.push(['Sports: Insane Workout Center', '16']) end
-    if Ticket.where(:ticket_conference1 => 6).count < 139 then @jueves.push(['Entertainment: Inspiral', '6']) end
+    if Ticket.where(:ticket_conference1 => 2, :event_id => 1).count < 34 then @jueves.push(['Fashion: CEDIM', '2']) end
+    if Ticket.where(:ticket_conference1 => 3, :event_id => 1).count < 79 then @jueves.push(['Trends: Levadura', '3']) end
+    if Ticket.where(:ticket_conference1 => 4, :event_id => 1).count < 69 then @jueves.push(['Trends: Huntmuse', '4']) end
+    if Ticket.where(:ticket_conference1 => 5, :event_id => 1).count < 34 then @jueves.push(['Sports: Athlete Booster', '5']) end
+    if Ticket.where(:ticket_conference1 => 15, :event_id => 1).count < 34 then @jueves.push(['Sports: CEMEX - Tigres', '15']) end
+    if Ticket.where(:ticket_conference1 => 16, :event_id => 1).count < 64 then @jueves.push(['Sports: Insane Workout Center', '16']) end
+    if Ticket.where(:ticket_conference1 => 6, :event_id => 1).count < 139 then @jueves.push(['Entertainment: Inspiral', '6']) end
     @jueves.push(['No voy a asistir', '14'])
-    if Ticket.where(:ticket_conference2 => 7).count < 74 then @viernes.push(['Fashion: Polanna / Givehope', '7']) end
-    if Ticket.where(:ticket_conference2 => 8).count < 159 then @viernes.push(['Fashion: Instituto di Moda Burgo', '8']) end
-    if Ticket.where(:ticket_conference2 => 9).count < 79 then @viernes.push(['Trends: Ana Tere Canales', '9']) end
-    if Ticket.where(:ticket_conference2 => 10).count < 114 then @viernes.push(['Trends: Taste n Tell', '10']) end
-    if Ticket.where(:ticket_conference2 => 11).count < 79 then @viernes.push(['Sports: Abierto GNP Seguros', '11']) end
-    if Ticket.where(:ticket_conference2 => 12).count < 69 then @viernes.push(['Entertainment: La Sociedad', '12']) end
-    if Ticket.where(:ticket_conference2 => 13).count < 79 then @viernes.push(['Entertainment: Nebulosa', '13']) end
+    if Ticket.where(:ticket_conference2 => 7, :event_id => 1).count < 74 then @viernes.push(['Fashion: Polanna / Givehope', '7']) end
+    if Ticket.where(:ticket_conference2 => 8, :event_id => 1).count < 159 then @viernes.push(['Fashion: Instituto di Moda Burgo', '8']) end
+    if Ticket.where(:ticket_conference2 => 9, :event_id => 1).count < 79 then @viernes.push(['Trends: Ana Tere Canales', '9']) end
+    if Ticket.where(:ticket_conference2 => 10, :event_id => 1).count < 114 then @viernes.push(['Trends: Taste n Tell', '10']) end
+    if Ticket.where(:ticket_conference2 => 11, :event_id => 1).count < 79 then @viernes.push(['Sports: Abierto GNP Seguros', '11']) end
+    if Ticket.where(:ticket_conference2 => 12, :event_id => 1).count < 69 then @viernes.push(['Entertainment: La Sociedad', '12']) end
+    if Ticket.where(:ticket_conference2 => 13, :event_id => 1).count < 79 then @viernes.push(['Entertainment: Nebulosa', '13']) end
     @viernes.push(['No voy a asistir', '14'])
+  end
+
+  def preregister2
+    @ticket = Ticket.searchReference(params[:param_reference],2)
+  end
+
+  def impulso
+    event = 3
+    @ticket = Ticket.searchReference(params[:param_reference],event)
+    @talleres  = []
+    @visitas = []
+    if (Ticket.where(:ticket_conference1 => 1, :event_id => event).count + Ticket.where(:ticket_conference2 => 1, :event_id => event).count) < 15 then
+       @talleres.push(['Jueves 9:30-11:30 - FEM ALFR', '1']) end
+    if (Ticket.where(:ticket_conference1 => 2, :event_id => event).count + Ticket.where(:ticket_conference2 => 2, :event_id => event).count) < 9 then
+       @talleres.push(['Jueves 11:00-12:30 - FLOW', '2']) end
+    if (Ticket.where(:ticket_conference1 => 3, :event_id => event).count + Ticket.where(:ticket_conference2 => 3, :event_id => event).count) < 15 then
+       @talleres.push(['Jueves 11:30-13:30 - Solid LAILA', '3']) end
+    if (Ticket.where(:ticket_conference1 => 4, :event_id => event).count + Ticket.where(:ticket_conference2 => 4, :event_id => event).count) < 9 then
+       @talleres.push(['Jueves 13:30-15:00 - CNC', '4']) end
+    if (Ticket.where(:ticket_conference1 => 5, :event_id => event).count + Ticket.where(:ticket_conference2 => 5, :event_id => event).count) < 15 then
+       @talleres.push(['Jueves 13:30-15:00 - Nx', '5']) end
+    if (Ticket.where(:ticket_conference1 => 6, :event_id => event).count + Ticket.where(:ticket_conference2 => 6, :event_id => event).count) < 15 then
+       @talleres.push(['Jueves 15:00-17:30 - Nx Lizz', '6']) end
+    if (Ticket.where(:ticket_conference1 => 7, :event_id => event).count + Ticket.where(:ticket_conference2 => 7, :event_id => event).count) < 9 then
+       @talleres.push(['Jueves 17:30-18:30 - Tratamientos térmicos', '7']) end
+    if (Ticket.where(:ticket_conference1 => 8, :event_id => event).count + Ticket.where(:ticket_conference2 => 8, :event_id => event).count) < 9 then
+       @talleres.push(['Jueves 17:30-18:30 - Pruebas de tensión', '8']) end
+    if (Ticket.where(:ticket_conference1 => 9, :event_id => event).count + Ticket.where(:ticket_conference2 => 9, :event_id => event).count) < 15 then
+       @talleres.push(['Viernes 9:30-11:30 - Dibujo computarizado con Solid Works', '9']) end
+    if (Ticket.where(:ticket_conference1 => 10, :event_id => event).count + Ticket.where(:ticket_conference2 => 10, :event_id => event).count) < 15 then
+       @talleres.push(['Viernes 11:30-13:30 - Dibujo computarizado con NX', '10']) end
+    if (Ticket.where(:ticket_conference1 => 11, :event_id => event).count + Ticket.where(:ticket_conference2 => 11, :event_id => event).count) < 19 then
+       @talleres.push(['Viernes 14:00-13:00 - Impresión 3D', '11']) end
+    if (Ticket.where(:ticket_conference1 => 12, :event_id => event).count + Ticket.where(:ticket_conference2 => 12, :event_id => event).count) < 9 then
+       @talleres.push(['Viernes 13:30-15:00 - FLOW', '12']) end
+    if (Ticket.where(:ticket_conference1 => 13, :event_id => event).count + Ticket.where(:ticket_conference2 => 13, :event_id => event).count) < 9 then
+       @talleres.push(['Viernes 13:00-13:00 - Tratamientos térmicos', '13']) end
+    if (Ticket.where(:ticket_conference1 => 14, :event_id => event).count + Ticket.where(:ticket_conference2 => 14, :event_id => event).count) < 9 then
+       @talleres.push(['Viernes 14:00-15:30 - CNC', '14']) end
+    if (Ticket.where(:ticket_conference1 => 15, :event_id => event).count + Ticket.where(:ticket_conference2 => 15, :event_id => event).count) < 19 then
+       @talleres.push(['Viernes 13:30-15:00 - Prototipado', '15']) end
+    if (Ticket.where(:ticket_conference1 => 16, :event_id => event).count + Ticket.where(:ticket_conference2 => 16, :event_id => event).count) < 15 then
+       @talleres.push(['Viernes 15:00-17:00 - Solid ALFR', '16']) end
+    if (Ticket.where(:ticket_conference1 => 17, :event_id => event).count + Ticket.where(:ticket_conference2 => 17, :event_id => event).count) < 15 then
+       @talleres.push(['Viernes 17:00-19:30 - FEM ALFR', '17']) end
+
+    if Ticket.where(:ticket_other => 18, :event_id => event).count < 49 then @visitas.push(['Jueves 12:00 pm - COCA-COLA', '18']) end
+    if Ticket.where(:ticket_other => 19, :event_id => event).count < 24 then @visitas.push(['Jueves 12:00 pm - Ternium México', '19']) end
+    if Ticket.where(:ticket_other => 20, :event_id => event).count < 34 then @visitas.push(['Jueves 10:00 am - Next Energy', '20']) end
+    if Ticket.where(:ticket_other => 21, :event_id => event).count < 24 then @visitas.push(['Jueves 10:00 am - Villacero', '21']) end
+    if Ticket.where(:ticket_other => 22, :event_id => event).count < 39 then @visitas.push(['Jueves 10:00 am - VIAKON Conductores Eléctricos', '22']) end
+    if Ticket.where(:ticket_other => 23, :event_id => event).count < 39 then @visitas.push(['Jueves 3:00 pm - VIAKON Conductores Eléctricos', '23']) end
+    if Ticket.where(:ticket_other => 24, :event_id => event).count < 14 then @visitas.push(['Viernes 9:00 am - FRISA', '24']) end
+    if Ticket.where(:ticket_other => 25, :event_id => event).count < 39 then @visitas.push(['Viernes 10:00 am - Industrias John Deere', '25']) end
+    if Ticket.where(:ticket_other => 26, :event_id => event).count < 29 then @visitas.push(['Viernes 10:00 am - Vitro', '26']) end
+    if Ticket.where(:ticket_other => 27, :event_id => event).count < 14 then @visitas.push(['Viernes 11:00 am - Ingersoll Rand', '27']) end
+    if Ticket.where(:ticket_other => 28, :event_id => event).count < 34 then @visitas.push(['Viernes 1:00 pm - Cervecería Cuauhtémoc', '28']) end
+    if Ticket.where(:ticket_other => 29, :event_id => event).count < 34 then @visitas.push(['Viernes 2:00 pm - Cervecería Cuauhtémoc', '29']) end
+  end
+
+  def edifica
+    event = 4
+    @ticket = Ticket.searchReference(params[:param_reference],event)
+    @jueves  = []
+    @viernes = []
+    @sabado = []
+    if Ticket.where(:ticket_conference1 => 1, :event_id => event).count < 34 then @jueves.push(['Visita: Punto Valle 5:00 pm', '1']) end
+    if Ticket.where(:ticket_conference1 => 2, :event_id => event).count < 34 then @jueves.push(['Visita: Arboleda 5:30 pm', '2']) end
+    if Ticket.where(:ticket_conference1 => 3, :event_id => event).count < 34 then @jueves.push(['Visita: Torre Céntrika Elite 5:30 pm', '3']) end
+    if Ticket.where(:ticket_conference1 => 4, :event_id => event).count < 34 then @jueves.push(['Taller: Three: Certificacion Leed y Sustentabilidad 4:30 pm', '4']) end
+    if Ticket.where(:ticket_conference1 => 5, :event_id => event).count < 34 then @jueves.push(['Taller: NAPEI: Refuerzo y reestructuración de elementos de concreto 4:30 pm', '5']) end
+    if Ticket.where(:ticket_conference1 => 6, :event_id => event).count < 24 then @jueves.push(['Taller: Sketchup 4:30 pm', '6']) end
+    if Ticket.where(:ticket_conference1 => 7, :event_id => event).count < 29 then @jueves.push(['Taller: Excel Avanzado 4:30 pm', '7']) end
+    if Ticket.where(:ticket_conference1 => 8, :event_id => event).count < 34 then @jueves.push(['Taller: Ecocreto 4:30 pm', '8']) end
+
+    if Ticket.where(:ticket_conference2 => 9, :event_id => event).count < 34 then @viernes.push(['Visita: Condotec 4:45 pm', '9']) end
+    if Ticket.where(:ticket_conference2 => 10, :event_id => event).count < 34 then @viernes.push(['Visita: Punto Valle 5:00 pm', '10']) end
+    if Ticket.where(:ticket_conference2 => 11, :event_id => event).count < 34 then @viernes.push(['Visita: Arboleda 5:30 pm', '11']) end
+    if Ticket.where(:ticket_conference2 => 12, :event_id => event).count < 24 then @viernes.push(['Taller: Vray 4:30 pm', '12']) end
+    if Ticket.where(:ticket_conference2 => 13, :event_id => event).count < 34 then @viernes.push(['Taller: BIM 4:30 pm', '13']) end
+
+    if Ticket.where(:ticket_other => 14, :event_id => event).count < 34 then @sabado.push(['Visita: Tulé 9:00 am', '14']) end
+
   end
 
   def register

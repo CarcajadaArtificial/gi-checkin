@@ -6,6 +6,35 @@
 # #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 # #   Character.create(name: 'Luke', movie: movies.first)
 #
+open("db/codigos") do |codigos|
+   codigos.read.each_line do |data|
+     codigo= data
+     Ticket.create!(:ticket_reference => codigo,:ticket_ticketTypeId => 21, :event_id => 4)
+   end
+end
+Ticket.create!(:ticket_university => "prueba", :ticket_reference => "IMPULSO1",:ticket_ticketTypeId => 11, :event_id => 3)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "IMPULSO2",:ticket_ticketTypeId => 11, :event_id => 3)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "IMPULSO3",:ticket_ticketTypeId => 11, :event_id => 3)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "IMPULSO4",:ticket_ticketTypeId => 12, :event_id => 3)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "IMPULSO5",:ticket_ticketTypeId => 12, :event_id => 3)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "IMPULSO6",:ticket_ticketTypeId => 12, :event_id => 3)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "IMPULSO7",:ticket_ticketTypeId => 12, :event_id => 3)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "IMPULSO8",:ticket_ticketTypeId => 13, :event_id => 3)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "IMPULSO9",:ticket_ticketTypeId => 13, :event_id => 3)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "IMPULSO10",:ticket_ticketTypeId => 13, :event_id => 3)
+
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "EDIFICA1",:ticket_ticketTypeId => 21, :event_id => 4)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "EDIFICA2",:ticket_ticketTypeId => 21, :event_id => 4)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "EDIFICA3",:ticket_ticketTypeId => 21, :event_id => 4)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "EDIFICA4",:ticket_ticketTypeId => 21, :event_id => 4)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "EDIFICA5",:ticket_ticketTypeId => 21, :event_id => 4)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "EDIFICA6",:ticket_ticketTypeId => 21, :event_id => 4)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "EDIFICA7",:ticket_ticketTypeId => 21, :event_id => 4)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "EDIFICA8",:ticket_ticketTypeId => 21, :event_id => 4)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "EDIFICA9",:ticket_ticketTypeId => 21, :event_id => 4)
+Ticket.create!(:ticket_university => "prueba",:ticket_reference => "EDIFICA10",:ticket_ticketTypeId => 21, :event_id => 4)
+
+
 # # require 'open-uri'
 # #
 # # open("db/cambios") do |codigos|
