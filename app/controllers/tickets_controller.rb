@@ -36,7 +36,7 @@ class TicketsController < ApplicationController
     @jueves  = []
     @viernes = []
 #CERRADO 10/11    if Ticket.where(:ticket_conference1 => 1).count < 199 then @jueves.push(['Fashion: Andy Benavides', '1']) end
-    if Ticket.where(:ticket_conference1 => 2, :event_id => 1).count < 34 then @jueves.push(['Fashion: CEDIM', '2']) end
+    if Ticket.where(:ticket_conference1 => 2, :event_id => 1).count < 34 then @jueves.push(['Fashion: LCI Monterrey', '2']) end
     if Ticket.where(:ticket_conference1 => 3, :event_id => 1).count < 79 then @jueves.push(['Trends: Levadura', '3']) end
     if Ticket.where(:ticket_conference1 => 4, :event_id => 1).count < 69 then @jueves.push(['Trends: Huntmuse', '4']) end
     if Ticket.where(:ticket_conference1 => 5, :event_id => 1).count < 34 then @jueves.push(['Sports: Athlete Booster', '5']) end
