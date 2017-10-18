@@ -14,7 +14,7 @@
   <div class="container_form">
     <%= f.check_box :ticket_preregistered, checked: true, class:"hidden"%>
     <div class="incluye">
-      <%if @ticket.ticket_ticketTypeId == 11 || @ticket.ticket_ticketTypeId == 12%>
+      <%if @ticket.ticket_ticketTypeId == 13 %>
       <strong>Tu boleto incluye:</strong>
       <ul>
         <li>Acceso a todas las conferencias</li>
@@ -22,7 +22,7 @@
         <li>1 visita</li>
         <li><strong>Kit IMPULSO</strong></li>
       </ul>
-      <% elsif ticket.ticket_ticketTypeId == 13 %>
+      <% elsif ticket.ticket_ticketTypeId == 12 %>
       <strong>Tu boleto incluye:</strong>
       <ul>
         <li>Acceso a tocas las conferencias</li>
@@ -41,7 +41,7 @@
         <p>Taller 2</p>
         <%= f.select :ticket_conference2, @talleres, :include_blank =>  'Selecciona una opción' %>
       </div>
-      <%if @ticket.ticket_ticketTypeId == 11 || @ticket.ticket_ticketTypeId == 12%>
+      <%if @ticket.ticket_ticketTypeId == 13%>
       <div class="combo_fieldLabel fRow_endEnd">
        <p>Visita</p>
        <%= f.select :ticket_other, @visitas, :include_blank =>  'Selecciona una opción' %>
@@ -65,7 +65,7 @@
       <p>Universidad</p>
       <%= f.text_field :ticket_university, class:"input" %>
     </div>
-    
+
     <div class="combo_fieldLabel fRow_endEnd">
       <p>Matrícula</p>
       <%= f.text_field :ticket_schoolId, class:"input" %>
