@@ -14,9 +14,9 @@ class TicketMailer < ApplicationMailer
     elsif @ticket.event.id == 2
       attachments.inline["logo_event.png"] = File.read("#{Rails.root}/app/assets/images/esm.png")
     elsif @ticket.event.id == 3
-      attachments.inline["logo_event.png"] = File.read("#{Rails.root}/app/assets/images/impulso.jpg")
+      attachments.inline["logo_event.png"] = File.read("#{Rails.root}/app/assets/images/impulso.png")
     elsif @ticket.event.id == 4
-      attachments.inline["logo_event.png"] = File.read("#{Rails.root}/app/assets/images/edifica.jpg")
+      attachments.inline["logo_event.png"] = File.read("#{Rails.root}/app/assets/images/edifica.png")
     end
     attachments.inline["logo2.png"] = File.read("#{Rails.root}/app/assets/images/logo2.png")
 
