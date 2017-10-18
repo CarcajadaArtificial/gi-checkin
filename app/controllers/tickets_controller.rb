@@ -143,7 +143,7 @@ class TicketsController < ApplicationController
       ticket = Ticket.where(:ticket_reference => params[:paramT]).first
       @ticket = ticket
       #event = Event.find(current_user.event_id)
-      event = Event.find(2)
+      event = Event.find(1)
       @reg = Ticket.search(ticket, nil, event)
     end
   end

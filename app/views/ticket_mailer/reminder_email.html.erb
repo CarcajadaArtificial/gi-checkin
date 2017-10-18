@@ -1,0 +1,119 @@
+<head>
+  <style>
+    table{
+      background-image: linear-gradient(-134deg, #FFD823 0%, #F96EF5 100%);
+      padding: 30px;
+    }
+    tr{
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+    td{
+      width: 500px;
+    }
+    .image > img{
+      width: 400px;
+    }
+    .image2 > img{
+      width: 300px;
+    }
+
+    p{
+      font-size: 1.25em;
+      padding: 0 40px;
+    }
+
+    @media only screen and (max-width: 400px) {
+      p{
+        font-size: 1.75em;
+      }
+    }
+
+  </style>
+</head>
+<div style="width: 100%;">
+  <table>
+    <tr>
+      <td>
+        <h1 style="color: #2F2F2F; font-size: 44px; text-align: center; font-family: sans-serif;">
+          ¡Hola <%= @ticket.ticket_name.split.first%>!
+        </h1>
+        <h2 style="color: #2F2F2F; font-size: 28px; text-align: center; font-family: sans-serif;">
+    ¡Te recordamos que mañana es <%= @ticket.event.event_name%>!
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="image2" align="center">
+          <%= image_tag(attachments['logo_event.png'].url) %>
+          <!-- <%= image_tag attachments['logo_event.png'].url %> -->
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <% if @ticket.event.id == 1 %>
+        <p style="text-align: center;">
+          Cualquier duda previa al evento puedes contactarnos a <strong>info@marketingfest.mx</strong>. Te
+          esperamos mañana en el Tec de Monterrey, Campus Monterrey.
+        </p>
+        <% elsif @ticket.event.id == 2 %>
+        <p style="text-align: center;">
+          Te esperamos mañana en el Tec de Monterrey, Campus Monterrey.
+        </p>
+        <% elsif @ticket.event.id == 3 %>
+        <p style="text-align: center;">
+          Te esperamos mañana en el Tec de Monterrey, Campus Monterrey.
+        </p>
+        <% elsif @ticket.event.id == 4 %>
+        <p style="text-align: center;">
+          Te esperamos mañana en el Tec de Monterrey, Campus Monterrey.
+        </p>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">
+          <%= image_tag(attachments['barcode.png'].url) %>
+          <!-- <%= image_tag attachments['barcode.png'].url %> -->
+          <h2> <%= @ticket.ticket_reference%></h2>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p style="text-align: center;">
+          No olvides presentar este boleto para registrarte.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="">
+          <p style="text-align: center;">
+            Aqui estan los talleres a los que te inscribiste:
+          </p>
+          <br>
+          <p style="text-align: center;">
+            <%@ticket.conference1 %>
+            <%@ticket.conference2 %>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div style="background-image: linear-gradient(-134deg, #FFD823 0%, #F96EF5 100%);">
+          <div style="background-color: #fff; margin: 40px auto;" class="image" align="center">
+            <%= image_tag(attachments['logo2.png'].url) %>
+            <!-- <%= image_tag attachments['logo2.png'].url %> -->
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  </h2>
+</div>
