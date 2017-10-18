@@ -32,6 +32,8 @@
     </div>
       <h2 class="form_subtitle">Paso 1: Selecciona tus actividades.</h2>
       <div class="combo_fieldLabel fRow_endEnd">
+      <strong>Precaución: Por favor revisa los horarios de tus actividades para evitar empalmes</strong>
+      <br>
         <p>Taller 1</p>
         <%= f.select :ticket_conference1, @talleres, :include_blank =>  'Selecciona una opción' %>
       </div>
@@ -78,13 +80,31 @@
     </div>
 
     <div class="combo_fieldLabel fRow_endEnd">
+      <p>Universidad</p>
+      <%= f.text_field :ticket_university, class:"input" %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
       <p>Carrera</p>
       <%= f.text_field :ticket_course, class:"input" %>
     </div>
 
     <div class="combo_fieldLabel fRow_endEnd">
       <p>Semestre</p>
-      <%= f.text_field :ticket_semester, class:"input" %>
+      <%= f.select :ticket_semester, options_for_select([
+        ['1', 1],
+        ['2', 2],
+        ['3', 3],
+        ['5', 5],
+        ['6', 6],
+        ['7', 7],
+        ['8', 8],
+        ['9', 9],
+        ['10', 10],
+        ['11', 11],
+        ['12', 12],
+        ['13', 13],
+        ['No aplica', 0]]), :include_blank =>  'Selecciona una opción' %>
     </div>
   </div>
 
