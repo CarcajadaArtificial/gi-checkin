@@ -14,7 +14,7 @@
   <div class="container_form">
     <%= f.check_box :ticket_preregistered, checked: true, class:"hidden"%>
     <div class="incluye">
-      <%if @ticket.ticket_ticketTypeId == 11 || @ticket.ticket_ticketTypeId == 12%>
+      <%if @ticket.ticket_ticketTypeId == 13 %>
       <strong>Tu boleto incluye:</strong>
       <ul>
         <li>Acceso a todas las conferencias</li>
@@ -22,16 +22,18 @@
         <li>1 visita</li>
         <li><strong>Kit IMPULSO</strong></li>
       </ul>
-      <% elsif ticket.ticket_ticketTypeId == 13 %>
+      <% elsif ticket.ticket_ticketTypeId == 12 %>
       <strong>Tu boleto incluye:</strong>
       <ul>
-        <li>Acceso a tocas las conferencias</li>
+        <li>Acceso a todas las conferencias</li>
         <li>2 talleres</li>
       </ul>
       <% end %>
     </div>
       <h2 class="form_subtitle">Paso 1: Selecciona tus actividades.</h2>
       <div class="combo_fieldLabel fRow_endEnd">
+      <strong>Precaución: Por favor revisa los horarios de tus actividades para evitar empalmes</strong>
+      <br>
         <p>Taller 1</p>
         <%= f.select :ticket_conference1, @talleres, :include_blank =>  'Selecciona una opción' %>
       </div>
@@ -39,7 +41,7 @@
         <p>Taller 2</p>
         <%= f.select :ticket_conference2, @talleres, :include_blank =>  'Selecciona una opción' %>
       </div>
-      <%if @ticket.ticket_ticketTypeId == 11 || @ticket.ticket_ticketTypeId == 12%>
+      <%if @ticket.ticket_ticketTypeId == 13%>
       <div class="combo_fieldLabel fRow_endEnd">
        <p>Visita</p>
        <%= f.select :ticket_other, @visitas, :include_blank =>  'Selecciona una opción' %>
@@ -57,6 +59,11 @@
     <div class="combo_fieldLabel fRow_endEnd">
       <p>Correo electrónico <span class="required">*</span></p>
       <%= f.text_field :ticket_email, class:"input", :required => true %>
+    </div>
+
+    <div class="combo_fieldLabel fRow_endEnd">
+      <p>Universidad</p>
+      <%= f.text_field :ticket_university, class:"input" %>
     </div>
 
     <div class="combo_fieldLabel fRow_endEnd">
@@ -84,7 +91,20 @@
 
     <div class="combo_fieldLabel fRow_endEnd">
       <p>Semestre</p>
-      <%= f.text_field :ticket_semester, class:"input" %>
+      <%= f.select :ticket_semester, options_for_select([
+        ['1', 1],
+        ['2', 2],
+        ['3', 3],
+        ['5', 5],
+        ['6', 6],
+        ['7', 7],
+        ['8', 8],
+        ['9', 9],
+        ['10', 10],
+        ['11', 11],
+        ['12', 12],
+        ['13', 13],
+        ['No aplica', 0]]), :include_blank =>  'Selecciona una opción' %>
     </div>
   </div>
 

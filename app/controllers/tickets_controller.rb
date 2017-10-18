@@ -94,7 +94,7 @@ class TicketsController < ApplicationController
     if (Ticket.where(:ticket_conference1 => 15, :event_id => event).count + Ticket.where(:ticket_conference2 => 15, :event_id => event).count) < 19 then
        @talleres.push(['Viernes 13:30-15:00 - Prototipado', '15']) end
     if (Ticket.where(:ticket_conference1 => 16, :event_id => event).count + Ticket.where(:ticket_conference2 => 16, :event_id => event).count) < 15 then
-       @talleres.push(['Viernes 15:00-17:00 - Solid ALFR', '16']) end
+       @talleres.push(['Viernes 15:00-17:00 - Solid', '16']) end
     if (Ticket.where(:ticket_conference1 => 17, :event_id => event).count + Ticket.where(:ticket_conference2 => 17, :event_id => event).count) < 15 then
        @talleres.push(['Viernes 17:00-19:30 - FEM ALFR', '17']) end
 
