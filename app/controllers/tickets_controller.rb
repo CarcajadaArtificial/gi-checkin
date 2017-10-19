@@ -20,6 +20,10 @@ class TicketsController < ApplicationController
     @conferences = Conference.where(:event_id => 2)
   end
 
+  def mkt_dashboard
+
+  end
+
   # GET /tickets/new
   def new
     @ticket = Ticket.new

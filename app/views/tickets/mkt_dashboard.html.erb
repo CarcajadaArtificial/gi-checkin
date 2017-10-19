@@ -1,0 +1,71 @@
+<main class="main2 flRow-aiCen-jcCen">
+  <div class="container2">
+    <h1>Boletos preregistrados: <%=@registered %>/<%=@preregistered %></h1>
+    <table class="dash_table">
+      <tr>
+        <td style="border: 0;"></td>
+        <td><strong>Registrados / Preregistrados / Capacidad</strong></td>
+      </tr>
+        <tr>
+          <td> Fashion: Andy Benavides </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 1, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 1).count %> / 200 </td>
+        </tr>
+        <tr>
+          <td> Fashion: LCI Monterrey </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 2, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 2).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> Trends: Levadura </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 3, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 3).count %> / 80 </td>
+        </tr>
+        <tr>
+          <td> Trends: Huntmuse </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 4, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 4).count %> / 70 </td>
+        </tr>
+        <tr>
+          <td> Sports: Athlete Booster </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 5, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 5).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> Sports: CEMEX - Tigres </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 15, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 15).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> Sports: Insane Workout Center </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 16, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 16).count %> / 65 </td>
+        </tr>
+        <tr>
+          <td> Entertainment: Inspiral </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 6, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 6).count %> / 140 </td>
+        </tr>
+        <tr>
+          <td> Fashion: Polanna / Givehope </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 7, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 7).count %> / 75 </td>
+        </tr>
+        <tr>
+          <td> Fashion: Instituto di Moda Burgo </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 8, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 8).count %> / 160 </td>
+        </tr>
+        <tr>
+          <td> Trends: Ana Tere Canales </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 9, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 9).count %> / 80 </td>
+        </tr>
+        <tr>
+          <td> Trends: Taste n Tell </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 10, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 10).count %> / 115 </td>
+        </tr>
+        <tr>
+          <td> Sports: Abierto GNP Seguros </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 11, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 11).count %> / 80 </td>
+        </tr>
+        <tr>
+          <td> Entertainment: La Sociedad </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 12, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 12).count %> / 70 </td>
+        </tr>
+        <tr>
+          <td> Entertainment: Nebulosa </td>
+          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 13, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 13).count %> / 80 </td>
+        </tr>
+    </table>
+  </div>
+</main>
