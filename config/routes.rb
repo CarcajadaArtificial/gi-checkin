@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :tickets do
+  resources :tickets, except: [:index, :new, :edit, :destroy] do
 #    get 'createBatch',          :on => :collection
     get 'preregister',          :on => :collection, as: :preregister
     get 'preregister2',         :on => :collection, as: :preregister2
@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     get 'confirmation',         :on => :collection
     get 'esm_875678545678',     :on => :collection, as: :esm_dashboard
   end
-  resources :conferences
+  resources :conferences, except: [:index, :show, :new, :edit, :destroy]
   resources :ticket_types, except: [:index, :show, :new, :edit, :destroy]
-  resources :events, except: [:show, :new] do
+  resources :events, except: [:index, :show, :new, :edit, :destroy] do
     get 'mktfest', :on => :collection
     get 'ensusmarcas', :on => :collection
   end
