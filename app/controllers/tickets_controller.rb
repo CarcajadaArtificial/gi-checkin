@@ -98,18 +98,19 @@ class TicketsController < ApplicationController
     if (Ticket.where(:ticket_conference1 => 17, :event_id => event).count + Ticket.where(:ticket_conference2 => 17, :event_id => event).count) < 15 then
        @talleres.push(['Viernes 17:00-19:30 - FEM ALFR', '17']) end
 
-    if Ticket.where(:ticket_other => 30, :event_id => event).count < 39 then @visitas.push(['Jueves 9:00 am - Spirax Arco', '30']) end
-    if Ticket.where(:ticket_other => 18, :event_id => event).count < 49 then @visitas.push(['Jueves 12:00 pm - COCA-COLA', '18']) end
-    if Ticket.where(:ticket_other => 19, :event_id => event).count < 24 then @visitas.push(['Jueves 12:00 pm - Ternium México', '19']) end
-    if Ticket.where(:ticket_other => 20, :event_id => event).count < 34 then @visitas.push(['Jueves 10:00 am - Next Energy', '20']) end
-    if Ticket.where(:ticket_other => 21, :event_id => event).count < 24 then @visitas.push(['Jueves 10:00 am - Villacero', '21']) end
-    if Ticket.where(:ticket_other => 22, :event_id => event).count < 39 then @visitas.push(['Jueves 10:00 am - VIAKON Conductores Eléctricos', '22']) end
-    if Ticket.where(:ticket_other => 23, :event_id => event).count < 39 then @visitas.push(['Jueves 3:00 pm - VIAKON Conductores Eléctricos', '23']) end
-    if Ticket.where(:ticket_other => 24, :event_id => event).count < 14 then @visitas.push(['Jueves 9:00 am - FRISA', '24']) end
-    if Ticket.where(:ticket_other => 25, :event_id => event).count < 39 then @visitas.push(['Viernes 10:00 am - Industrias John Deere', '25']) end
-    if Ticket.where(:ticket_other => 26, :event_id => event).count < 29 then @visitas.push(['Viernes 10:00 am - Vitro', '26']) end
-    if Ticket.where(:ticket_other => 27, :event_id => event).count < 14 then @visitas.push(['Viernes 11:00 am - Ingersoll Rand', '27']) end
-    if Ticket.where(:ticket_other => 28, :event_id => event).count < 34 then @visitas.push(['Viernes 1:00 pm - Cervecería Cuauhtémoc', '28']) end
+    if Ticket.where(:ticket_other => 30, :event_id => event).count < 34 then @visitas.push(['Jueves 8:00-12:00 - Spirax Arco', '30']) end
+    if Ticket.where(:ticket_other => 18, :event_id => event).count < 34 then @visitas.push(['Jueves 11:00-15:00  - COCA-COLA', '18']) end
+    if Ticket.where(:ticket_other => 19, :event_id => event).count < 24 then @visitas.push(['Jueves 11:00-15:00  - Ternium México', '19']) end
+    if Ticket.where(:ticket_other => 20, :event_id => event).count < 34 then @visitas.push(['Jueves 8:30-13:30  - Next Energy', '20']) end
+    if Ticket.where(:ticket_other => 21, :event_id => event).count < 24 then @visitas.push(['Jueves 8:30-12:00  - Villacero', '21']) end
+    if Ticket.where(:ticket_other => 22, :event_id => event).count < 34 then @visitas.push(['Jueves 9:00-13:00  - VIAKON Conductores Eléctricos', '22']) end
+    if Ticket.where(:ticket_other => 23, :event_id => event).count < 34 then @visitas.push(['Jueves 14:00-18:00  - VIAKON Conductores Eléctricos', '23']) end
+    if Ticket.where(:ticket_other => 24, :event_id => event).count < 14 then @visitas.push(['Viernes 8:00-12:00  - FRISA', '24']) end
+    if Ticket.where(:ticket_other => 25, :event_id => event).count < 34 then @visitas.push(['Viernes 8:30-13:30  - Industrias John Deere', '25']) end
+    if Ticket.where(:ticket_other => 26, :event_id => event).count < 29 then @visitas.push(['Viernes 8:30-13:30  - Vitro', '26']) end
+    if Ticket.where(:ticket_other => 27, :event_id => event).count < 34 then @visitas.push(['Viernes 9:30-14:00  - Ingersoll Rand', '27']) end
+    if Ticket.where(:ticket_other => 28, :event_id => event).count < 34 then @visitas.push(['Viernes 12:00-15:00  - Cervecería Cuauhtémoc', '28']) end
+    if Ticket.where(:ticket_other => 29, :event_id => event).count < 24 then @visitas.push(['Viernes 13:00-17:00  - Ternium México', '29']) end
     #if Ticket.where(:ticket_other => 29, :event_id => event).count < 34 then @visitas.push(['Viernes 2:00 pm - Cervecería Cuauhtémoc', '29']) end
   end
 
@@ -142,6 +143,8 @@ class TicketsController < ApplicationController
     if params[:paramT] != ""
       ticket = Ticket.where(:ticket_reference => params[:paramT]).first
       @ticket = ticket
+      @registered  = Ticket.where(:event_id => 1, :ticket_registered => true).count
+      @preregistered = Ticket.where(:event_id => 1, :ticket_preregistered => true).count
       #event = Event.find(current_user.event_id)
       event = Event.find(1)
       @reg = Ticket.search(ticket, nil, event)

@@ -14,10 +14,10 @@ ENV['RAILS_ENV'] = 'production'
 #end
 
 # Sends Reminder to all preregistered emails of a particular event
-tickets = Ticket.where(:ticket_preregistered => true, :ticket_badgeNumber => nil, :event_id =>3)
-        #Meter esto dentro de un loop para que solo haga de 50 a 100
+tickets = Ticket.where(:ticket_preregistered => true, :ticket_badgeNumber => nil, :event_id =>1).last(28)
 tickets.each do |ticket|
   puts ticket.ticket_email
   TicketMailer.reminder_email(ticket).deliver_now
-  #AQUI SE PASA EL BADGENUMBER A ALGO NO NIL
+  ticket.ticket_badgeNumber = 1
+  ticket.save
 end

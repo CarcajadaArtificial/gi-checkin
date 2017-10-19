@@ -61,13 +61,23 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "gi-checkin_#{Rails.env}"
   config.action_mailer.perform_caching = false
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  # address: 'smtp.gmail.com',
+  # domain: 'mail.google.com',
+  # port:587,
+  # authentication: "plain",
+  # user_name:'checknmx@gmail.com',
+  # password:'5hW-w5Ay2',
+  # enable_starttls_auto: true
+  # }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address: 'smtp.gmail.com',
-  domain: 'mail.google.com',
+  address: 'smtp.office365.com',
   port:587,
-  authentication: "plain",
-  user_name:'checknmx@gmail.com',
+  domain: 'checkn.mx',
+  authentication: 'login',
+  user_name:'no-reply@checkn.mx',
   password:'5hW-w5Ay2',
   enable_starttls_auto: true
   }
