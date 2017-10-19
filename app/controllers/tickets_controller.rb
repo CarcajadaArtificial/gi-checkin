@@ -159,28 +159,41 @@ class TicketsController < ApplicationController
     if params[:paramT] != nil && params[:paramC] != nil && params[:paramC] != "" && params[:paramT] != ""
 
       @ticket = Ticket.where(:ticket_reference => params[:paramT].upcase).first
-      conference = Conference.find(params[:paramC]) #AQUI PONER ID DE CONFERENCE
-      # event = Event.find(current_user.event_id)
-      event = Event.find(2) # Cambiar a 2 para ESM
-      if conference && @ticket
-
-        if @ticket.conferences.exists?(conference.id)
-          if TicketConference.where(:ticket_id => @ticket.id, :conference_id => params[:paramC]).first.TicketConference_assistance == true
-            #Nada
-          else
-            TicketConference.where(:ticket_id => @ticket.id, :conference_id => params[:paramC]).update(:TicketConference_assistance => true)
-            conference.conference_attendance = conference.conference_attendance + 1
-            conference.save
-          end
-        else
-          TicketConference.create(:ticket_id => @ticket.id, :conference_id => params[:paramC], :TicketConference_assistance => true)
-          conference.conference_attendance = conference.conference_attendance + 1
-          conference.save
-        end
-
+      if @ticket.ticket_conference1 == params[:paramC]
+        @ticket.ticket_other = 1
+        @ticket.save
         @conf = 1
-
+      elsif @ticket.ticket_conference2 == params[:paramC]
+        @ticket.ticket_university = 1
+        @ticket.save
+        @conf = 1
+      elsif params[:paramC].to_i > 16
+        conference = Conference.where(:conference_speaker => params[:paramC]).first
+        conference.conference_attendance = conference.conference_attendance + 1
+        conference.save
+        @conf = 1
+      else
+        @conf = 4
       end
+      # conference = Conference.find(params[:paramC]) #AQUI PONER ID DE CONFERENCE
+      # # event = Event.find(current_user.event_id)
+      # event = Event.find(2) # Cambiar a 2 para ESM
+      # if conference && @ticket
+      #
+      #   if @ticket.conferences.exists?(conference.id)
+      #     if TicketConference.where(:ticket_id => @ticket.id, :conference_id => params[:paramC]).first.TicketConference_assistance == true
+      #       #Nada
+      #     else
+      #       TicketConference.where(:ticket_id => @ticket.id, :conference_id => params[:paramC]).update(:TicketConference_assistance => true)
+      #       conference.conference_attendance = conference.conference_attendance + 1
+      #       conference.save
+      #     end
+      #   else
+      #     TicketConference.create(:ticket_id => @ticket.id, :conference_id => params[:paramC], :TicketConference_assistance => true)
+      #     conference.conference_attendance = conference.conference_attendance + 1
+      #     conference.save
+      #   end
+      # end
     end
   end
 
