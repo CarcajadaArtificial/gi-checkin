@@ -41,7 +41,7 @@
           ¡Hola <%= @ticket.ticket_name.split.first%>!
         </h1>
         <h2 style="color: #2F2F2F; font-size: 28px; text-align: center; font-family: sans-serif;">
-    ¡Te recordamos que mañana es <%= @ticket.event.event_name%>!
+          ¡Hoy comienza <%= @ticket.event.event_name%>!
       </td>
     </tr>
     <tr>
@@ -52,24 +52,59 @@
         </div>
       </td>
     </tr>
+    <%
+    conference1 = ""
+    conference2 = ""
+    if @ticket.ticket_conference1 == "1" then conference1 = "Fashion: Andy Benavides"  end
+    if @ticket.ticket_conference1 == "2" then conference1 = "Fashion: LCI Monterrey"  end
+    if @ticket.ticket_conference1 == "3" then conference1 = "Trends: Levadura"  end
+    if @ticket.ticket_conference1 == "4" then conference1 = "Trends: Huntmuse"  end
+    if @ticket.ticket_conference1 == "5" then conference1 = "Sports: Athlete Booster"  end
+    if @ticket.ticket_conference1 == "15" then conference1 = "Sports: CEMEX - Tigres. Te pedimos que para tu taller traigas tu laptop(en caso de no tener una disponible, traer tableta o smartphone)"  end
+    if @ticket.ticket_conference1 == "16" then conference1 = "Sports: Insane Workout Center"  end
+    if @ticket.ticket_conference1 == "6" then conference1 = "Entertainment: Inspiral. Te pedimos que para tu taller traigas tu laptop(en caso de no tener una disponible, traer tableta o smartphone)"  end
+
+    if @ticket.ticket_conference2 == "7" then conference2 = "Fashion: Polanna / Givehope" end
+    if @ticket.ticket_conference2 == "8" then conference2 = "Fashion: Instituto di Moda Burgo. Te pedimos que para tu taller traigas tu laptop(en caso de no tener una disponible, traer tableta o smartphone)" end
+    if @ticket.ticket_conference2 == "9" then conference2 = "Trends: Ana Tere Canales" end
+    if @ticket.ticket_conference2 == "10" then conference2 = "Trends: Taste n Tell" end
+    if @ticket.ticket_conference2 == "11" then conference2 = "Sports: Abierto GNP Seguros" end
+    if @ticket.ticket_conference2 == "12" then conference2 = "Entertainment: La Sociedad" end
+    if @ticket.ticket_conference2 == "13" then conference2 = "Entertainment: Nebulosa" end
+    %>
+    <tr>
+      <td>
+        <div class="">
+          <p style="text-align: center;">
+            Te recordamos que te inscribiste a los siguientes talleres:
+          </p>
+          <br>
+          <p style="text-align: center;">
+            Jueves: <%= conference1 %>.
+          </p>
+          <p style="text-align: center;">
+            Viernes: <%= conference2 %>.
+          </p>
+        </div>
+      </td>
+    </tr>
     <tr>
       <td>
         <% if @ticket.event.id == 1 %>
         <p style="text-align: center;">
-          Cualquier duda previa al evento puedes contactarnos a <strong>info@marketingfest.mx</strong>. Te
-          esperamos mañana en el Tec de Monterrey, Campus Monterrey.
+          Te esperamos a las 9:00 a.m en el Tec de Monterrey, Campus Monterrey para el registro.
         </p>
         <% elsif @ticket.event.id == 2 %>
         <p style="text-align: center;">
-          Te esperamos mañana en el Tec de Monterrey, Campus Monterrey.
+          Te esperamos en el Tec de Monterrey, Campus Monterrey.
         </p>
         <% elsif @ticket.event.id == 3 %>
         <p style="text-align: center;">
-          Te esperamos mañana en el Tec de Monterrey, Campus Monterrey.
+          Te esperamos en el Tec de Monterrey, Campus Monterrey.
         </p>
         <% elsif @ticket.event.id == 4 %>
         <p style="text-align: center;">
-          Te esperamos mañana en el Tec de Monterrey, Campus Monterrey.
+          Te esperamos en el Tec de Monterrey, Campus Monterrey.
         </p>
         <% end %>
       </td>
@@ -88,20 +123,6 @@
         <p style="text-align: center;">
           No olvides presentar este boleto para registrarte.
         </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div class="">
-          <p style="text-align: center;">
-            Aqui estan los talleres a los que te inscribiste:
-          </p>
-          <br>
-          <p style="text-align: center;">
-            <%@ticket.conference1 %>
-            <%@ticket.conference2 %>
-          </p>
-        </div>
       </td>
     </tr>
     <tr>
