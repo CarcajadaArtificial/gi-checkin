@@ -157,21 +157,24 @@ class TicketsController < ApplicationController
 
   def register_conference
     if params[:paramT] != nil && params[:paramC] != nil && params[:paramC] != "" && params[:paramT] != ""
-
+      @registered = 0
       @ticket = Ticket.where(:ticket_reference => params[:paramT].upcase).first
       if @ticket.ticket_conference1 == params[:paramC]
         @ticket.ticket_other = 1
         @ticket.save
         @conf = 1
+        @registered = Ticket.where(:event_id => 1, :ticket_conference1 => params[:paramC], :ticket_other => 1).count
       elsif @ticket.ticket_conference2 == params[:paramC]
         @ticket.ticket_university = 1
         @ticket.save
         @conf = 1
+        @registered = Ticket.where(:event_id => 1, :ticket_conference2 => params[:paramC], :ticket_other => 1).count
       elsif params[:paramC].to_i > 16
         conference = Conference.where(:conference_speaker => params[:paramC]).first
         conference.conference_attendance = conference.conference_attendance + 1
         conference.save
         @conf = 1
+        @registered = conference.conference_attendance
       else
         @conf = 4
       end
