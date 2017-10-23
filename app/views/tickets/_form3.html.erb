@@ -18,8 +18,8 @@
       <strong>Tu boleto incluye:</strong>
       <ul>
         <li>Acceso a todas las conferencias</li>
-        <li>2 talleres</li>
-        <li>1 visita</li>
+        <li>1 taller</li>
+        <li>2 visitas</li>
         <li><strong>Kit IMPULSO</strong></li>
       </ul>
       <% elsif ticket.ticket_ticketTypeId == 12 %>
@@ -31,6 +31,7 @@
       <% end %>
       </div>
       <%if @ticket.ticket_ticketTypeId != 12%>
+      <%if @ticket.ticket_ticketTypeId == 13%>
         <h2 class="form_subtitle">Paso 1: Selecciona tus actividades.</h2>
         <div class="combo_fieldLabel fRow_endEnd">
         <strong>Precaución: Por favor revisa los horarios de tus actividades para evitar empalmes</strong>
@@ -39,14 +40,13 @@
           <%= f.select :ticket_conference1, @talleres, :include_blank =>  'Selecciona una opción' %>
         </div>
         <div class="combofieldLabel fRow_endEnd">
-          <p>Taller 2</p>
-          <%= f.select :ticket_conference2, @talleres, :include_blank =>  'Selecciona una opción' %>
+          <p>Visita 1</p>
+          <%= f.select :ticket_conference2, @visitas, :include_blank =>  'Selecciona una opción' %>
         </div>
-        <%if @ticket.ticket_ticketTypeId == 13%>
-          <div class="combo_fieldLabel fRow_endEnd">
-           <p>Visita</p>
-           <%= f.select :ticket_other, @visitas, :include_blank =>  'Selecciona una opción' %>
-          </div>
+        <div class="combo_fieldLabel fRow_endEnd">
+         <p>Visita 2</p>
+         <%= f.select :ticket_other, @visitas, :include_blank =>  'Selecciona una opción' %>
+        </div>
         <%end%>
         <h2 class="form_subtitle">Paso 2: Llena tu información personal.</h2>
       <%end%>
