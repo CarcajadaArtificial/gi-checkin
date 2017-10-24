@@ -3,7 +3,7 @@ class Ticket < ApplicationRecord
   has_many :ticketConferences
   has_many :conferences, through: :ticketConferences
 
-  def self.createTickets(typeId, quantity)
+  def self.createTickets(typeId, quantity, event)
     n = Integer(quantity, 10)
     for i in 1..n
     ff = 0
@@ -13,7 +13,7 @@ class Ticket < ApplicationRecord
         randomRef = randomRef.upcase
         if !(Ticket.exists?(:ticket_reference => randomRef))
           ff = 3
-          Ticket.create(:ticket_reference => randomRef, :ticket_ticketTypeId => typeId, :event_id => 4)
+          Ticket.create(:ticket_reference => randomRef, :ticket_ticketTypeId => typeId, :event_id => event)
         else
 
         end
