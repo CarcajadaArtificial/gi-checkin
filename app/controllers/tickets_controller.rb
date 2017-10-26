@@ -101,24 +101,26 @@ class TicketsController < ApplicationController
        @talleres.push(['Viernes 15:00-17:00 - Solid', '16']) end
     if (Ticket.where(:ticket_conference1 => 17, :event_id => event).count + Ticket.where(:ticket_conference2 => 17, :event_id => event).count) < 15 then
        @talleres.push(['Viernes 17:00-19:30 - FEM ALFR', '17']) end
-    if (Ticket.where(:ticket_conference1 => 33, :event_id => event).count + Ticket.where(:ticket_conference2 => 33, :event_id => event).count) < 9 then
+    if (Ticket.where(:ticket_conference1 => 33, :event_id => event).count + Ticket.where(:ticket_conference2 => 33, :event_id => event).count) < 17 then
        @talleres.push(['Jueves 11:00-12:30 - Nx', '33']) end
-    if (Ticket.where(:ticket_conference1 => 34, :event_id => event).count + Ticket.where(:ticket_conference2 => 34, :event_id => event).count) < 9 then
+    if (Ticket.where(:ticket_conference1 => 34, :event_id => event).count + Ticket.where(:ticket_conference2 => 34, :event_id => event).count) < 4 then
        @talleres.push(['Jueves 11:00-12:30 - Apps iPhone (Mac iOS requerido)', '34']) end
-    if (Ticket.where(:ticket_conference1 => 35, :event_id => event).count + Ticket.where(:ticket_conference2 => 35, :event_id => event).count) < 9 then
+    if (Ticket.where(:ticket_conference1 => 35, :event_id => event).count + Ticket.where(:ticket_conference2 => 35, :event_id => event).count) < 17 then
        @talleres.push(['Jueves 13:30-15:30 - Solid', '35']) end
-    if (Ticket.where(:ticket_conference1 => 36, :event_id => event).count + Ticket.where(:ticket_conference2 => 36, :event_id => event).count) < 9 then
+    if (Ticket.where(:ticket_conference1 => 36, :event_id => event).count + Ticket.where(:ticket_conference2 => 36, :event_id => event).count) < 17 then
        @talleres.push(['Jueves 17:30-19:30 - Nx', '36']) end
-    if (Ticket.where(:ticket_conference1 => 37, :event_id => event).count + Ticket.where(:ticket_conference2 => 37, :event_id => event).count) < 9 then
+    if (Ticket.where(:ticket_conference1 => 37, :event_id => event).count + Ticket.where(:ticket_conference2 => 37, :event_id => event).count) < 17 then
        @talleres.push(['Viernes 9:30-11:30 - Nx', '37']) end
-    if (Ticket.where(:ticket_conference1 => 38, :event_id => event).count + Ticket.where(:ticket_conference2 => 38, :event_id => event).count) < 9 then
+    if (Ticket.where(:ticket_conference1 => 38, :event_id => event).count + Ticket.where(:ticket_conference2 => 38, :event_id => event).count) < 17 then
        @talleres.push(['Viernes 12:30-14:30 - Solid', '38']) end
-    if (Ticket.where(:ticket_conference1 => 39, :event_id => event).count + Ticket.where(:ticket_conference2 => 39, :event_id => event).count) < 9 then
+    if (Ticket.where(:ticket_conference1 => 39, :event_id => event).count + Ticket.where(:ticket_conference2 => 39, :event_id => event).count) < 17 then
        @talleres.push(['Viernes 14:30-16:30 - Nx', '39']) end
-    if (Ticket.where(:ticket_conference1 => 40, :event_id => event).count + Ticket.where(:ticket_conference2 => 40, :event_id => event).count) < 9 then
+    if (Ticket.where(:ticket_conference1 => 40, :event_id => event).count + Ticket.where(:ticket_conference2 => 40, :event_id => event).count) < 24 then
        @talleres.push(['Viernes 15:30-17:30 - Mecánica Maker', '40']) end
-    if (Ticket.where(:ticket_conference1 => 41, :event_id => event).count + Ticket.where(:ticket_conference2 => 41, :event_id => event).count) < 9 then
+    if (Ticket.where(:ticket_conference1 => 41, :event_id => event).count + Ticket.where(:ticket_conference2 => 41, :event_id => event).count) < 17 then
        @talleres.push(['Viernes 16:30-18:30 - Solid', '41']) end
+    if (Ticket.where(:ticket_conference1 => 44, :event_id => event).count + Ticket.where(:ticket_conference2 => 44, :event_id => event).count) < 11 then
+        @talleres.push(['Jueves 16:00-17:30 - Metrología', '44']) end
 
     if Ticket.where(:ticket_other => 30, :event_id => event).or(Ticket.where(:ticket_conference2 => 30, :event_id => event)).count < 34 then
       @visitas.push(['Jueves 8:00-12:00 - Spirax Arco', '30']) end
@@ -134,6 +136,10 @@ class TicketsController < ApplicationController
       @visitas.push(['Jueves 9:00  - Caterpillar', '31']) end
     if Ticket.where(:ticket_other => 32, :event_id => event).or(Ticket.where(:ticket_conference2 => 32, :event_id => event)).count < 18 then
       @visitas.push(['Jueves 10:00  - Owens- Illinois', '32']) end
+    if Ticket.where(:ticket_other => 42, :event_id => event).or(Ticket.where(:ticket_conference2 => 42, :event_id => event)).count < 29 then
+      @visitas.push(['Jueves 10:00  - Nemak', '42']) end
+    if Ticket.where(:ticket_other => 43, :event_id => event).or(Ticket.where(:ticket_conference2 => 43, :event_id => event)).count < 29 then
+      @visitas.push(['Jueves 10:00  - Nemak', '43']) end
     if Ticket.where(:ticket_other => 22, :event_id => event).or(Ticket.where(:ticket_conference2 => 22, :event_id => event)).count < 34 then
       @visitas.push(['Jueves 9:00-13:00  - VIAKON Conductores Eléctricos', '22']) end
     if Ticket.where(:ticket_other => 23, :event_id => event).or(Ticket.where(:ticket_conference2 => 23, :event_id => event)).count < 34 then

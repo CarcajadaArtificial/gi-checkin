@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     get 'register',             :on => :collection, as: :register
     get 'register_conference',  :on => :collection, as: :register_conference
     get 'confirmation',         :on => :collection
-    get 'esm_875678545678',     :on => :collection, as: :esm_dashboard
-    get 'mkt_dashboard',        :on => :collection, as: :mkt_dashboard
+    #get 'esm_875678545678',     :on => :collection, as: :esm_dashboard
+    #get 'mkt_dashboard',        :on => :collection, as: :mkt_dashboard
   end
   resources :conferences, except: [:index, :show, :new, :edit, :destroy]
   resources :ticket_types, except: [:index, :show, :new, :edit, :destroy]
