@@ -140,8 +140,8 @@ class TicketsController < ApplicationController
       @visitas.push(['Jueves 10:00  - Nemak', '42']) end
     if Ticket.where(:ticket_other => 43, :event_id => event).or(Ticket.where(:ticket_conference2 => 43, :event_id => event)).count < 29 then
       @visitas.push(['Jueves 10:00  - Nemak', '43']) end
-    if Ticket.where(:ticket_other => 22, :event_id => event).or(Ticket.where(:ticket_conference2 => 22, :event_id => event)).count < 34 then
-      @visitas.push(['Jueves 9:00-13:00  - VIAKON Conductores Eléctricos', '22']) end
+#Cerrado 28/10    if Ticket.where(:ticket_other => 22, :event_id => event).or(Ticket.where(:ticket_conference2 => 22, :event_id => event)).count < 34 then
+#      @visitas.push(['Jueves 9:00-13:00  - VIAKON Conductores Eléctricos', '22']) end
     if Ticket.where(:ticket_other => 23, :event_id => event).or(Ticket.where(:ticket_conference2 => 23, :event_id => event)).count < 34 then
       @visitas.push(['Jueves 14:00-18:00  - VIAKON Conductores Eléctricos', '23']) end
 #Cerrado 24/10    if Ticket.where(:ticket_other => 24, :event_id => event).or(Ticket.where(:ticket_conference2 => 24, :event_id => event)).count < 14 then
