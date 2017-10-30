@@ -25,6 +25,7 @@ class TicketsController < ApplicationController
   end
 
   def impulso_dashboard
+    @event= 3
     # if current_user
     #   if current_user.event_id == 3
     #     @event = 3
