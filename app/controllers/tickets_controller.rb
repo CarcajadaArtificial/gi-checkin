@@ -25,8 +25,10 @@ class TicketsController < ApplicationController
   end
 
   def impulso_dashboard
-    if current_user.event_id == 3
-      @event = 3
+    if current_user
+      if current_user.event_id == 3
+        @event = 3
+      end
     else
       redirect_to new_user_session_path
     end
