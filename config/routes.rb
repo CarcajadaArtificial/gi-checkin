@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get 'register_conference',  :on => :collection, as: :register_conference
     get 'confirmation',         :on => :collection
     #get 'esm_875678545678',     :on => :collection, as: :esm_dashboard
-    #get 'mkt_dashboard',        :on => :collection, as: :mkt_dashboard
+    get 'impulso_dashboard',        :on => :collection, as: :impulso_dashboard
   end
   resources :conferences, except: [:index, :show, :new, :edit, :destroy]
   resources :ticket_types, except: [:index, :show, :new, :edit, :destroy]

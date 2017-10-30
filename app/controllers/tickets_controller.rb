@@ -24,6 +24,13 @@ class TicketsController < ApplicationController
 
   end
 
+  def impulso_dashboard
+    if @current_user.event_id == 3
+      @event = 3
+    else
+      redirect("http://www.checkn.mx/")
+    end
+  end
   # GET /tickets/new
   def new
     @ticket = Ticket.new
@@ -132,9 +139,9 @@ class TicketsController < ApplicationController
       @visitas.push(['Jueves 8:30-13:30  - Next Energy', '20']) end
     if Ticket.where(:ticket_other => 21, :event_id => event).or(Ticket.where(:ticket_conference2 => 21, :event_id => event)).count < 24 then
       @visitas.push(['Jueves 8:30-12:00  - Villacero', '21']) end
-    if Ticket.where(:ticket_other => 31, :event_id => event).or(Ticket.where(:ticket_conference2 => 31, :event_id => event)).count < 18 then
+    if Ticket.where(:ticket_other => 31, :event_id => event).or(Ticket.where(:ticket_conference2 => 31, :event_id => event)).count < 19 then
       @visitas.push(['Jueves 9:00  - Caterpillar', '31']) end
-    if Ticket.where(:ticket_other => 32, :event_id => event).or(Ticket.where(:ticket_conference2 => 32, :event_id => event)).count < 18 then
+    if Ticket.where(:ticket_other => 32, :event_id => event).or(Ticket.where(:ticket_conference2 => 32, :event_id => event)).count < 19 then
       @visitas.push(['Jueves 10:00  - Owens- Illinois', '32']) end
     if Ticket.where(:ticket_other => 42, :event_id => event).or(Ticket.where(:ticket_conference2 => 42, :event_id => event)).count < 29 then
       @visitas.push(['Jueves 10:00  - Nemak', '42']) end

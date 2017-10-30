@@ -1,70 +1,187 @@
 <main class="main2 flRow-aiCen-jcCen">
   <div class="container2">
-    <h1>Boletos preregistrados: <%=@registered %>/<%=@preregistered %></h1>
+    <h1>Inscripciones IMPULSO</h1>
+    <h1>Total preregistrados: <%= Ticket.where(:event_id => @event, :ticket_preregistered => true).count %></h1>
     <table class="dash_table">
       <tr>
         <td style="border: 0;"></td>
-        <td><strong>Registrados / Preregistrados / Capacidad</strong></td>
+        <td><strong> Preregistrados / Capacidad</strong></td>
       </tr>
         <tr>
-          <td> FEM </td>
-          <td><strong> <%= Ticket.where(:event_id => 3, :ticket_conference1 => 1, :ticket_conference2 => 1, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 1).count %> / 200 </td>
+          <td></strong>Talleres</strong></td>
+          <td></td>
         </tr>
         <tr>
-          <td> Fashion: LCI Monterrey </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 2, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 2).count %> / 35 </td>
+          <td> Jueves 9:30-11:30 - FEM </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 1, :event_id => @event).count + Ticket.where(:ticket_conference2 => 1, :event_id => @event).count %> / 16 </td>
         </tr>
         <tr>
-          <td> Trends: Levadura </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 3, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 3).count %> / 80 </td>
+          <td> Jueves 11:00-12:30 - FLOW </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 2, :event_id => @event).count + Ticket.where(:ticket_conference2 => 2, :event_id => @event).count %> / 10 </td>
         </tr>
         <tr>
-          <td> Trends: Huntmuse </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 4, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 4).count %> / 70 </td>
+          <td> Jueves 11:30-13:30 - Solid </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 3, :event_id => @event).count + Ticket.where(:ticket_conference2 => 3, :event_id => @event).count %> / 16 </td>
         </tr>
         <tr>
-          <td> Sports: Athlete Booster </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 5, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 5).count %> / 35 </td>
+          <td> Jueves 13:30-15:00 - CNC </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 4, :event_id => @event).count + Ticket.where(:ticket_conference2 => 4, :event_id => @event).count %> / 10 </td>
         </tr>
         <tr>
-          <td> Sports: CEMEX - Tigres </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 15, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 15).count %> / 35 </td>
+          <td> Jueves 13:30-15:00 - Nx </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 5, :event_id => @event).count + Ticket.where(:ticket_conference2 => 5, :event_id => @event).count %> / 16 </td>
         </tr>
         <tr>
-          <td> Sports: Insane Workout Center </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 16, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 16).count %> / 65 </td>
+          <td> Jueves 15:00-17:30 - Nx </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 6, :event_id => @event).count + Ticket.where(:ticket_conference2 => 6, :event_id => @event).count %> / 16 </td>
         </tr>
         <tr>
-          <td> Entertainment: Inspiral </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference1 => 6, :ticket_other => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference1 => 6).count %> / 140 </td>
+          <td> Jueves 17:30-18:30 - Tratamientos térmicos </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 7, :event_id => @event).count + Ticket.where(:ticket_conference2 => 7, :event_id => @event).count %> / 10 </td>
         </tr>
         <tr>
-          <td> Fashion: Polanna / Givehope </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 7, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 7).count %> / 75 </td>
+          <td> Jueves 17:30-18:30 - Pruebas de tensión </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 8, :event_id => @event).count + Ticket.where(:ticket_conference2 => 8, :event_id => @event).count %> / 10 </td>
         </tr>
         <tr>
-          <td> Fashion: Instituto di Moda Burgo </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 8, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 8).count %> / 160 </td>
+          <td> Viernes 9:30-11:30 - Dibujo computarizado con Solid Works </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 9, :event_id => @event).count + Ticket.where(:ticket_conference2 => 9, :event_id => @event).count %> / 16 </td>
         </tr>
         <tr>
-          <td> Trends: Ana Tere Canales </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 9, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 9).count %> / 80 </td>
+          <td> Viernes 11:30-13:30 - Dibujo computarizado con NX </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 10, :event_id => @event).count + Ticket.where(:ticket_conference2 => 10, :event_id => @event).count %> / 16 </td>
         </tr>
         <tr>
-          <td> Trends: Taste n Tell </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 10, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 10).count %> / 115 </td>
+          <td> Viernes 12:00-13:00 - Impresión 3D </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 11, :event_id => @event).count + Ticket.where(:ticket_conference2 => 11, :event_id => @event).count %> / 20 </td>
         </tr>
         <tr>
-          <td> Sports: Abierto GNP Seguros </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 11, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 11).count %> / 80 </td>
+          <td> Viernes 13:30-15:00 - FLOW </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 12, :event_id => @event).count + Ticket.where(:ticket_conference2 => 12, :event_id => @event).count %> / 10 </td>
         </tr>
         <tr>
-          <td> Entertainment: La Sociedad </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 12, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 12).count %> / 70 </td>
+          <td> Viernes 13:30-15:00 - Tratamientos térmicos </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 13, :event_id => @event).count + Ticket.where(:ticket_conference2 => 13, :event_id => @event).count %> / 10 </td>
         </tr>
         <tr>
-          <td> Entertainment: Nebulosa </td>
-          <td><strong> <%= Ticket.where(:event_id => 1, :ticket_conference2 => 13, :ticket_university => 1).count %> / <%= Ticket.where(:event_id => 1, :ticket_conference2 => 13).count %> / 80 </td>
+          <td> Viernes 14:00-15:30 - CNC </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 14, :event_id => @event).count + Ticket.where(:ticket_conference2 => 14, :event_id => @event).count %> / 10 </td>
+        </tr>
+        <tr>
+          <td> Viernes 13:30-15:00 - Prototipado </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 15, :event_id => @event).count + Ticket.where(:ticket_conference2 => 15, :event_id => @event).count %> / 20 </td>
+        </tr>
+        <tr>
+          <td> Viernes 15:00-17:00 - Solid </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 16, :event_id => @event).count + Ticket.where(:ticket_conference2 => 16, :event_id => @event).count %> / 16 </td>
+        </tr>
+        <tr>
+          <td> Viernes 17:00-19:30 - FEM ALFR </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 17, :event_id => @event).count + Ticket.where(:ticket_conference2 => 17, :event_id => @event).count %> / 16 </td>
+        </tr>
+        <tr>
+          <td> Jueves 11:00-12:30 - Nx </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 33, :event_id => @event).count + Ticket.where(:ticket_conference2 => 33, :event_id => @event).count %> / 18 </td>
+        </tr>
+        <tr>
+          <td> Jueves 11:00-12:30 - Apps iPhone (Mac iOS requerido) </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 34, :event_id => @event).count + Ticket.where(:ticket_conference2 => 34, :event_id => @event).count %> / 5 </td>
+        </tr>
+        <tr>
+          <td> Jueves 13:30-15:30 - Solid </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 35, :event_id => @event).count + Ticket.where(:ticket_conference2 => 35, :event_id => @event).count %> / 18 </td>
+        </tr>
+        <tr>
+          <td> Jueves 17:30-19:30 - Nx </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 36, :event_id => @event).count + Ticket.where(:ticket_conference2 => 36, :event_id => @event).count %> / 18 </td>
+        </tr>
+        <tr>
+          <td> Viernes 9:30-11:30 - Nx </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 37, :event_id => @event).count + Ticket.where(:ticket_conference2 => 37, :event_id => @event).count %> / 18 </td>
+        </tr>
+        <tr>
+          <td> Viernes 12:30-14:30 - Solid </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 38, :event_id => @event).count + Ticket.where(:ticket_conference2 => 38, :event_id => @event).count %> / 18 </td>
+        </tr>
+        <tr>
+          <td> Viernes 14:30-16:30 - Nx </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 39, :event_id => @event).count + Ticket.where(:ticket_conference2 => 39, :event_id => @event).count %> / 18 </td>
+        </tr>
+        <tr>
+          <td> Viernes 15:30-17:30 - Mecánica Maker </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 40, :event_id => @event).count + Ticket.where(:ticket_conference2 => 40, :event_id => @event).count %> / 25 </td>
+        </tr>
+        <tr>
+          <td> Viernes 16:30-18:30 - Solid </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 41, :event_id => @event).count + Ticket.where(:ticket_conference2 => 41, :event_id => @event).count %> / 17 </td>
+        </tr>
+        <tr>
+          <td> Jueves 16:00-17:30 - Metrología </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 44, :event_id => @event).count + Ticket.where(:ticket_conference2 => 44, :event_id => @event).count %> / 11 </td>
+        </tr>
+        <tr>
+          <td></strong>Visitas</strong></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td> Jueves 8:00-12:00 - Spirax Arco </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 30, :event_id => @event).or(Ticket.where(:ticket_conference2 => 30, :event_id => @event)).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> Jueves 11:00-15:00  - COCA-COLA </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 18, :event_id => @event).or(Ticket.where(:ticket_conference2 => 18, :event_id => @event)).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> Jueves 11:00-15:00  - Ternium México </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 19, :event_id => @event).or(Ticket.where(:ticket_conference2 => 19, :event_id => @event)).count %> / 25 </td>
+        </tr>
+        <tr>
+          <td> Jueves 8:30-13:30  - Next Energy </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 20, :event_id => @event).or(Ticket.where(:ticket_conference2 => 20, :event_id => @event)).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> Jueves 8:30-12:00  - Villacero </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 21, :event_id => @event).or(Ticket.where(:ticket_conference2 => 21, :event_id => @event)).count %> / 25 </td>
+        </tr>
+        <tr>
+          <td> Jueves 9:00  - Caterpillar </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 31, :event_id => @event).or(Ticket.where(:ticket_conference2 => 31, :event_id => @event)).count %> / 20 </td>
+        </tr>
+        <tr>
+          <td> Jueves 10:00  - Owens- Illinois </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 32, :event_id => @event).or(Ticket.where(:ticket_conference2 => 32, :event_id => @event)).count %> / 20 </td>
+        </tr>
+        <tr>
+          <td> Jueves 10:00  - Nemak </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 42, :event_id => @event).or(Ticket.where(:ticket_conference2 => 42, :event_id => @event)).count %> / 30 </td>
+        </tr>
+        <tr>
+          <td> Jueves 10:00  - Nemak </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 43, :event_id => @event).or(Ticket.where(:ticket_conference2 => 43, :event_id => @event)).count %> / 30 </td>
+        </tr>
+        <tr>
+          <td> Jueves 14:00-18:00  - VIAKON Conductores Eléctricos </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 23, :event_id => @event).or(Ticket.where(:ticket_conference2 => 23, :event_id => @event)).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> Viernes 8:30-13:30  - Industrias John Deere </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 25, :event_id => @event).or(Ticket.where(:ticket_conference2 => 25, :event_id => @event)).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> Viernes 8:30-13:30  - Vitro </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 26, :event_id => @event).or(Ticket.where(:ticket_conference2 => 26, :event_id => @event)).count %> / 30 </td>
+        </tr>
+        <tr>
+          <td> Viernes 9:30-14:00  - Ingersoll Rand </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 27, :event_id => @event).or(Ticket.where(:ticket_conference2 => 27, :event_id => @event)).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> Viernes 12:00-15:00  - Cervecería Cuauhtémoc </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 28, :event_id => @event).or(Ticket.where(:ticket_conference2 => 28, :event_id => @event)).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> Viernes 13:00-17:00  - Ternium México </td>
+          <td><strong> <%= Ticket.where(:ticket_other => 29, :event_id => @event).or(Ticket.where(:ticket_conference2 => 29, :event_id => @event)).count %> / 25 </td>
         </tr>
     </table>
   </div>
