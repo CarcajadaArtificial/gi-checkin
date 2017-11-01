@@ -145,8 +145,6 @@ class TicketsController < ApplicationController
       @visitas.push(['Jueves 8:30-13:30  - Next Energy', '20']) end
     if Ticket.where(:ticket_other => 21, :event_id => event).or(Ticket.where(:ticket_conference2 => 21, :event_id => event)).count < 25 then
       @visitas.push(['Jueves 8:30-12:00  - Villacero', '21']) end
-    if Ticket.where(:ticket_other => 31, :event_id => event).or(Ticket.where(:ticket_conference2 => 31, :event_id => event)).count < 20 then
-      @visitas.push(['Jueves 9:00  - Caterpillar', '31']) end
     # Cerrado 1/11 if Ticket.where(:ticket_other => 32, :event_id => event).or(Ticket.where(:ticket_conference2 => 32, :event_id => event)).count < 20 then
     #  @visitas.push(['Jueves 10:00  - Owens- Illinois', '32']) end
     # Cerrado 1/11 if Ticket.where(:ticket_other => 42, :event_id => event).or(Ticket.where(:ticket_conference2 => 42, :event_id => event)).count < 17 then
@@ -170,6 +168,8 @@ class TicketsController < ApplicationController
     if Ticket.where(:ticket_other => 29, :event_id => event).or(Ticket.where(:ticket_conference2 => 29, :event_id => event)).count < 25 then
       @visitas.push(['Viernes 13:00-17:00  - Ternium México', '29']) end
     #if Ticket.where(:ticket_other => 29, :event_id => event).count < 34 then @visitas.push(['Viernes 2:00 pm - Cervecería Cuauhtémoc', '29']) end
+    if Ticket.where(:ticket_other => 31, :event_id => event).or(Ticket.where(:ticket_conference2 => 31, :event_id => event)).count < 20 then
+      @visitas.push(['Viernes 15:00  - Caterpillar', '31']) end
   end
 
   def edifica
