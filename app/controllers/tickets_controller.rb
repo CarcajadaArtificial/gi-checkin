@@ -178,6 +178,7 @@ class TicketsController < ApplicationController
     @jueves  = []
     @viernes = []
     @sabado = []
+    #Cambio para que aparezcan
     if Ticket.where(:ticket_conference1 => 1, :event_id => event).count < 35 then @jueves.push(['Visita: Punto Valle 5:00 pm', '1']) end
     if Ticket.where(:ticket_conference1 => 2, :event_id => event).count < 35 then @jueves.push(['Visita: Arboleda 5:30 pm', '2']) end
     if Ticket.where(:ticket_conference1 => 3, :event_id => event).count < 35 then @jueves.push(['Visita: Torre Céntrika Elite 5:30 pm', '3']) end
