@@ -167,7 +167,6 @@ class TicketsController < ApplicationController
       @visitas.push(['Viernes 12:00-15:00  - Cervecería Cuauhtémoc', '28']) end
     if Ticket.where(:ticket_other => 29, :event_id => event).or(Ticket.where(:ticket_conference2 => 29, :event_id => event)).count < 25 then
       @visitas.push(['Viernes 13:00-17:00  - Ternium México', '29']) end
-    #if Ticket.where(:ticket_other => 29, :event_id => event).count < 34 then @visitas.push(['Viernes 2:00 pm - Cervecería Cuauhtémoc', '29']) end
     if Ticket.where(:ticket_other => 31, :event_id => event).or(Ticket.where(:ticket_conference2 => 31, :event_id => event)).count < 20 then
       @visitas.push(['Viernes 15:00  - Caterpillar', '31']) end
   end
@@ -202,59 +201,50 @@ class TicketsController < ApplicationController
   end
 
   def register
+    event = 3
     if params[:paramT] != ""
       ticket = Ticket.where(:ticket_reference => params[:paramT]).first
       @ticket = ticket
-      @registered  = Ticket.where(:event_id => 1, :ticket_registered => true).count
-      @preregistered = Ticket.where(:event_id => 1, :ticket_preregistered => true).count
-      #event = Event.find(current_user.event_id)
-      event = Event.find(1)
-      @reg = Ticket.search(ticket, nil, event)
+      if ticket
+        @registered  = Ticket.where(:event_id => event, :ticket_registered => true).count
+        @preregistered = Ticket.where(:event_id => event, :ticket_preregistered => true).count
+        talleres = [['Jueves 9:30-11:30 - FEM', '1'], ['Jueves 11:00-12:30 - FLOW', '2'], ['Jueves 11:30-13:30 - Solid', '3'], ['Jueves 13:30-15:00 - CNC', '4'], ['Jueves 13:30-15:00 - Nx', '5'], ['Jueves 15:00-17:30 - Nx', '6'], ['Jueves 17:30-18:30 - Tratamientos térmicos', '7'], ['Jueves 17:30-18:30 - Pruebas de tensión', '8'], ['Viernes 9:30-11:30 - Dibujo computarizado con Solid Works', '9'], ['Viernes 11:30-13:30 - Dibujo computarizado con NX', '10'], ['Viernes 12:00-13:00 - Impresión 3D', '11'], ['Viernes 13:30-15:00 - FLOW', '12'], ['Viernes 13:30-15:00 - Tratamientos térmicos', '13'], ['Viernes 14:00-15:30 - CNC', '14'], ['Viernes 13:30-15:00 - Prototipado', '15'], ['Viernes 15:00-17:00 - Solid', '16'], ['Viernes 17:00-19:30 - FEM ALFR', '17'], ['Jueves 11:00-12:30 - Nx', '33'], ['Jueves 11:00-12:30 - Apps iPhone (Mac iOS requerido', '34'], ['Jueves 13:30-15:30 - Solid', '35'], ['Jueves 17:30-19:30 - Nx', '36'], ['Viernes 9:30-11:30 - Nx', '37'], ['Viernes 12:30-14:30 - Solid', '38'], ['Viernes 14:30-16:30 - Nx', '39'], ['Viernes 15:30-17:30 - Mecánica Maker', '40'], ['Viernes 16:30-18:30 - Solid', '41'], ['Jueves 16:00-17:30 - Metrología', '44'], ['Jueves 8:00-12:00 - Spirax Arco', '30'],  ['Jueves 11:00-15:00  - COCA-COLA', '18'],  ['Jueves 11:00-15:00  - Ternium México', '19'],  ['Jueves 8:30-13:30  - Next Energy', '20'],  ['Jueves 8:30-12:00  - Villacero', '21'],  ['Jueves 10:00  - Owens- Illinois', '32'],  ['Jueves 14:00-18:00  - VIAKON Conductores Eléctricos', '23'],  ['Viernes 8:30-13:30  - Industrias John Deere', '25'],  ['Viernes 8:30-13:30  - Vitro', '26'],  ['Viernes 9:30-14:00  - Ingersoll Rand', '27'],  ['Viernes 12:00-15:00  - Cervecería Cuauhtémoc', '28'],  ['Viernes 13:00-17:00  - Ternium México', '29'],  ['Viernes 15:00  - Caterpillar', '31']]
+        talleres.each do |t|
+          if t[1]== ticket.ticket_conference1
+            @taller1 = t[0]
+          elsif t[1]== ticket.ticket_conference2
+            @taller2 = t[0]
+          elsif t[1]== ticket.ticket_other
+            @taller3 = t[0]
+          end
+        end
+        @reg = Ticket.search(ticket, nil, event )
+      end
     end
   end
 
   def register_conference
     if params[:paramT] != nil && params[:paramC] != nil && params[:paramC] != "" && params[:paramT] != ""
-      @registered = 0
-      @ticket = Ticket.where(:ticket_reference => params[:paramT].upcase).first
-      if @ticket.ticket_conference1 == params[:paramC]
-        @ticket.ticket_other = 1
-        @ticket.save
-        @conf = 1
-        @registered = Ticket.where(:event_id => 1, :ticket_conference1 => params[:paramC], :ticket_other => 1).count
-      elsif @ticket.ticket_conference2 == params[:paramC]
-        @ticket.ticket_university = 1
-        @ticket.save
-        @conf = 1
-        @registered = Ticket.where(:event_id => 1, :ticket_conference2 => params[:paramC], :ticket_other => 1).count
-      elsif params[:paramC].to_i > 16
-        conference = Conference.where(:conference_speaker => params[:paramC]).first
-        conference.conference_attendance = conference.conference_attendance + 1
-        conference.save
-        @conf = 1
-        @registered = conference.conference_attendance
-      else
-        @conf = 4
+      event = 3
+      @registered =0
+      @ticket = Ticket.where(:ticket_reference => params[:paramT]).first
+      conference = Conference.where(:event_id => event, :conference_speaker => params[:paramC]).first
+      if conference && @ticket
+        if @ticket.conferences.exists?(conference.id)
+          if TicketConference.where(:ticket_id => @ticket.id, :conference_id => conference.id).first.TicketConference_assistance == true
+            @registered = TicketConference.where(:conference_id => conference.id).count
+            @conf =1
+          else
+            TicketConference.where(:ticket_id => @ticket.id, :conference_id => conference.id).update(:TicketConference_assistance => true)
+            @registered = TicketConference.where(:conference_id => conference.id).count
+            @conf =1
+          end
+        else
+          TicketConference.create(:ticket_id => @ticket.id, :conference_id => conference.id, :TicketConference_assistance => true)
+          @registered = TicketConference.where(:conference_id => conference.id).count
+          @conf =1
+        end
       end
-      # conference = Conference.find(params[:paramC]) #AQUI PONER ID DE CONFERENCE
-      # # event = Event.find(current_user.event_id)
-      # event = Event.find(2) # Cambiar a 2 para ESM
-      # if conference && @ticket
-      #
-      #   if @ticket.conferences.exists?(conference.id)
-      #     if TicketConference.where(:ticket_id => @ticket.id, :conference_id => params[:paramC]).first.TicketConference_assistance == true
-      #       #Nada
-      #     else
-      #       TicketConference.where(:ticket_id => @ticket.id, :conference_id => params[:paramC]).update(:TicketConference_assistance => true)
-      #       conference.conference_attendance = conference.conference_attendance + 1
-      #       conference.save
-      #     end
-      #   else
-      #     TicketConference.create(:ticket_id => @ticket.id, :conference_id => params[:paramC], :TicketConference_assistance => true)
-      #     conference.conference_attendance = conference.conference_attendance + 1
-      #     conference.save
-      #   end
-      # end
     end
   end
 
