@@ -168,7 +168,7 @@ class TicketsController < ApplicationController
     if Ticket.where(:ticket_other => 29, :event_id => event).or(Ticket.where(:ticket_conference2 => 29, :event_id => event)).count < 25 then
       @visitas.push(['Viernes 13:00-17:00  - Ternium México', '29']) end
     if Ticket.where(:ticket_other => 31, :event_id => event).or(Ticket.where(:ticket_conference2 => 31, :event_id => event)).count < 20 then
-      @visitas.push(['Viernes 15:00  - Caterpillar', '31']) end
+      @visitas.push(['Viernes 9:00  - Caterpillar', '31']) end
   end
 
   def edifica
