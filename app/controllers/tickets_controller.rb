@@ -37,6 +37,30 @@ class TicketsController < ApplicationController
     redirect_to new_user_session_path
     end
   end
+  def edifica_dashboard
+    @event = 4
+    if current_user
+        if current_user.event_id == 4
+          @event = 4
+        else
+          sign_out current_user
+          redirect_to new_user_session_path
+        end
+    else
+    redirect_to new_user_session_path
+    end
+  end
+
+  def edifica_list
+    names = [['Visita: Punto Valle 5:00 pm', '1'],['Visita: Arboleda 5:30 pm', '2'],['Visita: Torre Céntrika Elite 5:30 pm', '3'],['Visita: CEMEX 5:30 pm', '18'],['Taller: Three: Certificacion Leed y Sustentabilidad 4:30 pm', '4'],['Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 3:00 pm', '5'],['Taller: Sketchup 4:30 pm', '6'],['Taller: Excel Avanzado 4:30 pm', '7'],['Taller: Ecocreto 4:30 pm', '8'],['Visita: Condotec 4:45 pm', '9'],['Visita: Punto Valle 5:00 pm', '10'],['Visita: Arboleda 5:30 pm', '11'],['Visita: CEMEX 5:30 pm', '19'],['Taller: Vray 4:30 pm', '12'],['Taller: BIM 4:30 pm', '13'],['Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 4:00 pm', '20'],['Visita: Tulé 9:00 am', '14'],['Visita: Tulé 8:00 am', '15'],['Visita: Paseo Cumbres 8:30 am', '16'],['Visita: Torres Obispado 8:30 am', '17']]
+    @list = Ticket.where(:event_id=> 4, :ticket_conference1 => params[:c]).or(Ticket.where(:event_id=> 4, :ticket_conference2 => params[:c])).or(Ticket.where(:event_id=> 4, :ticket_other => params[:c]))
+    names.each do |n|
+      if n[1]== params[:c]
+        @name = n[0]
+      end
+    end
+  end
+
   # GET /tickets/new
   def new
     @ticket = Ticket.new

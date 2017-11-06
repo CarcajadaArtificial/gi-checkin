@@ -1,0 +1,19 @@
+<main class="main2 flRow-aiCen-jcCen">
+  <div class="container2">
+    <h1>Lista de <%= @name%></h1>
+    <table class="dash_table">
+      <tr>
+        <td><strong> Nombre </strong></td>
+        <td><strong> Referencia</strong></td>
+        <td><strong> Email</strong></td>
+      </tr>
+      <%@list.each do |ticket|%>
+        <tr>
+          <td> <%=ticket.ticket_name%> </td>
+          <td> <%=ticket.ticket_reference %></td>
+          <td> <%=ticket.ticket_email %></td>
+        </tr>
+      <%end%>
+    </table>
+  </div>
+</main>

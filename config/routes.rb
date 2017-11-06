@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get 'confirmation',         :on => :collection
     #get 'esm_875678545678',     :on => :collection, as: :esm_dashboard
     get 'impulso_dashboard',        :on => :collection, as: :impulso_dashboard
+    get 'edifica_dashboard',        :on => :collection, as: :edifica_dashboard
+    get 'edifica_list',             :on => :collection, as: :edifica_list
   end
   resources :conferences, except: [:index, :show, :new, :edit, :destroy]
   resources :ticket_types, except: [:index, :show, :new, :edit, :destroy]

@@ -1,0 +1,106 @@
+<main class="main2 flRow-aiCen-jcCen">
+  <div class="container2">
+    <h1>Inscripciones Edifica</h1>
+    <h1>Total preregistrados: <%= Ticket.where(:event_id => @event, :ticket_preregistered => true).count %></h1>
+    <table class="dash_table">
+      <tr>
+        <td style="border: 0;"></td>
+        <td><strong> Preregistrados / Capacidad</strong></td>
+      </tr>
+        <tr>
+          <td><strong> Jueves </strong></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Visita: Punto Valle 5:00 pm", '/tickets/edifica_list?c=1'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 1 , :event_id => @event).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Visita: Arboleda 5:30 pm", '/tickets/edifica_list?c=2'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 2 , :event_id => @event).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Visita: Torre Céntrika Elite 5:30 pm", '/tickets/edifica_list?c=3'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 3 , :event_id => @event).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Visita: CEMEX 5:30 pm", '/tickets/edifica_list?c=18'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 18, :event_id => @event).count %> / 15 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Taller: Three: Certificacion Leed y Sustentabilidad 4:30 pm", '/tickets/edifica_list?c=4'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 4 , :event_id => @event).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 3:00 pm", '/tickets/edifica_list?c=5'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 5 , :event_id => @event).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Taller: Sketchup 4:30 pm", '/tickets/edifica_list?c=6'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 6 , :event_id => @event).count %> / 25 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Taller: Excel Avanzado 4:30 pm", '/tickets/edifica_list?c=7'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 7 , :event_id => @event).count %> / 30 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Taller: Ecocreto 4:30 pm", '/tickets/edifica_list?c=8'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 8 , :event_id => @event).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td><strong> Viernes </strong></td>
+          <td></td>
+        </tr>
+        <tr>
+        <tr>
+          <td> <%=link_to "Visita: Condotec 4:45 pm", '/tickets/edifica_list?c=9'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference2 => 9 , :event_id => @event).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Visita: Punto Valle 5:00 pm", '/tickets/edifica_list?c=10'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference2 => 10, :event_id => @event).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Visita: Arboleda 5:30 pm", '/tickets/edifica_list?c=11'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference2 => 11, :event_id => @event).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Visita: CEMEX 5:30 pm", '/tickets/edifica_list?c=19'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference2 => 19, :event_id => @event).count %> / 15 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Taller: Vray 4:30 pm", '/tickets/edifica_list?c=12'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference2 => 12, :event_id => @event).count %> / 25 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Taller: BIM 4:30 pm", '/tickets/edifica_list?c=13'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference2 => 13, :event_id => @event).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 4:00 pm", '/tickets/edifica_list?c=20'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference2 => 20, :event_id => @event).count %> / 35 </td>
+        </tr>
+        <tr>
+          <td><strong> Sábado </strong></td>
+          <td></td>
+        </tr>
+        <tr>
+        <tr>
+          <td> <%=link_to "Visita: Tulé 9:00 am", '/tickets/edifica_list?c=14'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_other => 14, :event_id => @event).count %> / 34 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Visita: Tulé 8:00 am", '/tickets/edifica_list?c=15'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_other => 15, :event_id => @event).count %> / 30 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Visita: Paseo Cumbres 8:30 am", '/tickets/edifica_list?c=16'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_other => 16, :event_id => @event).count %> / 30 </td>
+        </tr>
+        <tr>
+          <td> <%=link_to "Visita: Torres Obispado 8:30 am", '/tickets/edifica_list?c=17'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_other => 17, :event_id => @event).count %> / 30 </td>
+        </tr>
+    </table>
+  </div>
+</main>

@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
 
   # Session redirection methods
   def after_sign_in_path_for(resource)
-    register_tickets_path
+    if current_user.event_id == 3
+    impulso_dashboard_tickets_path
+    elsif current_user.event_id == 4
+    edifica_dashboard_tickets_path
+    end
   end
   def after_sign_out_path_for(resource_or_scope)
     request.referrer
