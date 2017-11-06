@@ -220,7 +220,7 @@ class TicketsController < ApplicationController
     if Ticket.where(:ticket_conference1 => 5 , :event_id => event).count < 35 then @jueves.push(['Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 3:00 pm', '5']) end
     if Ticket.where(:ticket_conference1 => 6 , :event_id => event).count < 25 then @jueves.push(['Taller: Sketchup 4:30 pm', '6']) end
     if Ticket.where(:ticket_conference1 => 7 , :event_id => event).count < 30 then @jueves.push(['Taller: Excel Avanzado 4:30 pm', '7']) end
-    if Ticket.where(:ticket_conference1 => 8 , :event_id => event).count < 35 then @jueves.push(['Taller: Ecocreto 4:30 pm', '8']) end
+#Cerrado 6/11    if Ticket.where(:ticket_conference1 => 8 , :event_id => event).count < 35 then @jueves.push(['Taller: Ecocreto 4:30 pm', '8']) end
 
     if Ticket.where(:ticket_conference2 => 19, :event_id => event).count < 15 then @viernes.push(['Visita: CEMEX 5:30 pm', '19']) else
     if Ticket.where(:ticket_conference2 => 9 , :event_id => event).count < 35 then @viernes.push(['Visita: Condotec 4:45 pm', '9']) end
