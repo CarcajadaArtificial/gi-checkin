@@ -53,6 +53,9 @@ class Ticket < ApplicationRecord
     end
   end
 
+  def self.reset(reference)
+    Ticket.where(:ticket_reference => reference).update(:ticket_preregistered => false)
+  end
 
   def self.searchReference(param_reference,param_event)
     self.where(:ticket_reference => param_reference,:event_id => param_event).first
