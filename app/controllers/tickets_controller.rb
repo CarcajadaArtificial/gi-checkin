@@ -59,6 +59,16 @@ class TicketsController < ApplicationController
         @name = n[0]
       end
     end
+    @event = 4
+    if current_user
+        if current_user.event_id == 4
+        else
+          sign_out current_user
+          redirect_to new_user_session_path
+        end
+    else
+    redirect_to new_user_session_path
+    end
   end
 
   # GET /tickets/new
