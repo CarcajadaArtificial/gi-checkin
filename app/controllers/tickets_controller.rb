@@ -214,7 +214,7 @@ class TicketsController < ApplicationController
     #Cambio para que aparezcan
     if Ticket.where(:ticket_conference1 => 18, :event_id => event).count < 15 then @jueves.push(['Visita: CEMEX 5:30 pm', '18']) else
     if Ticket.where(:ticket_conference1 => 1 , :event_id => event).count < 35 then @jueves.push(['Visita: Punto Valle 5:00 pm', '1']) end
-    if Ticket.where(:ticket_conference1 => 2 , :event_id => event).count < 35 then @jueves.push(['Visita: Arboleda 5:30 pm', '2']) end
+    if Ticket.where(:ticket_conference1 => 2 , :event_id => event).count < 35 then @jueves.push(['Visita: Maccaferri 4:30 pm', '2']) end
     if Ticket.where(:ticket_conference1 => 3 , :event_id => event).count < 35 then @jueves.push(['Visita: Torre Céntrika Elite 5:30 pm', '3']) end
     if Ticket.where(:ticket_conference1 => 4 , :event_id => event).count < 35 then @jueves.push(['Taller: Three: Certificacion Leed y Sustentabilidad 4:30 pm', '4']) end
     if Ticket.where(:ticket_conference1 => 5 , :event_id => event).count < 35 then @jueves.push(['Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 3:00 pm', '5']) end
