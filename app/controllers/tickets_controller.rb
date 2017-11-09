@@ -223,6 +223,7 @@ class TicketsController < ApplicationController
 #Cerrado 6/10    if Ticket.where(:ticket_conference1 => 8 , :event_id => event).count < 35 then @jueves.push(['Taller: Ecocreto 4:30 pm', '8']) end
     end
 
+    if Ticket.where(:ticket_conference2 => 21, :event_id => event).count < 35 then @viernes.push(['Visita: Torre KOI 4:00 pm', '21']) end
     if Ticket.where(:ticket_conference2 => 9 , :event_id => event).count < 35 then @viernes.push(['Visita: Condotec 4:45 pm', '9']) end
     if Ticket.where(:ticket_conference2 => 10, :event_id => event).count < 35 then @viernes.push(['Visita: Punto Valle 5:00 pm', '10']) end
     if Ticket.where(:ticket_conference2 => 11, :event_id => event).count < 35 then @viernes.push(['Visita: Arboleda 5:30 pm', '11']) end

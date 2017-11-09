@@ -1,14 +1,7 @@
 <main class="main2 flRow-aiCen-jcCen">
   <div class="container2">
-    <div class="flRow-jcBet">
-      <div class="">
-        <h1>Inscripciones Edifica</h1>
-        <h1>Total preregistrados: <%= Ticket.where(:event_id => @event, :ticket_preregistered => true).count %></h1>
-      </div>
-      <div style= "margin-top: 10px;">
-        <%= link_to "Registro", register_tickets_path, class: "button_main" %>
-      </div>
-    </div>
+    <h1>Inscripciones Edifica</h1>
+    <h1>Total preregistrados: <%= Ticket.where(:event_id => @event, :ticket_preregistered => true).count %></h1>
     <table class="dash_table">
       <tr>
         <td style="border: 0;"></td>
@@ -23,7 +16,7 @@
           <td><strong> <%=Ticket.where(:ticket_conference1 => 1 , :event_id => @event).count %> / 35 </td>
         </tr>
         <tr>
-          <td> <%=link_to "Visita: Arboleda 5:30 pm", '/tickets/edifica_list?c=2'%> </td>
+          <td> <%=link_to "Visita: Maccaferri 4:30 pm", '/tickets/edifica_list?c=2'%> </td>
           <td><strong> <%=Ticket.where(:ticket_conference1 => 2 , :event_id => @event).count %> / 35 </td>
         </tr>
         <tr>
@@ -58,7 +51,12 @@
           <td><strong> Viernes </strong></td>
           <td></td>
         </tr>
+
         <tr>
+        <tr>
+          <td> <%=link_to "Visita: Torre KOI 4:00 pm", '/tickets/edifica_list?c=9'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_conference2 => 21 , :event_id => @event).count %> / 35 </td>
+        </tr>
         <tr>
           <td> <%=link_to "Visita: Condotec 4:45 pm", '/tickets/edifica_list?c=9'%> </td>
           <td><strong> <%=Ticket.where(:ticket_conference2 => 9 , :event_id => @event).count %> / 35 </td>
