@@ -37,7 +37,7 @@
         </tr>
         <tr>
           <td> <%=link_to "Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 3:00 pm", '/tickets/edifica_list?c=5'%> </td>
-          <td><strong> <%=Ticket.where(:ticket_conference1 => 5 , :event_id => @event).count %> / 100 </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 5 , :event_id => @event).count %> / 35 </td>
         </tr>
         <tr>
           <td> <%=link_to "Taller: Sketchup 4:30 pm", '/tickets/edifica_list?c=6'%> </td>
@@ -87,7 +87,7 @@
         </tr>
         <tr>
           <td> <%=link_to "Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 4:00 pm", '/tickets/edifica_list?c=20'%> </td>
-          <td><strong> <%=Ticket.where(:ticket_conference2 => 20, :event_id => @event).count %> / 35 </td>
+          <td><strong> <%=Ticket.where(:ticket_conference2 => 20, :event_id => @event).count %> / 100 </td>
         </tr>
         <tr>
           <td><strong> Sábado </strong></td>
