@@ -235,6 +235,7 @@ class TicketsController < ApplicationController
 
     if Ticket.where(:ticket_other => 14, :event_id => event).count < 35 then @sabado.push(['Visita: Tulé 9:00 am', '14']) end
     if Ticket.where(:ticket_other => 15, :event_id => event).count < 30 then @sabado.push(['Visita: Tulé 8:00 am', '15']) end
+    if Ticket.where(:ticket_other => 22, :event_id => event).count < 35 then @sabado.push(['Visita: Cuauhtémoc 8:00 am', '22']) end
     if Ticket.where(:ticket_other => 16, :event_id => event).count < 30 then @sabado.push(['Visita: Paseo Cumbres 8:30 am', '16']) end
     if Ticket.where(:ticket_other => 17, :event_id => event).count < 30 then @sabado.push(['Visita: Torres Obispado 8:30 am', '17']) end
 

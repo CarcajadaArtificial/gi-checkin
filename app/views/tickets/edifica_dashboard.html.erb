@@ -99,6 +99,10 @@
           <td><strong> <%=Ticket.where(:ticket_other => 15, :event_id => @event).count %> / 30 </td>
         </tr>
         <tr>
+          <td> <%=link_to "Visita: Cuauhtémoc 8:00 am", '/tickets/edifica_list?c=22'%> </td>
+          <td><strong> <%=Ticket.where(:ticket_other => 22, :event_id => @event).count %> / 35 </td>
+        </tr>
+        <tr>
           <td> <%=link_to "Visita: Paseo Cumbres 8:30 am", '/tickets/edifica_list?c=16'%> </td>
           <td><strong> <%=Ticket.where(:ticket_other => 16, :event_id => @event).count %> / 30 </td>
         </tr>
