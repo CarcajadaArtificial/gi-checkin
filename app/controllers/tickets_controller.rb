@@ -240,14 +240,14 @@ class TicketsController < ApplicationController
   end
 
   def register
-    event = 3
+    event = current_user.event_id
     if params[:paramT] != ""
       ticket = Ticket.where(:ticket_reference => params[:paramT]).first
       @ticket = ticket
       if ticket
         @registered  = Ticket.where(:event_id => event, :ticket_registered => true).count
         @preregistered = Ticket.where(:event_id => event, :ticket_preregistered => true).count
-        talleres = [['Jueves 9:30-11:30 - FEM', '1'], ['Jueves 11:00-12:30 - FLOW', '2'], ['Jueves 11:30-13:30 - Solid', '3'], ['Jueves 13:30-15:00 - CNC', '4'], ['Jueves 13:30-15:00 - Nx', '5'], ['Jueves 15:00-17:30 - Nx', '6'], ['Jueves 17:30-18:30 - Tratamientos térmicos', '7'], ['Jueves 17:30-18:30 - Pruebas de tensión', '8'], ['Viernes 9:30-11:30 - Dibujo computarizado con Solid Works', '9'], ['Viernes 11:30-13:30 - Dibujo computarizado con NX', '10'], ['Viernes 12:00-13:00 - Impresión 3D', '11'], ['Viernes 13:30-15:00 - FLOW', '12'], ['Viernes 13:30-15:00 - Tratamientos térmicos', '13'], ['Viernes 14:00-15:30 - CNC', '14'], ['Viernes 13:30-15:00 - Prototipado', '15'], ['Viernes 15:00-17:00 - Solid', '16'], ['Viernes 17:00-19:30 - FEM ALFR', '17'], ['Jueves 11:00-12:30 - Nx', '33'], ['Jueves 11:00-12:30 - Apps iPhone (Mac iOS requerido', '34'], ['Jueves 13:30-15:30 - Solid', '35'], ['Jueves 17:30-19:30 - Nx', '36'], ['Viernes 9:30-11:30 - Nx', '37'], ['Viernes 12:30-14:30 - Solid', '38'], ['Viernes 14:30-16:30 - Nx', '39'], ['Viernes 15:30-17:30 - Mecánica Maker', '40'], ['Viernes 16:30-18:30 - Solid', '41'], ['Jueves 16:00-17:30 - Metrología', '44'], ['Jueves 8:00-12:00 - Spirax Arco', '30'],  ['Jueves 11:00-15:00  - COCA-COLA', '18'],  ['Jueves 11:00-15:00  - Ternium México', '19'],  ['Jueves 8:30-13:30  - Next Energy', '20'],  ['Jueves 8:30-12:00  - Villacero', '21'],  ['Jueves 10:00  - Owens- Illinois', '32'],  ['Jueves 14:00-18:00  - VIAKON Conductores Eléctricos', '23'],  ['Viernes 8:30-13:30  - Industrias John Deere', '25'],  ['Viernes 8:30-13:30  - Vitro', '26'],  ['Viernes 9:30-14:00  - Ingersoll Rand', '27'],  ['Viernes 12:00-15:00  - Cervecería Cuauhtémoc', '28'],  ['Viernes 13:00-17:00  - Ternium México', '29'],  ['Viernes 15:00  - Caterpillar', '31']]
+        talleres = [['Visita: Punto Valle 5:00 pm', '1'],['Visita: Arboleda 5:30 pm', '2'],['Visita: Torre Céntrika Elite 5:30 pm', '3'],['Visita: CEMEX 5:30 pm', '18'],['Taller: Three: Certificacion Leed y Sustentabilidad 4:30 pm', '4'],['Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 3:00 pm', '5'],['Taller: Sketchup 4:30 pm', '6'],['Taller: Excel Avanzado 4:30 pm', '7'],['Taller: Ecocreto 4:30 pm', '8'],['Visita: Condotec 4:45 pm', '9'],['Visita: Punto Valle 5:00 pm', '10'],['Visita: Arboleda 5:30 pm', '11'],['Visita: CEMEX 5:30 pm', '19'],['Taller: Vray 4:30 pm', '12'],['Taller: BIM 4:30 pm', '13'],['Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 4:00 pm', '20'],['Visita: Tulé 9:00 am', '14'],['Visita: Tulé 8:00 am', '15'],['Visita: Paseo Cumbres 8:30 am', '16'],['Visita: Torres Obispado 8:30 am', '17']]
         talleres.each do |t|
           if t[1]== ticket.ticket_conference1
             @taller1 = t[0]
@@ -258,16 +258,20 @@ class TicketsController < ApplicationController
           end
         end
         @reg = Ticket.search(ticket, nil, event )
+        @registered  = Ticket.where(:event_id => event, :ticket_registered => true).count
+        @preregistered = Ticket.where(:event_id => event, :ticket_preregistered => true).count
       end
     end
   end
 
   def register_conference
-    if params[:paramT] != nil && params[:paramC] != nil && params[:paramC] != "" && params[:paramT] != ""
-      event = 3
+    event = current_user.event_id
+    @conferences = Conference.where(:event_id => event)
+    @selected_conference = params[:conference]
+    if params[:paramT] != nil && params[:paramT] != ""
       @registered =0
       @ticket = Ticket.where(:ticket_reference => params[:paramT]).first
-      conference = Conference.where(:event_id => event, :conference_speaker => params[:paramC]).first
+      conference = Conference.find(params[:conference])
       if conference && @ticket
         if @ticket.conferences.exists?(conference.id)
           if TicketConference.where(:ticket_id => @ticket.id, :conference_id => conference.id).first.TicketConference_assistance == true

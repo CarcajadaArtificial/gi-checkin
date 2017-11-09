@@ -34,12 +34,9 @@
     </div>
     <% if @reg == 1 %>
       <div class="container">
+      <h2 style="font-size:300%;color:#F96EF5;text-align:center;"> Id: <%= @ticket.id %></h2>
       <h2 > Nombre: <%= @ticket.ticket_name %></h2>
       <h2> Email: <%= @ticket.ticket_email %></h2>
-      <h2> Ticket Id: <%= @ticket.id %></h2>
-      <%if @ticket.ticket_ticketTypeId == 13%>
-      <h2> Kit Impulso </h2>
-      <%end%>
       <h2> <%= @taller1 %></h2>
       <h2> <%= @taller2 %></h2>
       <h2> <%= @taller3 %></h2>

@@ -31,7 +31,7 @@
               <%= submit_tag "Buscar", :name => nil, class:"button_main" %>
             </div>
             <br>
-            <%= text_field_tag :paramC, value = params[:paramC], placeholder: 'Escribe el ID de conferencia.', class:"input" %>
+            <%= select_tag 'conference', options_from_collection_for_select(@conferences,"id", "conference_name", @selected_conference)%>
           <% end %>
         <% end %>
       </div>
@@ -41,7 +41,7 @@
       <h2 > Nombre: <%= @ticket.ticket_name %>.</h2>
       <h2> Email: <%= @ticket.ticket_email %></h2>
       <br>
-      <h2> Total Registrados: <%= @registered %></h2>
+      <h2 style="font-size:200%;"> Total Registrados: <%= @registered %></h2>
     </div>
     <% elsif @conf == 2 %>
       <div class="flag negative">

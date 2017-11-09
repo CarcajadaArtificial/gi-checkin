@@ -1,6 +1,13 @@
 <main class="main2 flRow-aiCen-jcCen">
   <div class="container2">
-    <h1>Lista de <%= @name%></h1>
+    <div class="flRow-jcBet">
+      <div class="">
+        <h1>Lista de <%= @name%></h1>
+      </div>
+      <div style= "margin-top: 10px;">
+        <%= link_to "Dashboard", edifica_dashboard_tickets_path, class: "button_main" %>
+      </div>
+    </div>
     <table class="dash_table">
       <tr>
         <td><strong> Nombre </strong></td>
