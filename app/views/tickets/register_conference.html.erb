@@ -31,7 +31,9 @@
               <%= submit_tag "Buscar", :name => nil, class:"button_main" %>
             </div>
             <br>
-            <%= select_tag 'conference', options_from_collection_for_select(@conferences,"id", "conference_name", @selected_conference)%>
+            <div style="text-align: center;">
+              <%= select_tag 'conference', options_from_collection_for_select(@conferences,"id", "conference_name", @selected_conference)%>
+            </div>
           <% end %>
         <% end %>
       </div>
