@@ -1,7 +1,14 @@
 <main class="main2 flRow-aiCen-jcCen">
   <div class="container2">
-    <h1>Inscripciones Edifica</h1>
-    <h1>Total preregistrados: <%= Ticket.where(:event_id => @event, :ticket_preregistered => true).count %></h1>
+    <div class="flRow-jcBet">
+      <div class="">
+        <h1>Inscripciones Edifica</h1>
+        <h1>Total preregistrados: <%= Ticket.where(:event_id => @event, :ticket_preregistered => true).count %></h1>
+      </div>
+      <div style= "margin-top: 10px;">
+        <%= link_to "Registro", register_tickets_path, class: "button_main" %>
+      </div>
+    </div>
     <table class="dash_table">
       <tr>
         <td style="border: 0;"></td>
