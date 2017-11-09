@@ -240,54 +240,62 @@ class TicketsController < ApplicationController
   end
 
   def register
-    event = current_user.event_id
-    if params[:paramT] != ""
-      ticket = Ticket.where(:ticket_reference => params[:paramT]).first
-      @ticket = ticket
-      if ticket
-        @registered  = Ticket.where(:event_id => event, :ticket_registered => true).count
-        @preregistered = Ticket.where(:event_id => event, :ticket_preregistered => true).count
-        talleres = [['Visita: Punto Valle 5:00 pm', '1'],['Visita: Arboleda 5:30 pm', '2'],['Visita: Torre Céntrika Elite 5:30 pm', '3'],['Visita: CEMEX 5:30 pm', '18'],['Taller: Three: Certificacion Leed y Sustentabilidad 4:30 pm', '4'],['Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 3:00 pm', '5'],['Taller: Sketchup 4:30 pm', '6'],['Taller: Excel Avanzado 4:30 pm', '7'],['Taller: Ecocreto 4:30 pm', '8'],['Visita: Condotec 4:45 pm', '9'],['Visita: Punto Valle 5:00 pm', '10'],['Visita: Arboleda 5:30 pm', '11'],['Visita: CEMEX 5:30 pm', '19'],['Taller: Vray 4:30 pm', '12'],['Taller: BIM 4:30 pm', '13'],['Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 4:00 pm', '20'],['Visita: Tulé 9:00 am', '14'],['Visita: Tulé 8:00 am', '15'],['Visita: Paseo Cumbres 8:30 am', '16'],['Visita: Torres Obispado 8:30 am', '17']]
-        talleres.each do |t|
-          if t[1]== ticket.ticket_conference1
-            @taller1 = t[0]
-          elsif t[1]== ticket.ticket_conference2
-            @taller2 = t[0]
-          elsif t[1]== ticket.ticket_other
-            @taller3 = t[0]
+    if current_user
+      event = current_user.event_id
+      if params[:paramT] != ""
+        ticket = Ticket.where(:ticket_reference => params[:paramT]).first
+        @ticket = ticket
+        if ticket
+          @registered  = Ticket.where(:event_id => event, :ticket_registered => true).count
+          @preregistered = Ticket.where(:event_id => event, :ticket_preregistered => true).count
+          talleres = [['Visita: Punto Valle 5:00 pm', '1'],['Visita: Arboleda 5:30 pm', '2'],['Visita: Torre Céntrika Elite 5:30 pm', '3'],['Visita: CEMEX 5:30 pm', '18'],['Taller: Three: Certificacion Leed y Sustentabilidad 4:30 pm', '4'],['Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 3:00 pm', '5'],['Taller: Sketchup 4:30 pm', '6'],['Taller: Excel Avanzado 4:30 pm', '7'],['Taller: Ecocreto 4:30 pm', '8'],['Visita: Condotec 4:45 pm', '9'],['Visita: Punto Valle 5:00 pm', '10'],['Visita: Arboleda 5:30 pm', '11'],['Visita: CEMEX 5:30 pm', '19'],['Taller: Vray 4:30 pm', '12'],['Taller: BIM 4:30 pm', '13'],['Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 4:00 pm', '20'],['Visita: Tulé 9:00 am', '14'],['Visita: Tulé 8:00 am', '15'],['Visita: Paseo Cumbres 8:30 am', '16'],['Visita: Torres Obispado 8:30 am', '17']]
+          talleres.each do |t|
+            if t[1]== ticket.ticket_conference1
+              @taller1 = t[0]
+            elsif t[1]== ticket.ticket_conference2
+              @taller2 = t[0]
+            elsif t[1]== ticket.ticket_other
+              @taller3 = t[0]
+            end
           end
+          @reg = Ticket.search(ticket, nil, event )
+          @registered  = Ticket.where(:event_id => event, :ticket_registered => true).count
+          @preregistered = Ticket.where(:event_id => event, :ticket_preregistered => true).count
         end
-        @reg = Ticket.search(ticket, nil, event )
-        @registered  = Ticket.where(:event_id => event, :ticket_registered => true).count
-        @preregistered = Ticket.where(:event_id => event, :ticket_preregistered => true).count
       end
+    else
+      redirect_to new_user_session_path
     end
   end
 
   def register_conference
-    event = current_user.event_id
-    @conferences = Conference.where(:event_id => event)
-    @selected_conference = params[:conference]
-    if params[:paramT] != nil && params[:paramT] != ""
-      @registered =0
-      @ticket = Ticket.where(:ticket_reference => params[:paramT]).first
-      conference = Conference.find(params[:conference])
-      if conference && @ticket
-        if @ticket.conferences.exists?(conference.id)
-          if TicketConference.where(:ticket_id => @ticket.id, :conference_id => conference.id).first.TicketConference_assistance == true
-            @registered = TicketConference.where(:conference_id => conference.id).count
-            @conf =1
+    if current_user
+      event = current_user.event_id
+      @conferences = Conference.where(:event_id => event)
+      @selected_conference = params[:conference]
+      if params[:paramT] != nil && params[:paramT] != ""
+        @registered =0
+        @ticket = Ticket.where(:ticket_reference => params[:paramT]).first
+        conference = Conference.find(params[:conference])
+        if conference && @ticket
+          if @ticket.conferences.exists?(conference.id)
+            if TicketConference.where(:ticket_id => @ticket.id, :conference_id => conference.id).first.TicketConference_assistance == true
+              @registered = TicketConference.where(:conference_id => conference.id).count
+              @conf =1
+            else
+              TicketConference.where(:ticket_id => @ticket.id, :conference_id => conference.id).update(:TicketConference_assistance => true)
+              @registered = TicketConference.where(:conference_id => conference.id).count
+              @conf =1
+            end
           else
-            TicketConference.where(:ticket_id => @ticket.id, :conference_id => conference.id).update(:TicketConference_assistance => true)
+            TicketConference.create(:ticket_id => @ticket.id, :conference_id => conference.id, :TicketConference_assistance => true)
             @registered = TicketConference.where(:conference_id => conference.id).count
             @conf =1
           end
-        else
-          TicketConference.create(:ticket_id => @ticket.id, :conference_id => conference.id, :TicketConference_assistance => true)
-          @registered = TicketConference.where(:conference_id => conference.id).count
-          @conf =1
         end
       end
+    else
+      redirect_to new_user_session_path
     end
   end
 
