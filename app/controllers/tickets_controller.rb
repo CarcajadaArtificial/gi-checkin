@@ -215,7 +215,7 @@ class TicketsController < ApplicationController
     if Ticket.where(:ticket_conference1 => 18, :event_id => event).count < 15 then @jueves.push(['Visita: CEMEX 5:30 pm', '18']) else
     if Ticket.where(:ticket_conference1 => 1 , :event_id => event).count < 35 then @jueves.push(['Visita: Punto Valle 5:00 pm', '1']) end
     if Ticket.where(:ticket_conference1 => 2 , :event_id => event).count < 35 then @jueves.push(['Visita: Maccaferri 4:30 pm', '2']) end
-    if Ticket.where(:ticket_conference1 => 23 , :event_id => event).count < 30 then @jueves.push(['Visita: Condotec 4:00 pm', '23']) end  
+    if Ticket.where(:ticket_conference1 => 23 , :event_id => event).count < 30 then @jueves.push(['Visita: Condotec 4:00 pm', '23']) end
     if Ticket.where(:ticket_conference1 => 3 , :event_id => event).count < 35 then @jueves.push(['Visita: Torre Céntrika Elite 5:30 pm', '3']) end
     if Ticket.where(:ticket_conference1 => 4 , :event_id => event).count < 35 then @jueves.push(['Taller: Three: Certificacion Leed y Sustentabilidad 4:30 pm', '4']) end
     if Ticket.where(:ticket_conference1 => 5 , :event_id => event).count < 35 then @jueves.push(['Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 3:00 pm', '5']) end
@@ -231,7 +231,7 @@ class TicketsController < ApplicationController
     if Ticket.where(:ticket_conference2 => 19, :event_id => event).count < 15 then @viernes.push(['Visita: CEMEX 5:30 pm', '19']) end
     if Ticket.where(:ticket_conference2 => 12, :event_id => event).count < 25 then @viernes.push(['Taller: Vray 4:30 pm', '12']) end
     if Ticket.where(:ticket_conference2 => 13, :event_id => event).count < 35 then @viernes.push(['Taller: BIM 4:30 pm', '13']) end
-    if Ticket.where(:ticket_conference2 => 20, :event_id => event).count < 35 then @viernes.push(['Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 4:00 pm', '20']) end
+    if Ticket.where(:ticket_conference2 => 20, :event_id => event).count < 100 then @viernes.push(['Taller: MAPEI: Refuerzo y reestructuración de elementos de concreto 4:00 pm', '20']) end
 
 
     if Ticket.where(:ticket_other => 14, :event_id => event).count < 35 then @sabado.push(['Visita: Tulé 9:00 am', '14']) end
