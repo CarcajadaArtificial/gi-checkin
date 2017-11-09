@@ -21,7 +21,7 @@
         </tr>
         <tr>
           <td> <%=link_to "Visita: Condotec 4:00 pm", '/tickets/edifica_list?c=23'%> </td>
-          <td><strong> <%=Ticket.where(:ticket_conference1 => 2 , :event_id => @event).count %> / 35 </td>
+          <td><strong> <%=Ticket.where(:ticket_conference1 => 23 , :event_id => @event).count %> / 35 </td>
         </tr>
         <tr>
           <td> <%=link_to "Visita: Torre Céntrika Elite 5:30 pm", '/tickets/edifica_list?c=3'%> </td>
