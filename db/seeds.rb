@@ -6,12 +6,12 @@
 # #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 # #   Character.create(name: 'Luke', movie: movies.first)
 #
-open("db/conferencias") do |conferencias|
-   conferencias.read.each_line do |data|
-     conferencia, id= data.chomp.split(",")
-     Conference.create!(:conference_name => conferencia,:conference_speaker => id, :event_id => 4)
-   end
-end
+# open("db/conferencias") do |conferencias|
+#    conferencias.read.each_line do |data|
+#      conferencia, id= data.chomp.split(",")
+#      Conference.create!(:conference_name => conferencia,:conference_speaker => id, :event_id => 4)
+#    end
+# end
 # Ticket.create!(:ticket_university => "prueba", :ticket_reference => "IMPULSO1",:ticket_ticketTypeId => 11, :event_id => 3)
 # Ticket.create!(:ticket_university => "prueba",:ticket_reference => "IMPULSO2",:ticket_ticketTypeId => 11, :event_id => 3)
 # Ticket.create!(:ticket_university => "prueba",:ticket_reference => "IMPULSO3",:ticket_ticketTypeId => 11, :event_id => 3)

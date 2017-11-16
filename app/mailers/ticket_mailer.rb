@@ -44,4 +44,11 @@ class TicketMailer < ApplicationMailer
     end
     mail(to: @ticket.ticket_email, subject: asunto)
   end
+  def notice_email(ticket)
+    @ticket = ticket
+    attachments.inline["logo_event.png"] = File.read("#{Rails.root}/app/assets/images/impulso.png")
+    attachments.inline["logo2.png"] = File.read("#{Rails.root}/app/assets/images/logo2.png")
+    asunto = "Tu constancia de participación de IMPULSO 2017"
+    mail(to: @ticket.ticket_email, subject: asunto)
+  end
 end

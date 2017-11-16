@@ -1,0 +1,68 @@
+<head>
+  <style>
+    table{
+      background-image: linear-gradient(-134deg, #FFD823 0%, #F96EF5 100%);
+      padding: 30px;
+    }
+    tr{
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+    td{
+      width: 500px;
+    }
+    .image > img{
+      width: 400px;
+    }
+    .image2 > img{
+      width: 300px;
+    }
+
+    p{
+      font-size: 1.25em;
+      padding: 0 40px;
+    }
+
+    @media only screen and (max-width: 400px) {
+      p{
+        font-size: 1.75em;
+      }
+    }
+
+  </style>
+</head>
+<div style="width: 100%;">
+  <table>
+    <tr>
+      <td>
+        <h1 style="color: #2F2F2F; font-size: 44px; text-align: center; font-family: sans-serif;">
+          ¡Hola <%= @ticket.ticket_name.split.first%>!
+        </h1>
+        <br>
+        <p style="color: #2F2F2F; font-size: 28px; text-align: center; font-family: sans-serif;">
+          Gracias por ser parte de IMPULSO 2017. Esperamos contar con tu presencia la próxima edición. A continuación te dejamos el link donde podrás descargar tu constancia de participación: http://bit.ly/constanciasIMPULSO. En caso de tener algún inconveniente contáctanos a través del correo electrónico info.checkinmx@gmail.com
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="image2" align="center">
+          <%= image_tag(attachments['logo_event.png'].url) %>
+          <!-- <%= image_tag attachments['logo_event.png'].url %> -->
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div style="background-image: linear-gradient(-134deg, #FFD823 0%, #F96EF5 100%);">
+          <div style="background-color: #fff; margin: 40px auto;" class="image" align="center">
+            <%= image_tag(attachments['logo2.png'].url) %>
+            <!-- <%= image_tag attachments['logo2.png'].url %> -->
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
